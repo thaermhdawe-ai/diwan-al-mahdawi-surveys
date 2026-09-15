@@ -9,7 +9,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>استطلاع ديوان المهداوي</title>
+<title>استطلاعات ديوان المهداوي</title>
 
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
@@ -1290,7 +1290,7 @@ button{
             <div>
 
                 <div class="header-title">
-                     إدارة استطلاعات صندوق الطلاب
+                     إدارة استطلاعات الديوان
                 </div>
 
                 <div id="adminEmail"
@@ -8816,7 +8816,7 @@ async function exportResultsToExcel(){
         );
 
         const workbook = new ExcelJS.Workbook();
-        workbook.creator = "استطلاعات صندوق الطلاب";
+        workbook.creator = "استطلاعات الديوان";
         workbook.created = new Date();
 
         const wsParticipants =
