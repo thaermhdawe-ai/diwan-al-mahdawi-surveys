@@ -3281,7 +3281,7 @@ function renderAnswerQuestion(
                                     name="question_${escapeAttribute(question.id)}"
                                     value="${value}">
                                 <span class="rating-label">
-                                    ${value} ?
+                                    ${value} ⭐
                                 </span>
                             </label>
                         `;
@@ -3819,7 +3819,7 @@ async function compressImageToTarget(
                 statusCallback(
                     "تم ضغط الصورة: " +
                     formatUploadSize(file.size) +
-                    " ? " +
+                    " ← " +
                     formatUploadSize(result.size)
                 );
 
@@ -4028,7 +4028,7 @@ async function handleImageSelection(
 
 
             message.innerHTML =
-                '<div style="color:#166534;font-weight:700;">? الصورة جاهزة للرفع.</div>' +
+                '<div style="color:#166534;font-weight:700;">✓ الصورة جاهزة للرفع.</div>' +
                 '<div style="margin-top:4px;color:#166534;">' +
                 (
                     wasCompressed
@@ -4895,7 +4895,7 @@ async function submitSurveyAnswers(){
 
     if(button){
         button.disabled = true;
-        button.textContent = "? جارٍ تجهيز الإجابات...";
+        button.textContent = "⏳ جارٍ تجهيز الإجابات...";
     }
 
     try{
@@ -4905,7 +4905,7 @@ async function submitSurveyAnswers(){
         */
         await prepareAllSelectedImages(function(status){
             if(button){
-                button.textContent = "? " + status;
+                button.textContent = "⏳ " + status;
             }
         });
 
@@ -4955,7 +4955,7 @@ async function submitSurveyAnswers(){
             "tmp_" + Date.now() + "_" + Math.random().toString(36).slice(2,12);
 
         if(button){
-            button.textContent = "? جارٍ رفع الصور...";
+            button.textContent = "⏳ جارٍ رفع الصور...";
         }
 
         /*
@@ -4970,13 +4970,13 @@ async function submitSurveyAnswers(){
                 temporaryResponseId,
                 function(status){
                     if(button){
-                        button.textContent = "? " + status;
+                        button.textContent = "⏳ " + status;
                     }
                 }
             );
 
         if(button){
-            button.textContent = "? جارٍ حفظ الإجابات...";
+            button.textContent = "⏳ جارٍ حفظ الإجابات...";
         }
 
         const responseData = {
@@ -8811,7 +8811,7 @@ async function exportResultsToExcel(){
             : currentResultsData.responses;
 
         showToast(
-            "? جاري تجهيز ملف Excel والصور...",
+            "⏳ جاري تجهيز ملف Excel والصور...",
             "info"
         );
 
