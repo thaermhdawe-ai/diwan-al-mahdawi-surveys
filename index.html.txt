@@ -1,0 +1,9953 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>«” ÿ·«⁄«  ’‰œÊﬁ «·ÿ·«»</title>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Tahoma,
+        Arial,
+        "Segoe UI",
+        sans-serif;
+    background:#f4f7fb;
+    color:#263238;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.user-header,
+.admin-header{
+    background:linear-gradient(
+        135deg,
+        #173b6d,
+        #2563a6
+    );
+    color:white;
+    padding:22px 25px;
+    box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.header-title{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.header-subtitle{
+    margin-top:7px;
+    opacity:.9;
+    font-size:14px;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* =========================================================
+   GENERAL CONTAINER
+========================================================= */
+
+.container{
+    width:calc(100% - 30px);
+    max-width:1250px;
+    margin:25px auto;
+}
+
+.section-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.section-description{
+    color:#607d8b;
+    margin-bottom:20px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+
+.btn-primary{
+    background:#2563a6;
+    color:white;
+}
+
+.btn-success{
+    background:#16a34a;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-warning{
+    background:#f59e0b;
+    color:white;
+}
+
+.btn-purple{
+    background:#7c3aed;
+    color:white;
+}
+
+.btn-light{
+    background:#eef2f7;
+    color:#374151;
+}
+
+/* =========================================================
+   USER SURVEYS
+========================================================= */
+
+.user-surveys-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(290px,1fr));
+    gap:18px;
+}
+
+.user-survey-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border:1px solid #e5eaf0;
+    transition:.25s;
+}
+
+.user-survey-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.11);
+}
+
+.user-survey-title{
+    font-size:20px;
+    font-weight:bold;
+    color:#173b6d;
+    margin-bottom:10px;
+}
+
+.user-survey-description{
+    color:#607d8b;
+    line-height:1.8;
+    min-height:55px;
+}
+
+.user-survey-button{
+    width:100%;
+    margin-top:18px;
+    border:0;
+    background:#2563a6;
+    color:white;
+    padding:12px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.user-empty,
+.user-loading{
+    background:white;
+    border-radius:15px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    color:#607d8b;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.badge-open{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.badge-closed{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* =========================================================
+   ANSWER APP
+========================================================= */
+
+.answer-container{
+    max-width:900px;
+    width:calc(100% - 25px);
+    margin:25px auto;
+}
+
+.answer-header{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    margin-bottom:18px;
+}
+
+.answer-title{
+    font-size:25px;
+    font-weight:bold;
+    color:#173b6d;
+}
+
+.answer-description{
+    margin-top:10px;
+    line-height:1.9;
+    color:#607d8b;
+}
+
+.question-answer-card{
+    background:white;
+    border-radius:15px;
+    padding:22px;
+    margin-bottom:16px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    border-right:4px solid #2563a6;
+}
+
+.answer-question-title{
+    font-weight:bold;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:16px;
+}
+
+.required-mark{
+    color:#dc2626;
+}
+
+.choice-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:11px;
+    background:#f8fafc;
+    border-radius:8px;
+    margin-bottom:8px;
+}
+
+.choice-item:hover{
+    background:#eef5ff;
+}
+
+.choice-item input{
+    width:18px;
+    height:18px;
+}
+
+.answer-textarea,
+.answer-input{
+    width:100%;
+    border:1px solid #ccd5df;
+    border-radius:9px;
+    padding:12px;
+    outline:none;
+    font-size:15px;
+}
+
+.answer-textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.answer-textarea:focus,
+.answer-input:focus{
+    border-color:#2563a6;
+    box-shadow:0 0 0 3px rgba(37,99,166,.1);
+}
+
+.rating-options{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.rating-item{
+    position:relative;
+}
+
+.rating-item input{
+    position:absolute;
+    opacity:0;
+}
+
+.rating-label{
+    display:block;
+    background:#f1f5f9;
+    padding:12px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.rating-item input:checked + .rating-label{
+    background:#fbbf24;
+    color:white;
+}
+
+.validation-error{
+    color:#dc2626;
+    margin-top:8px;
+    font-size:13px;
+    display:none;
+}
+
+.validation-error.show{
+    display:block;
+}
+
+.submit-area{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.submit-button{
+    min-width:220px;
+    border:0;
+    border-radius:10px;
+    padding:14px 25px;
+    background:#16a34a;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.answer-success{
+    background:white;
+    border-radius:18px;
+    padding:45px 25px;
+    text-align:center;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.answer-success-icon{
+    font-size:65px;
+}
+
+.answer-success h2{
+    color:#16a34a;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+#loginScreen{
+    max-width:500px;
+    width:calc(100% - 30px);
+    margin:70px auto;
+}
+
+.login-card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+
+.login-title{
+    text-align:center;
+    color:#173b6d;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+.form-control{
+    width:100%;
+    padding:11px 13px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    outline:none;
+}
+
+.form-control:focus{
+    border-color:#2563a6;
+}
+
+.login-button{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:#2563a6;
+    color:white;
+    font-weight:bold;
+}
+
+.login-error{
+    background:#fee2e2;
+    color:#991b1b;
+    padding:11px;
+    border-radius:8px;
+    margin-bottom:15px;
+    display:none;
+}
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+.admin-container{
+    max-width:1250px;
+    width:calc(100% - 30px);
+    margin:25px auto;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#2563a6;
+}
+
+.stat-label{
+    margin-top:5px;
+    color:#607d8b;
+}
+
+.admin-toolbar{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+}
+
+.surveys-admin-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+    gap:18px;
+}
+
+.survey-card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border-top:5px solid #dc2626;
+}
+
+.survey-card.open{
+    border-top-color:#16a34a;
+}
+
+.survey-title{
+    font-size:20px;
+    font-weight:bold;
+    color:#173b6d;
+}
+
+.survey-description{
+    color:#607d8b;
+    line-height:1.8;
+    margin:10px 0;
+}
+
+.card-info{
+    margin-top:12px;
+    color:#607d8b;
+    font-size:13px;
+}
+
+.card-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+.questions-header{
+    background:#f8fafc;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:15px;
+}
+
+.question-card{
+    background:white;
+    border:1px solid #e1e7ee;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:12px;
+}
+
+.question-top{
+    display:flex;
+    gap:15px;
+}
+
+.question-number{
+    min-width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#2563a6;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.question-main{
+    flex:1;
+}
+
+.question-text{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.question-meta{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:9px;
+}
+
+.meta{
+    background:#eef2f7;
+    padding:5px 9px;
+    border-radius:15px;
+    font-size:12px;
+}
+
+.meta.required{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.question-options{
+    background:#f8fafc;
+    margin-top:12px;
+    padding:10px;
+    border-radius:8px;
+    line-height:1.9;
+}
+
+.question-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.option-row{
+    display:flex;
+    gap:7px;
+    margin-bottom:8px;
+}
+
+.option-row .option-input{
+    flex:1;
+}
+
+.remove-option{
+    width:40px;
+    border:0;
+    border-radius:8px;
+    background:#fee2e2;
+    color:#991b1b;
+    font-size:20px;
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.6);
+    z-index:1000;
+    display:none;
+    padding:20px;
+    overflow:auto;
+}
+
+.modal-overlay.show{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.modal{
+    width:min(950px,100%);
+    background:white;
+    border-radius:18px;
+    margin:20px auto;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+    overflow:hidden;
+}
+
+.modal.large{
+    width:min(1250px,100%);
+}
+
+.modal-header{
+    padding:18px 22px;
+    background:#f8fafc;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.modal-title{
+    font-size:20px;
+    font-weight:bold;
+    color:#173b6d;
+}
+
+.modal-close{
+    border:0;
+    background:#fee2e2;
+    color:#991b1b;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:24px;
+}
+
+.modal-body{
+    padding:22px;
+}
+
+.modal-footer{
+    padding:15px 22px;
+    background:#f8fafc;
+    display:flex;
+    justify-content:flex-start;
+    gap:8px;
+}
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results-toolbar{
+    background:#f8fafc;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.results-toolbar-grid{
+    display:grid;
+    grid-template-columns:
+        1fr auto auto auto;
+    gap:8px;
+    align-items:center;
+}
+
+.results-search{
+    width:100%;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    padding:11px;
+}
+
+.results-summary{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(160px,1fr));
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.summary-box{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+
+.summary-number{
+    font-size:25px;
+    font-weight:bold;
+    color:#2563a6;
+}
+
+.summary-label{
+    color:#64748b;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.results-section-title{
+    font-size:19px;
+    font-weight:bold;
+    color:#173b6d;
+    margin:20px 0 10px;
+}
+
+.table-wrapper{
+    overflow:auto;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    background:white;
+}
+
+.results-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:850px;
+}
+
+.results-table th{
+    background:#173b6d;
+    color:white;
+    padding:11px;
+    border:1px solid #315b8b;
+    white-space:nowrap;
+    text-align:right;
+    vertical-align:top;
+}
+
+.results-table td{
+    padding:10px;
+    border:1px solid #e2e8f0;
+    vertical-align:top;
+    line-height:1.7;
+}
+
+.results-table tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.results-table tbody tr:hover{
+    background:#eef5ff;
+}
+
+.response-number{
+    font-weight:bold;
+    color:#2563a6;
+}
+
+.response-date{
+    white-space:nowrap;
+    font-size:13px;
+}
+
+
+
+.image-size-message{
+    padding:9px 11px;
+    border-radius:8px;
+    background:#f8fafc;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.answer-cell{
+    min-width:150px;
+}
+
+.answer-empty{
+    color:#94a3b8;
+}
+
+.answer-multiple{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+}
+
+.answer-tag{
+    display:inline-block;
+    background:#e0f2fe;
+    color:#075985;
+    padding:4px 8px;
+    border-radius:12px;
+    font-size:12px;
+}
+
+.file-link{
+    color:#2563a6;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.question-info-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:850px;
+}
+
+.question-info-table th{
+    background:#475569;
+    color:white;
+    padding:10px;
+    border:1px solid #64748b;
+}
+
+.question-info-table td{
+    padding:9px;
+    border:1px solid #e2e8f0;
+    vertical-align:top;
+}
+
+.no-results{
+    padding:30px;
+    text-align:center;
+    color:#64748b;
+}
+
+/* =========================================================
+   LOG
+========================================================= */
+
+.log-box{
+    background:#111827;
+    color:#d1d5db;
+    border-radius:12px;
+    padding:15px;
+    max-height:180px;
+    overflow:auto;
+    margin-top:20px;
+    font-family:Consolas,monospace;
+    direction:ltr;
+    text-align:left;
+}
+
+.log-line{
+    padding:3px 0;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:#16a34a;
+    color:white;
+    padding:13px 22px;
+    border-radius:10px;
+    z-index:3000;
+    opacity:0;
+    transition:.3s;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+.toast.error{
+    background:#dc2626;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    text-align:center;
+    padding:30px;
+    color:#78909c;
+    font-size:13px;
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    .user-header,
+    .admin-header,
+    .modal-footer,
+    .results-toolbar,
+    .btn,
+    button{
+        display:none !important;
+    }
+
+    .modal-overlay{
+        position:static;
+        display:block !important;
+        background:white;
+        padding:0;
+    }
+
+    .modal{
+        box-shadow:none;
+        width:100%;
+        margin:0;
+    }
+
+    .modal-header{
+        background:white;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px){
+
+    .header-inner{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .header-actions{
+        justify-content:center;
+    }
+
+    .results-toolbar-grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal-overlay{
+        padding:8px;
+    }
+
+    .modal{
+        margin:5px auto;
+    }
+
+}
+
+
+/* =========================================================
+   SURVEY IMAGE ANSWERS
+========================================================= */
+
+.survey-image-answer{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:170px;max-width:220px;padding:8px;}
+.survey-answer-image{width:160px;height:120px;object-fit:cover;border-radius:10px;border:1px solid #dbe3ea;background:#f8fafc;cursor:pointer;transition:all .2s ease;}
+.survey-answer-image:hover{transform:scale(1.04);box-shadow:0 5px 18px rgba(0,0,0,.15);}
+.survey-image-name{width:100%;text-align:center;font-size:12px;font-weight:700;word-break:break-word;}
+.survey-image-size{font-size:11px;color:#64748b;text-align:center;}
+.survey-image-button{border:0;background:#2563eb;color:white;border-radius:7px;padding:5px 10px;font-size:12px;cursor:pointer;}
+.survey-image-button:hover{opacity:.9;}
+.survey-file-answer{padding:7px;border-radius:8px;background:#f8fafc;}
+.survey-file-link{display:inline-block;margin-top:5px;text-decoration:none;font-weight:700;}
+.survey-image-viewer{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:25px;}
+.survey-image-viewer.show{display:flex;}
+.survey-image-viewer-content{position:relative;max-width:95vw;max-height:95vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.survey-image-viewer-content img{max-width:90vw;max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+.survey-image-viewer-name{color:white;font-size:15px;margin-top:12px;text-align:center;max-width:90vw;word-break:break-word;}
+.survey-image-viewer-close{position:absolute;top:-45px;right:-5px;width:40px;height:40px;border:0;border-radius:50%;background:white;color:#111827;font-size:28px;line-height:40px;cursor:pointer;}
+@media(max-width:600px){.survey-answer-image{width:130px;height:100px;}.survey-image-viewer{padding:10px;}.survey-image-viewer-content img{max-width:96vw;max-height:80vh;}}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     USER APP
+========================================================= -->
+
+<div id="userApp">
+
+    <header class="user-header">
+
+        <div class="header-inner">
+
+            <div>
+
+                <div class="header-title">
+                    œÌÊ«‰ «·„Âœ«ÊÌ   
+                </div>
+
+                <div class="header-subtitle">
+                    ‘«—ﬂ »—√Ìﬂ Ê”«Â„ ›Ì  ÿÊÌ— «·„»«œ—«  Ê«·Œœ„« 
+                </div>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="openAdminLogin()">
+
+                     œŒÊ· «·≈œ«—…
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <div class="section-title">
+             «·«” »Ì«‰«  «·„ «Õ…
+        </div>
+
+        <div class="section-description">
+            «Œ — «·«” »Ì«‰ «·„‰«”» Ê‘«—ﬂ »—√Ìﬂ.
+        </div>
+
+        <div id="userSurveysContainer">
+
+            <div class="user-loading">
+                 Ã«—Ì  Õ„Ì· «·«” »Ì«‰« ...
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        œÌÊ«‰ «·⁄«∆·… ï ’‰œÊﬁ «·ÿ·«»
+    </footer>
+
+</div>
+
+
+<!-- =========================================================
+     ANSWER APP
+========================================================= -->
+
+<div id="surveyAnswerApp" style="display:none;">
+
+    <header class="user-header">
+
+        <div class="header-inner">
+
+            <div>
+
+                <div id="answerSurveyTitle"
+                     class="header-title">
+                </div>
+
+                <div id="answerSurveyDescription"
+                     class="header-subtitle">
+                </div>
+
+            </div>
+
+            <div>
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="backFromSurvey()">
+
+                    ?? «·⁄Êœ…
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="answer-container">
+
+        <div id="surveyAnswerMessage"></div>
+
+        <div id="surveyQuestionsContainer"></div>
+
+        <div id="surveySubmitArea"
+             class="submit-area">
+
+            <button
+                id="submitSurveyButton"
+                type="button"
+                class="submit-button"
+                onclick="submitSurveyAnswers()">
+
+                 ≈—”«· «·≈Ã«»« 
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     LOGIN
+========================================================= -->
+
+<div id="loginScreen"
+     style="display:none;">
+
+    <div class="login-card">
+
+        <div class="login-title">
+             œŒÊ· ≈œ«—… «·«” »Ì«‰« 
+        </div>
+
+        <div id="loginError"
+             class="login-error">
+        </div>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    «·»—Ìœ «·≈·ﬂ —Ê‰Ì
+                </label>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    class="form-control"
+                    required
+                    autocomplete="username">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    ﬂ·„… «·„—Ê—
+                </label>
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    class="form-control"
+                    required
+                    autocomplete="current-password">
+
+            </div>
+
+
+            <button
+                id="loginButton"
+                type="submit"
+                class="login-button">
+
+                  ”ÃÌ· «·œŒÊ·
+
+            </button>
+
+            <div id="loginLoading"
+                 style="display:none;text-align:center;margin-top:12px;">
+
+                ? Ã«—Ì  ”ÃÌ· «·œŒÊ·...
+
+            </div>
+
+        </form>
+
+
+        <button
+            type="button"
+            class="btn btn-light"
+            style="width:100%;margin-top:10px;"
+            onclick="showUserHome()">
+
+             «·⁄Êœ…
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ADMIN APP
+========================================================= -->
+
+<div id="adminApp"
+     style="display:none;">
+
+    <header class="admin-header">
+
+        <div class="header-inner">
+
+            <div>
+
+                <div class="header-title">
+                     ≈œ«—… «” ÿ·«⁄«  ’‰œÊﬁ «·ÿ·«»
+                </div>
+
+                <div id="adminEmail"
+                     class="header-subtitle">
+                </div>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="showUserHome()">
+
+                     Ê«ÃÂ… «·“Ê«—
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="logoutAdmin()">
+
+                      ”ÃÌ· «·Œ—ÊÃ
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div id="totalSurveys"
+                     class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    ≈Ã„«·Ì «·«” »Ì«‰« 
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div id="openSurveys"
+                     class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    «·«” »Ì«‰«  «·„› ÊÕ…
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div id="closedSurveys"
+                     class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    «·«” »Ì«‰«  «·„€·ﬁ…
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-toolbar">
+
+            <div>
+                <strong>
+                     ≈œ«—… «·«” »Ì«‰« 
+                </strong>
+            </div>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="openAddSurvey()">
+
+                     ≈÷«›… «” »Ì«‰
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="loadSurveys()">
+
+                      ÕœÌÀ
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="surveysContainer"
+             class="surveys-admin-grid">
+        </div>
+
+
+        <div id="logBox"
+             class="log-box">
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     SURVEY MODAL
+========================================================= -->
+
+<div id="surveyModal"
+     class="modal-overlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div id="surveyModalTitle"
+                 class="modal-title">
+
+                ≈÷«›… «” »Ì«‰ ÃœÌœ
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('surveyModal')">
+
+                ◊
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <input
+                id="surveyId"
+                type="hidden">
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    ⁄‰Ê«‰ «·«” »Ì«‰
+                </label>
+
+                <input
+                    id="surveyTitle"
+                    type="text"
+                    class="form-control">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Ê’› «·«” »Ì«‰
+                </label>
+
+                <textarea
+                    id="surveyDescription"
+                    class="form-control"
+                    rows="4"></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    «·Õ«·…
+                </label>
+
+                <select
+                    id="surveyStatus"
+                    class="form-control">
+
+                    <option value="open">
+                         „› ÊÕ
+                    </option>
+
+                    <option value="closed">
+                         „€·ﬁ
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label style="display:flex;align-items:center;gap:8px;">
+
+                    <input
+                        id="showResults"
+                        type="checkbox">
+
+                    ≈ŸÂ«— «·‰ «∆Ã
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="closeModal('surveyModal')">
+
+                ≈·€«¡
+
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="saveSurvey()">
+
+                 Õ›Ÿ
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     QUESTIONS MODAL
+========================================================= -->
+
+<div id="questionsModal"
+     class="modal-overlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="modal-title">
+                     √”∆·… «·«” »Ì«‰
+                </div>
+
+                <div id="questionsSurveyTitle"
+                     style="margin-top:5px;color:#64748b;">
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('questionsModal')">
+
+                ◊
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div id="questionsSurveyStatus"
+                 class="questions-header">
+            </div>
+
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px;">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="openAddQuestion()">
+
+                     ≈÷«›… ”ƒ«·
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-purple"
+                    onclick="openResults(currentSurveyId)">
+
+                     «·‰ «∆Ã
+
+                </button>
+
+            </div>
+
+
+            <div id="questionsContainer"></div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="closeModal('questionsModal')">
+
+                ≈€·«ﬁ
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     QUESTION MODAL
+========================================================= -->
+
+<div id="questionModal"
+     class="modal-overlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div id="questionModalTitle"
+                 class="modal-title">
+
+                ≈÷«›… ”ƒ«· ÃœÌœ
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('questionModal')">
+
+                ◊
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <input
+                id="questionId"
+                type="hidden">
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    ‰’ «·”ƒ«·
+                </label>
+
+                <textarea
+                    id="questionText"
+                    class="form-control"
+                    rows="4"></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    ‰Ê⁄ «·”ƒ«·
+                </label>
+
+                <select
+                    id="questionType"
+                    class="form-control"
+                    onchange="questionTypeChanged()">
+
+                    <option value="single_choice">
+                         «Œ Ì«— Ê«Õœ
+                    </option>
+
+                    <option value="multiple_choice">
+                         «Œ Ì«— „ ⁄œœ
+                    </option>
+
+                    <option value="text">
+                         ‰’
+                    </option>
+
+                    <option value="number">
+                         —ﬁ„
+                    </option>
+
+                    <option value="rating">
+                        ?  ﬁÌÌ„
+                    </option>
+
+                    <option value="image">
+                         ’Ê—…
+                    </option>
+
+                    <option value="file">
+                         „·›
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="form-label">
+                     — Ì» «·”ƒ«·
+                </label>
+
+                <input
+                    id="questionOrder"
+                    type="number"
+                    min="1"
+                    class="form-control">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label style="display:flex;align-items:center;gap:8px;">
+
+                    <input
+                        id="questionRequired"
+                        type="checkbox">
+
+                    ”ƒ«· ≈Ã»«—Ì
+
+                </label>
+
+            </div>
+
+
+            <div id="optionsSection">
+
+                <label class="form-label">
+                    ŒÌ«—«  «·≈Ã«»…
+                </label>
+
+                <div id="optionsContainer"></div>
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="addOption()">
+
+                    ? ≈÷«›… ŒÌ«—
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="closeModal('questionModal')">
+
+                ≈·€«¡
+
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="saveQuestion()">
+
+                 Õ›Ÿ «·”ƒ«·
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     RESULTS MODAL
+========================================================= -->
+
+<div id="resultsModal"
+     class="modal-overlay">
+
+    <div class="modal large">
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                 ‰ «∆Ã «·«” »Ì«‰
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('resultsModal')">
+
+                ◊
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div id="resultsContainer">
+
+                Ã«—Ì  Õ„Ì· «·‰ «∆Ã...
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="closeModal('resultsModal')">
+
+                ≈€·«ﬁ
+
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="printResults()">
+
+                 ÿ»«⁄…
+
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-success"
+                onclick="exportResultsToExcel()">
+
+                  ’œÌ— Excel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div id="toast"
+     class="toast">
+</div>
+
+
+<script type="module">
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    query,
+    where,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyB_MPagd-j27x8tpTmogvB85fzQKMSQWH8",
+
+    authDomain:
+        "student-fund-surveys.firebaseapp.com",
+
+    projectId:
+        "student-fund-surveys",
+
+    storageBucket:
+        "student-fund-surveys.firebasestorage.app",
+
+    messagingSenderId:
+        "61596733072",
+
+    appId:
+        "1:61596733072:web:b0c2474b1f42d2c9935215"
+
+};
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getFirestore(
+        app
+    );
+
+
+const auth =
+    getAuth(
+        app
+    );
+
+const ADMIN_UID =
+    "TipsIUpOJiWdYKasNXA5TSOuOFV2";
+
+/* =========================================================
+   FILE LIMITS
+========================================================= */
+
+const MAX_IMAGE_SIZE_KB = 600;
+const MAX_IMAGE_SIZE_BYTES = MAX_IMAGE_SIZE_KB * 1024;
+const MAX_IMAGE_SIZE_MB = (MAX_IMAGE_SIZE_KB / 1024).toFixed(2);
+const MAX_FILE_SIZE_MB = 10;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+const EXCEL_IMAGE_MAX_WIDTH = 520;
+const EXCEL_IMAGE_MAX_HEIGHT = 360;
+const EXCEL_IMAGE_QUALITY = 0.70;
+
+
+/* =========================================================
+   IMGBB IMAGE UPLOAD
+   ========================================================= */
+const IMGBB_API_KEY = "730abceda2785ace22cca361d13c17c4";
+const IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload";
+const compressedImageFiles = new Map();
+
+/*
+   «·Õœ «·√ﬁ’Ï «·‰Â«∆Ì ··’Ê—… »⁄œ «·÷€ÿ:
+   600 KB ﬂ„« ÂÊ „Õœœ ›Ì «·‰Ÿ«„ «·Õ«·Ì.
+*/
+
+
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+let surveysData = [];
+
+let currentSurveyId = null;
+
+let currentSurveyData = null;
+
+let questionsData = [];
+
+let editingQuestionId = null;
+
+let answerSurveyId = null;
+
+let answerSurveyData = null;
+
+let answerQuestionsData = [];
+
+let surveySubmitting = false;
+
+
+/* ‰ «∆Ã «·«” »Ì«‰ «·Õ«·Ì… */
+
+let currentResultsData = {
+
+    survey:null,
+
+    questions:[],
+
+    responses:[],
+
+    filteredResponses:[]
+
+};
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadUserSurveys();
+
+        setupLoginForm();
+
+        setupModalOutsideClick();
+
+    }
+);
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(user){
+
+            if(
+                user.uid !==
+                ADMIN_UID
+            ){
+
+                await signOut(
+                    auth
+                );
+
+                showUserHome();
+
+                return;
+
+            }
+
+
+            showAdminPanel(
+                user
+            );
+
+
+            await loadSurveys();
+
+        }else{
+
+            showUserHome();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SHOW USER HOME
+========================================================= */
+
+function showUserHome(){
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "adminApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "surveyAnswerApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "userApp"
+    ).style.display =
+        "block";
+
+
+    loadUserSurveys();
+
+}
+
+
+/* =========================================================
+   OPEN ADMIN LOGIN
+========================================================= */
+
+function openAdminLogin(){
+
+    document.getElementById(
+        "userApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "surveyAnswerApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "adminApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "block";
+
+
+    hideLoginError();
+
+}
+
+
+/* =========================================================
+   CLOSE ADMIN LOGIN
+========================================================= */
+
+function closeAdminLogin(){
+
+    showUserHome();
+
+}
+
+
+/* =========================================================
+   SHOW ADMIN
+========================================================= */
+
+function showAdminPanel(
+    user
+){
+
+    document.getElementById(
+        "userApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "surveyAnswerApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "adminApp"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "adminEmail"
+    ).textContent =
+        user.email ||
+        "„œÌ— «·‰Ÿ«„";
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function setupLoginForm(){
+
+    const form =
+        document.getElementById(
+            "loginForm"
+        );
+
+
+    if(!form){
+
+        return;
+
+    }
+
+
+    form.addEventListener(
+        "submit",
+        async function(event){
+
+            event.preventDefault();
+
+            hideLoginError();
+
+
+            const email =
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim();
+
+
+            const password =
+                document.getElementById(
+                    "loginPassword"
+                ).value;
+
+
+            const button =
+                document.getElementById(
+                    "loginButton"
+                );
+
+
+            const loading =
+                document.getElementById(
+                    "loginLoading"
+                );
+
+
+            button.disabled =
+                true;
+
+
+            loading.style.display =
+                "block";
+
+
+            try{
+
+                const credential =
+                    await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+
+                if(
+                    credential.user.uid !==
+                    ADMIN_UID
+                ){
+
+                    await signOut(
+                        auth
+                    );
+
+                    throw new Error(
+                        "Â–« «·Õ”«» €Ì— „’—Õ ·Â »«·œŒÊ· ≈·Ï «·≈œ«—…."
+                    );
+
+                }
+
+
+                showToast(
+                    " „  ”ÃÌ· «·œŒÊ· »‰Ã«Õ"
+                );
+
+
+            }catch(error){
+
+                console.error(
+                    "LOGIN ERROR:",
+                    error
+                );
+
+
+                let message =
+                    error.message;
+
+
+                if(
+                    error.code ===
+                    "auth/invalid-credential"
+                ){
+
+                    message =
+                        "«·»—Ìœ «·≈·ﬂ —Ê‰Ì √Ê ﬂ·„… «·„—Ê— €Ì— ’ÕÌÕ….";
+
+                }
+
+
+                showLoginError(
+                    message
+                );
+
+            }
+
+
+            button.disabled =
+                false;
+
+
+            loading.style.display =
+                "none";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logoutAdmin(){
+
+    try{
+
+        await signOut(
+            auth
+        );
+
+        showUserHome();
+
+        showToast(
+            " „  ”ÃÌ· «·Œ—ÊÃ"
+        );
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD USER SURVEYS
+========================================================= */
+
+async function loadUserSurveys(){
+
+    const container =
+        document.getElementById(
+            "userSurveysContainer"
+        );
+
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="user-loading">
+            ? Ã«—Ì  Õ„Ì· «·«” »Ì«‰« ...
+        </div>
+
+    `;
+
+
+    try{
+
+        const surveysRef =
+            collection(
+                db,
+                "surveys"
+            );
+
+
+        const snapshot =
+            await getDocs(
+
+                query(
+                    surveysRef,
+                    where(
+                        "status",
+                        "==",
+                        "open"
+                    )
+                )
+
+            );
+
+
+        const openSurveys =
+            [];
+
+
+        snapshot.forEach(
+            function(docSnap){
+
+                const survey =
+                    docSnap.data();
+
+
+                openSurveys.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...survey,
+
+                    status:
+                        "open"
+
+                });
+
+            }
+        );
+
+
+        openSurveys.sort(
+            function(a,b){
+
+                const aTime =
+                    a.createdAt &&
+                    typeof a.createdAt.toMillis ===
+                    "function"
+                    ?
+                    a.createdAt.toMillis()
+                    :
+                    0;
+
+
+                const bTime =
+                    b.createdAt &&
+                    typeof b.createdAt.toMillis ===
+                    "function"
+                    ?
+                    b.createdAt.toMillis()
+                    :
+                    0;
+
+
+                return bTime - aTime;
+
+            }
+        );
+
+
+        renderUserSurveys(
+            openSurveys
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "USER SURVEYS ERROR:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                <div style="font-size:45px;">
+                    ??
+                </div>
+
+                <h3>
+                     ⁄–—  Õ„Ì· «·«” »Ì«‰« 
+                </h3>
+
+                <p>
+                    ${escapeHtml(
+                        error.message
+                    )}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER USER SURVEYS
+========================================================= */
+
+function renderUserSurveys(
+    surveys
+){
+
+    const container =
+        document.getElementById(
+            "userSurveysContainer"
+        );
+
+
+    if(
+        surveys.length ===
+        0
+    ){
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                <div style="font-size:45px;">
+                    ??
+                </div>
+
+                <h3>
+                    ·«  ÊÃœ «” »Ì«‰«  „› ÊÕ… Õ«·Ì«
+                </h3>
+
+                <p>
+                    Ì—ÃÏ «·⁄Êœ… ·«Õﬁ«.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.className =
+        "user-surveys-grid";
+
+
+    container.innerHTML =
+        surveys.map(
+            function(survey){
+
+                const answered =
+                    hasAlreadyAnswered(
+                        survey.id
+                    );
+
+
+                return `
+
+                    <div class="user-survey-card">
+
+                        <div class="user-survey-title">
+
+                            ${escapeHtml(
+                                survey.title ||
+                                "»œÊ‰ ⁄‰Ê«‰"
+                            )}
+
+                        </div>
+
+
+                        <div class="user-survey-description">
+
+                            ${escapeHtml(
+                                survey.description ||
+                                "·« ÌÊÃœ Ê’› ··«” »Ì«‰"
+                            )}
+
+                        </div>
+
+
+                        ${
+                            answered
+                            ?
+                            `
+                                <span class="badge badge-closed">
+                                    ?  „  «·„‘«—ﬂ…
+                                </span>
+                            `
+                            :
+                            `
+                                <span class="badge badge-open">
+                                     „› ÊÕ
+                                </span>
+                            `
+                        }
+
+
+                        <button
+                            type="button"
+                            class="user-survey-button"
+                            onclick="startSurvey('${escapeAttribute(survey.id)}')">
+
+                            ${
+                                answered
+                                ?
+                                " ⁄—÷ Õ«·… «·„‘«—ﬂ…"
+                                :
+                                " «·„‘«—ﬂ… ›Ì «·«” »Ì«‰"
+                            }
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/* =========================================================
+   START SURVEY
+========================================================= */
+
+async function startSurvey(
+    surveyId
+){
+
+    answerSurveyId =
+        surveyId;
+
+
+    answerSurveyData =
+        null;
+
+
+    answerQuestionsData =
+        [];
+
+
+    surveySubmitting =
+        false;
+
+
+    document.getElementById(
+        "userApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "adminApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "surveyAnswerApp"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "surveyQuestionsContainer"
+    ).innerHTML = `
+
+        <div class="user-loading">
+            ? Ã«—Ì  Õ„Ì· «·«” »Ì«‰...
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "surveySubmitArea"
+    ).style.display =
+        "none";
+
+
+    try{
+
+        const surveySnap =
+            await getDoc(
+
+                doc(
+                    db,
+                    "surveys",
+                    surveyId
+                )
+
+            );
+
+
+        if(
+            !surveySnap.exists()
+        ){
+
+            throw new Error(
+                "«·«” »Ì«‰ €Ì— „ÊÃÊœ."
+            );
+
+        }
+
+
+        const survey =
+            surveySnap.data();
+
+
+        if(
+            String(
+                survey.status ||
+                ""
+            )
+            .trim()
+            .toLowerCase() !==
+            "open"
+        ){
+
+            throw new Error(
+                "Â–« «·«” »Ì«‰ „€·ﬁ Õ«·Ì«."
+            );
+
+        }
+
+
+        answerSurveyData =
+            {
+
+                id:
+                    surveyId,
+
+                ...survey
+
+            };
+
+
+        document.getElementById(
+            "answerSurveyTitle"
+        ).textContent =
+            survey.title ||
+            "«·«” »Ì«‰";
+
+
+        document.getElementById(
+            "answerSurveyDescription"
+        ).textContent =
+            survey.description ||
+            "";
+
+
+        const questionsSnapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "surveys",
+                    surveyId,
+                    "questions"
+                )
+
+            );
+
+
+        questionsSnapshot.forEach(
+            function(docSnap){
+
+                answerQuestionsData.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        answerQuestionsData.sort(
+            function(a,b){
+
+                return Number(
+                    a.order ||
+                    999999
+                )
+                -
+                Number(
+                    b.order ||
+                    999999
+                );
+
+            }
+        );
+
+
+        if(
+            answerQuestionsData.length ===
+            0
+        ){
+
+            document.getElementById(
+                "surveyQuestionsContainer"
+            ).innerHTML = `
+
+                <div class="user-empty">
+
+                     ·«  ÊÃœ √”∆·… ›Ì Â–« «·«” »Ì«‰.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        if(
+            hasAlreadyAnswered(
+                surveyId
+            )
+        ){
+
+            showAlreadyAnsweredMessage();
+
+            return;
+
+        }
+
+
+        renderAnswerQuestions();
+
+
+        document.getElementById(
+            "surveySubmitArea"
+        ).style.display =
+            "block";
+
+
+    }catch(error){
+
+        console.error(
+            "START SURVEY ERROR:",
+            error
+        );
+
+
+        document.getElementById(
+            "surveyQuestionsContainer"
+        ).innerHTML = `
+
+            <div class="user-empty">
+
+                <div style="font-size:45px;">
+                    ??
+                </div>
+
+                <h3>
+                     ⁄–— › Õ «·«” »Ì«‰
+                </h3>
+
+                <p>
+                    ${escapeHtml(
+                        error.message
+                    )}
+                </p>
+
+                <br>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="backFromSurvey()">
+
+                    «·⁄Êœ…
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   ANONYMOUS ID
+========================================================= */
+
+function getAnonymousId(){
+
+    let id =
+        localStorage.getItem(
+            "studentFundAnonymousId"
+        );
+
+
+    if(!id){
+
+        id =
+            "anon_" +
+            Date.now() +
+            "_" +
+            Math.random()
+                .toString(36)
+                .substring(
+                    2,
+                    14
+                );
+
+
+        localStorage.setItem(
+            "studentFundAnonymousId",
+            id
+        );
+
+    }
+
+
+    return id;
+
+}
+
+
+/* =========================================================
+   ANSWERED SURVEYS
+========================================================= */
+
+function getAnsweredSurveys(){
+
+    try{
+
+        const value =
+            localStorage.getItem(
+                "studentFundAnsweredSurveys"
+            );
+
+
+        if(!value){
+
+            return [];
+
+        }
+
+
+        const parsed =
+            JSON.parse(
+                value
+            );
+
+
+        return Array.isArray(
+            parsed
+        )
+        ?
+        parsed
+        :
+        [];
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        return [];
+
+    }
+
+}
+
+
+function hasAlreadyAnswered(
+    surveyId
+){
+
+    return (
+        getAnsweredSurveys()
+            .indexOf(
+                surveyId
+            ) !== -1
+    );
+
+}
+
+
+function markSurveyAsAnswered(
+    surveyId
+){
+
+    const surveys =
+        getAnsweredSurveys();
+
+
+    if(
+        surveys.indexOf(
+            surveyId
+        ) === -1
+    ){
+
+        surveys.push(
+            surveyId
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "studentFundAnsweredSurveys",
+        JSON.stringify(
+            surveys
+        )
+    );
+
+}
+
+
+/* =========================================================
+   ALREADY ANSWERED
+========================================================= */
+
+function showAlreadyAnsweredMessage(){
+
+    document.getElementById(
+        "surveyQuestionsContainer"
+    ).innerHTML = `
+
+        <div class="user-empty">
+
+            <div style="font-size:55px;">
+                ?
+            </div>
+
+            <h3>
+                ·ﬁœ ‘«—ﬂ  ›Ì Â–« «·«” »Ì«‰ „”»ﬁ«
+            </h3>
+
+            <p>
+                ·« Ì„ﬂ‰ ≈—”«· ≈Ã«»… √Œ—Ï „‰ Â–« «·„ ’›Õ.
+            </p>
+
+            <br>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="backFromSurvey()">
+
+                 «·⁄Êœ… ≈·Ï «·«” »Ì«‰« 
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "surveySubmitArea"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   RENDER ANSWER QUESTIONS
+========================================================= */
+
+function renderAnswerQuestions(){
+
+    const container =
+        document.getElementById(
+            "surveyQuestionsContainer"
+        );
+
+
+    container.innerHTML =
+        answerQuestionsData
+            .map(
+                function(question,index){
+
+                    return renderAnswerQuestion(
+                        question,
+                        index
+                    );
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   RENDER ONE ANSWER QUESTION
+========================================================= */
+
+function renderAnswerQuestion(
+    question,
+    index
+){
+
+    let inputHtml =
+        "";
+
+    const requiredMark =
+        question.required
+        ?
+        `<span class="required-mark">*</span>`
+        :
+        "";
+
+    if(
+        question.questionType ===
+        "single_choice"
+    ){
+
+        inputHtml = `
+            <div class="choice-list">
+                ${
+                    Array.isArray(question.options)
+                    ?
+                    question.options.map(
+                        function(option){
+                            return `
+                                <label class="choice-item">
+                                    <input
+                                        type="radio"
+                                        name="question_${escapeAttribute(question.id)}"
+                                        value="${escapeAttribute(option)}">
+                                    <span>${escapeHtml(option)}</span>
+                                </label>
+                            `;
+                        }
+                    ).join("")
+                    :
+                    ""
+                }
+            </div>
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "multiple_choice"
+    ){
+
+        inputHtml = `
+            <div class="choice-list">
+                ${
+                    Array.isArray(question.options)
+                    ?
+                    question.options.map(
+                        function(option){
+                            return `
+                                <label class="choice-item">
+                                    <input
+                                        type="checkbox"
+                                        name="question_${escapeAttribute(question.id)}"
+                                        value="${escapeAttribute(option)}">
+                                    <span>${escapeHtml(option)}</span>
+                                </label>
+                            `;
+                        }
+                    ).join("")
+                    :
+                    ""
+                }
+            </div>
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "text"
+    ){
+
+        inputHtml = `
+            <textarea
+                id="question_${escapeAttribute(question.id)}"
+                class="answer-textarea"
+                rows="5"></textarea>
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "number"
+    ){
+
+        inputHtml = `
+            <input
+                id="question_${escapeAttribute(question.id)}"
+                class="answer-input"
+                type="number">
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "rating"
+    ){
+
+        inputHtml = `
+            <div class="rating-options">
+                ${[1,2,3,4,5].map(
+                    function(value){
+                        return `
+                            <label class="rating-item">
+                                <input
+                                    type="radio"
+                                    name="question_${escapeAttribute(question.id)}"
+                                    value="${value}">
+                                <span class="rating-label">
+                                    ${value} ?
+                                </span>
+                            </label>
+                        `;
+                    }
+                ).join("")}
+            </div>
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "image"
+    ){
+
+        inputHtml = `
+            <input
+                id="question_${escapeAttribute(question.id)}"
+                class="answer-input"
+                type="file"
+                accept="image/*"
+                onchange="handleImageSelection(this)">
+
+            <div
+                id="image_size_${escapeAttribute(question.id)}"
+                class="image-size-message"
+                style="display:none;margin-top:8px;">
+            </div>
+        `;
+
+    }
+
+    else if(
+        question.questionType ===
+        "file"
+    ){
+
+        inputHtml = `
+            <input
+                id="question_${escapeAttribute(question.id)}"
+                class="answer-input"
+                type="file">
+
+            <small style="display:block;margin-top:7px;color:#64748b;">
+                «·Õœ «·√ﬁ’Ï ·ÕÃ„ «·„·›: 10 MB.
+            </small>
+        `;
+
+    }
+
+
+    return `
+        <div
+            class="question-answer-card"
+            data-question-id="${escapeAttribute(question.id)}">
+
+            <div class="answer-question-title">
+                ${index + 1}.
+                ${escapeHtml(
+                    question.questionText ||
+                    "»œÊ‰ ‰’"
+                )}
+                ${requiredMark}
+            </div>
+
+            <div>
+                ${inputHtml}
+            </div>
+
+            <div
+                id="validation_${escapeAttribute(question.id)}"
+                class="validation-error">
+                Ì—ÃÏ «·≈Ã«»… ⁄‰ Â–« «·”ƒ«·.
+            </div>
+
+        </div>
+    `;
+}
+
+
+/* =========================================================
+   COLLECT ANSWERS
+========================================================= */
+
+function collectSurveyAnswers(){
+    const answers = {};
+    const errors = [];
+    answerQuestionsData.forEach(function(question,index){
+        const id = question.id;
+        let value = null;
+        if(question.questionType === "single_choice"){
+            const selected = document.querySelector('input[name="question_' + CSS.escape(id) + '"]:checked');
+            value = selected ? selected.value : null;
+        } else if(question.questionType === "multiple_choice"){
+            const selected = document.querySelectorAll('input[name="question_' + CSS.escape(id) + '"]:checked');
+            value = Array.from(selected).map(function(input){ return input.value; });
+            if(value.length === 0) value = null;
+        } else if(question.questionType === "rating"){
+            const selected = document.querySelector('input[name="question_' + CSS.escape(id) + '"]:checked');
+            value = selected ? Number(selected.value) : null;
+        } else if(question.questionType === "image" || question.questionType === "file"){
+            const input = document.getElementById("question_" + id);
+            if(input && input.files && input.files.length > 0){
+                const file =
+                    question.questionType === "image"
+                    ?
+                    getEffectiveImageFile(id,input)
+                    :
+                    input.files[0];
+
+                if(file){
+                    value = {
+                        selected:true,
+                        fileName:file.name,
+                        fileType:file.type,
+                        fileSize:file.size
+                    };
+                }else{
+                    value = null;
+                }
+            } else value = null;
+        } else {
+            const input = document.getElementById("question_" + id);
+            value = input ? input.value.trim() : "";
+        }
+        const empty = value === null || value === "" || (Array.isArray(value) && value.length === 0);
+        if(question.required && empty) errors.push(index + 1);
+        answers[id] = value;
+    });
+    return {answers:answers, errors:errors};
+}
+
+/* =========================================================
+   IMAGE SIZE VALIDATION
+========================================================= */
+
+function formatUploadSize(bytes){
+    if(!bytes) return "0 KB";
+    if(bytes < 1024 * 1024){
+        return (bytes / 1024).toFixed(0) + " KB";
+    }
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+
+/* =========================================================
+   IMAGE SIGNATURE
+   ========================================================= */
+
+function getFileSignature(file){
+    if(!file) return "";
+
+    return [
+        file.name || "",
+        file.size || 0,
+        file.lastModified || 0,
+        file.type || ""
+    ].join("|");
+}
+
+
+/* =========================================================
+   CREATE FILE FROM BLOB
+   ========================================================= */
+
+function blobToFile(
+    blob,
+    originalFile
+){
+    const extension =
+        blob.type === "image/webp"
+        ? ".webp"
+        :
+        blob.type === "image/png"
+        ? ".png"
+        :
+        ".jpg";
+
+    const baseName =
+        String(
+            originalFile.name || "image"
+        )
+        .replace(
+            /\.[^.]+$/,
+            ""
+        );
+
+    return new File(
+        [
+            blob
+        ],
+        baseName + extension,
+        {
+            type:
+                blob.type ||
+                "image/jpeg",
+
+            lastModified:
+                Date.now()
+        }
+    );
+}
+
+
+/* =========================================================
+   LOAD IMAGE FOR COMPRESSION
+   ========================================================= */
+
+function loadImageForCompression(file){
+    return new Promise(
+        function(resolve,reject){
+
+            const objectUrl =
+                URL.createObjectURL(file);
+
+            const image =
+                new Image();
+
+            image.onload =
+                function(){
+
+                    URL.revokeObjectURL(
+                        objectUrl
+                    );
+
+                    resolve(
+                        image
+                    );
+
+                };
+
+            image.onerror =
+                function(){
+
+                    URL.revokeObjectURL(
+                        objectUrl
+                    );
+
+                    reject(
+                        new Error(
+                            " ⁄–— ﬁ—«¡… «·’Ê—… ›Ì «·„ ’›Õ. Ã—¯» ’Ê—… JPG √Ê PNG."
+                        )
+                    );
+
+                };
+
+            image.src =
+                objectUrl;
+
+        }
+    );
+}
+
+
+/* =========================================================
+   CANVAS TO BLOB
+   ========================================================= */
+
+function canvasToBlob(
+    canvas,
+    quality
+){
+    return new Promise(
+        function(resolve,reject){
+
+            canvas.toBlob(
+                function(blob){
+
+                    if(!blob){
+
+                        reject(
+                            new Error(
+                                " ⁄–— ≈‰‘«¡ «·’Ê—… «·„÷€Êÿ…."
+                            )
+                        );
+
+                        return;
+                    }
+
+                    resolve(
+                        blob
+                    );
+
+                },
+                "image/jpeg",
+                quality
+            );
+
+        }
+    );
+}
+
+
+/* =========================================================
+   COMPRESS IMAGE TO TARGET SIZE
+   ========================================================= */
+
+async function compressImageToTarget(
+    file,
+    targetBytes,
+    statusCallback
+){
+
+    if(
+        !file ||
+        !file.type ||
+        file.type.indexOf("image/") !== 0
+    ){
+
+        throw new Error(
+            "«·„·› «·„Õœœ ·Ì” ’Ê—… ’«·Õ…."
+        );
+
+    }
+
+
+    /*
+       «·’Ê—… √’·« ÷„‰ «·Õœ° ·« Õ«Ã… ··÷€ÿ.
+    */
+    if(file.size <= targetBytes){
+
+        if(statusCallback){
+
+            statusCallback(
+                "«·’Ê—… „‰«”»… √’·«: " +
+                formatUploadSize(file.size)
+            );
+
+        }
+
+        return file;
+    }
+
+
+    if(statusCallback){
+
+        statusCallback(
+            "Ã«—Ú ÷€ÿ «·’Ê—… „‰ " +
+            formatUploadSize(file.size) +
+            " ≈·Ï √ﬁ· „‰ " +
+            MAX_IMAGE_SIZE_KB +
+            " KB..."
+        );
+
+    }
+
+
+    const image =
+        await loadImageForCompression(
+            file
+        );
+
+
+    let width =
+        image.naturalWidth ||
+        image.width;
+
+    let height =
+        image.naturalHeight ||
+        image.height;
+
+
+    const MAX_DIMENSION =
+        1800;
+
+    if(
+        width > MAX_DIMENSION ||
+        height > MAX_DIMENSION
+    ){
+
+        const ratio =
+            Math.min(
+                MAX_DIMENSION / width,
+                MAX_DIMENSION / height
+            );
+
+        width =
+            Math.max(
+                1,
+                Math.round(width * ratio)
+            );
+
+        height =
+            Math.max(
+                1,
+                Math.round(height * ratio)
+            );
+
+    }
+
+
+    let canvas =
+        document.createElement(
+            "canvas"
+        );
+
+    let ctx =
+        canvas.getContext(
+            "2d",
+            {
+                alpha:false
+            }
+        );
+
+
+    if(!ctx){
+
+        throw new Error(
+            "«·„ ’›Õ ·« Ìœ⁄„ „⁄«·Ã… «·’Ê—."
+        );
+
+    }
+
+
+    let smallestBlob =
+        null;
+
+
+    /*
+       ‰” Œœ„ ⁄œ… „Õ«Ê·«  ··ÃÊœ… Ê«·ÕÃ„.
+       ≈–« »ﬁÌ  «·’Ê—… ﬂ»Ì—…° ‰’€¯— «·√»⁄«œ  œ—ÌÃÌ«.
+    */
+
+    for(
+        let resizePass = 0;
+        resizePass < 6;
+        resizePass++
+    ){
+
+        canvas.width =
+            width;
+
+        canvas.height =
+            height;
+
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        ctx.fillStyle =
+            "#ffffff";
+
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        ctx.drawImage(
+            image,
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        let low =
+            0.45;
+
+        let high =
+            0.90;
+
+        let best =
+            null;
+
+
+        for(
+            let i = 0;
+            i < 7;
+            i++
+        ){
+
+            const quality =
+                (low + high) / 2;
+
+            const blob =
+                await canvasToBlob(
+                    canvas,
+                    quality
+                );
+
+
+            if(
+                !smallestBlob ||
+                blob.size < smallestBlob.size
+            ){
+
+                smallestBlob =
+                    blob;
+
+            }
+
+
+            if(
+                blob.size <= targetBytes
+            ){
+
+                best =
+                    blob;
+
+                low =
+                    quality;
+
+            }else{
+
+                high =
+                    quality;
+
+            }
+
+        }
+
+
+        if(best){
+
+            const result =
+                blobToFile(
+                    best,
+                    file
+                );
+
+
+            if(
+                statusCallback
+            ){
+
+                statusCallback(
+                    " „ ÷€ÿ «·’Ê—…: " +
+                    formatUploadSize(file.size) +
+                    " ? " +
+                    formatUploadSize(result.size)
+                );
+
+            }
+
+            return result;
+
+        }
+
+
+        /*
+           ≈–« ·„ ‰’· ··Õœ »«·ÕÊœ… «·Õ«·Ì…°
+           ‰’€¯— «·√»⁄«œ À„ ‰⁄Ìœ «·„Õ«Ê·….
+        */
+
+        width =
+            Math.max(
+                640,
+                Math.round(width * 0.80)
+            );
+
+        height =
+            Math.max(
+                640,
+                Math.round(height * 0.80)
+            );
+
+    }
+
+
+    /*
+       „Õ«Ê·… √ŒÌ—… »«” Œœ«„ √’€— ‰”Œ… Ê’·‰« ·Â«.
+    */
+
+    if(
+        smallestBlob &&
+        smallestBlob.size <= targetBytes
+    ){
+
+        return blobToFile(
+            smallestBlob,
+            file
+        );
+
+    }
+
+
+    throw new Error(
+        " ⁄–— ÷€ÿ «·’Ê—… ≈·Ï " +
+        MAX_IMAGE_SIZE_KB +
+        " KB. Ã—¯» ’Ê—… √’€—."
+    );
+}
+
+
+/* =========================================================
+   HANDLE IMAGE SELECTION
+   ========================================================= */
+
+async function handleImageSelection(
+    input
+){
+
+    if(!input){
+
+        return false;
+
+    }
+
+
+    const questionId =
+        String(
+            input.id || ""
+        )
+        .replace(
+            "question_",
+            ""
+        );
+
+
+    const message =
+        document.getElementById(
+            "image_size_" +
+            questionId
+        );
+
+
+    if(message){
+
+        message.style.display =
+            "none";
+
+        message.innerHTML =
+            "";
+
+    }
+
+
+    compressedImageFiles.delete(
+        questionId
+    );
+
+
+    if(
+        !input.files ||
+        input.files.length === 0
+    ){
+
+        return true;
+
+    }
+
+
+    const originalFile =
+        input.files[0];
+
+
+    if(
+        !originalFile.type ||
+        originalFile.type.indexOf("image/") !== 0
+    ){
+
+        input.value =
+            "";
+
+        if(message){
+
+            message.style.display =
+                "block";
+
+            message.innerHTML =
+                '<div style="color:#b91c1c;font-weight:700;">«·„·› «·„Õœœ ·Ì” ’Ê—….</div>';
+
+        }
+
+        showToast(
+            "«·„·› «·„Õœœ ·Ì” ’Ê—….",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    try{
+
+        if(message){
+
+            message.style.display =
+                "block";
+
+            message.innerHTML =
+                '<div style="font-weight:700;color:#1d4ed8;">Ã«—Ì  ÃÂÌ“ «·’Ê—…...</div>' +
+                '<div style="margin-top:4px;color:#475569;">«·ÕÃ„ «·√’·Ì: ' +
+                formatUploadSize(originalFile.size) +
+                '</div>';
+
+        }
+
+
+        const processedFile =
+            await compressImageToTarget(
+                originalFile,
+                MAX_IMAGE_SIZE_BYTES,
+                function(status){
+
+                    if(message){
+
+                        message.style.display =
+                            "block";
+
+                        message.innerHTML =
+                            '<div style="font-weight:700;color:#1d4ed8;">' +
+                            escapeHtml(status) +
+                            '</div>';
+
+                    }
+
+                }
+            );
+
+
+        compressedImageFiles.set(
+            questionId,
+            {
+                sourceSignature:
+                    getFileSignature(
+                        originalFile
+                    ),
+
+                file:
+                    processedFile
+            }
+        );
+
+
+        if(message){
+
+            message.style.display =
+                "block";
+
+            const wasCompressed =
+                processedFile.size <
+                originalFile.size;
+
+
+            message.innerHTML =
+                '<div style="color:#166534;font-weight:700;">? «·’Ê—… Ã«Â“… ··—›⁄.</div>' +
+                '<div style="margin-top:4px;color:#166534;">' +
+                (
+                    wasCompressed
+                    ?
+                    " „ ÷€ÿÂ« „‰ " +
+                    formatUploadSize(originalFile.size) +
+                    " ≈·Ï " +
+                    formatUploadSize(processedFile.size)
+                    :
+                    "«·ÕÃ„: " +
+                    formatUploadSize(processedFile.size)
+                ) +
+                '</div>' +
+                '<div style="margin-top:4px;color:#475569;">«·Õœ «·‰Â«∆Ì: ' +
+                MAX_IMAGE_SIZE_KB +
+                ' KB</div>';
+
+        }
+
+
+        return true;
+
+    }catch(error){
+
+        console.error(
+            "IMAGE PREPARE ERROR:",
+            error
+        );
+
+
+        input.value =
+            "";
+
+        compressedImageFiles.delete(
+            questionId
+        );
+
+
+        if(message){
+
+            message.style.display =
+                "block";
+
+            message.innerHTML =
+                '<div style="color:#b91c1c;font-weight:700;"> ⁄–—  ÃÂÌ“ «·’Ê—….</div>' +
+                '<div style="margin-top:4px;color:#991b1b;">' +
+                escapeHtml(
+                    error.message ||
+                    "ÕœÀ Œÿ√ €Ì— „⁄—Ê›"
+                ) +
+                '</div>';
+
+        }
+
+
+        showToast(
+            error.message ||
+            " ⁄–—  ÃÂÌ“ «·’Ê—….",
+            "error"
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   GET EFFECTIVE IMAGE FILE
+   ========================================================= */
+
+function getEffectiveImageFile(
+    questionId,
+    input
+){
+
+    const item =
+        compressedImageFiles.get(
+            String(questionId)
+        );
+
+
+    if(
+        item &&
+        input &&
+        input.files &&
+        input.files.length > 0 &&
+        item.sourceSignature ===
+        getFileSignature(
+            input.files[0]
+        )
+    ){
+
+        return item.file;
+
+    }
+
+
+    return (
+        input &&
+        input.files &&
+        input.files.length > 0
+        ?
+        input.files[0]
+        :
+        null
+    );
+
+}
+
+
+/* =========================================================
+   VALIDATE IMAGE SELECTION
+   Compatibility wrapper for existing code
+   ========================================================= */
+
+function validateImageSelection(
+    input
+){
+
+    if(!input){
+
+        return false;
+
+    }
+
+
+    if(
+        !input.files ||
+        input.files.length === 0
+    ){
+
+        return true;
+
+    }
+
+
+    const file =
+        getEffectiveImageFile(
+            String(
+                input.id || ""
+            ).replace(
+                "question_",
+                ""
+            ),
+            input
+        );
+
+
+    if(!file){
+
+        return false;
+
+    }
+
+
+    if(
+        !file.type ||
+        file.type.indexOf("image/") !== 0
+    ){
+
+        return false;
+
+    }
+
+
+    return (
+        file.size <=
+        MAX_IMAGE_SIZE_BYTES
+    );
+
+}
+
+
+/* =========================================================
+   PREPARE ALL SELECTED IMAGES
+   ========================================================= */
+
+async function prepareAllSelectedImages(
+    statusCallback
+){
+
+    for(
+        const question
+        of answerQuestionsData
+    ){
+
+        if(
+            question.questionType !==
+            "image"
+        ){
+
+            continue;
+
+        }
+
+
+        const input =
+            document.getElementById(
+                "question_" +
+                question.id
+            );
+
+
+        if(
+            !input ||
+            !input.files ||
+            input.files.length === 0
+        ){
+
+            compressedImageFiles.delete(
+                String(question.id)
+            );
+
+            continue;
+
+        }
+
+
+        const originalFile =
+            input.files[0];
+
+
+        const existing =
+            compressedImageFiles.get(
+                String(question.id)
+            );
+
+
+        if(
+            existing &&
+            existing.sourceSignature ===
+            getFileSignature(
+                originalFile
+            )
+        ){
+
+            continue;
+
+        }
+
+
+        const ok =
+            await handleImageSelection(
+                input
+            );
+
+
+        if(!ok){
+
+            throw new Error(
+                " ⁄–—  ÃÂÌ“ ≈ÕœÏ «·’Ê— ﬁ»· «·—›⁄."
+            );
+
+        }
+
+
+        if(statusCallback){
+
+            statusCallback(
+                " „  ÃÂÌ“ ’Ê—… «·”ƒ«·: " +
+                (
+                    question.order ||
+                    ""
+                )
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   UPLOAD IMAGE TO IMGBB
+   ========================================================= */
+
+async function uploadImageToImgBB(
+    file,
+    statusCallback
+){
+
+    if(!file){
+
+        throw new Error(
+            "·„ Ì „ «Œ Ì«— ’Ê—…."
+        );
+
+    }
+
+
+    if(
+        !file.type ||
+        file.type.indexOf("image/") !== 0
+    ){
+
+        throw new Error(
+            "«·„·› «·„Õœœ ·Ì” ’Ê—…."
+        );
+
+    }
+
+
+    if(
+        file.size >
+        MAX_IMAGE_SIZE_BYTES
+    ){
+
+        throw new Error(
+            "ÕÃ„ «·’Ê—… »⁄œ «·÷€ÿ „« “«· √ﬂ»— „‰ " +
+            MAX_IMAGE_SIZE_KB +
+            " KB."
+        );
+
+    }
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "image",
+        file,
+        file.name
+    );
+
+
+    formData.append(
+        "name",
+        file.name.replace(
+            /\.[^.]+$/,
+            ""
+        )
+    );
+
+
+    if(statusCallback){
+
+        statusCallback(
+            "Ã«—Ú —›⁄ «·’Ê—… ≈·Ï ImgBB..."
+        );
+
+    }
+
+
+    let response;
+
+    try{
+
+        response =
+            await fetch(
+                IMGBB_UPLOAD_URL +
+                "?key=" +
+                encodeURIComponent(
+                    IMGBB_API_KEY
+                ),
+                {
+                    method:"POST",
+                    body:formData
+                }
+            );
+
+    }catch(error){
+
+        throw new Error(
+            " ⁄–— «·« ’«· »Œœ„… ImgBB.  Õﬁﬁ „‰ «·≈‰ —‰  À„ Õ«Ê· „—… √Œ—Ï."
+        );
+
+    }
+
+
+    let data = null;
+
+    try{
+
+        data =
+            await response.json();
+
+    }catch(error){
+
+        throw new Error(
+            "·„ Ì „ «” ·«„ —œ ’«·Õ „‰ ImgBB."
+        );
+
+    }
+
+
+    if(
+        !response.ok ||
+        !data ||
+        !data.success ||
+        !data.data
+    ){
+
+        let apiMessage =
+            data &&
+            data.error &&
+            data.error.message
+            ?
+            data.error.message
+            :
+            "";
+
+
+        throw new Error(
+            "›‘· —›⁄ «·’Ê—… ≈·Ï ImgBB." +
+            (
+                apiMessage
+                ?
+                " " + apiMessage
+                :
+                ""
+            )
+        );
+
+    }
+
+
+    const url =
+        data.data.display_url ||
+        data.data.url ||
+        (
+            data.data.image &&
+            data.data.image.url
+        ) ||
+        "";
+
+
+    if(!url){
+
+        throw new Error(
+            " „ «·—›⁄ ·ﬂ‰ ·„ Ìı—Ã⁄ ImgBB —«»ÿ «·’Ê—…."
+        );
+
+    }
+
+
+    if(statusCallback){
+
+        statusCallback(
+            " „ —›⁄ «·’Ê—… »‰Ã«Õ."
+        );
+
+    }
+
+
+    return {
+        url:url,
+        viewerUrl:
+            data.data.url_viewer ||
+            "",
+        deleteUrl:
+            data.data.delete_url ||
+            "",
+        width:
+            Number(
+                data.data.width ||
+                0
+            ),
+        height:
+            Number(
+                data.data.height ||
+                0
+            ),
+        fileName:
+            (
+                data.data.image &&
+                (
+                    data.data.image.filename ||
+                    data.data.image.name
+                )
+            ) ||
+            file.name,
+        fileType:
+            file.type ||
+            (
+                data.data.image &&
+                data.data.image.mime
+            ) ||
+            "image/jpeg",
+        fileSize:
+            Number(
+                data.data.size ||
+                file.size ||
+                0
+            )
+    };
+
+}
+
+
+/* =========================================================
+   UPLOAD SURVEY IMAGE
+   The image itself is stored in ImgBB.
+   Firestore stores metadata + URL only.
+   ========================================================= */
+
+async function saveSurveyImageToImgBB(
+    file,
+    surveyId,
+    anonymousId,
+    responseId,
+    questionId,
+    statusCallback
+){
+
+    const uploaded =
+        await uploadImageToImgBB(
+            file,
+            statusCallback
+        );
+
+
+    return {
+        selected:true,
+        fileName:
+            file.name,
+        fileType:
+            file.type ||
+            "image/jpeg",
+        fileSize:
+            file.size,
+        downloadURL:
+            uploaded.url,
+        viewerURL:
+            uploaded.viewerUrl,
+        deleteURL:
+            uploaded.deleteUrl,
+        width:
+            uploaded.width,
+        height:
+            uploaded.height,
+        storageType:
+            "imgbb",
+        excelImageData:
+            await createExcelImageDataUrl(file),
+        surveyId:
+            surveyId,
+        anonymousId:
+            anonymousId,
+        responseId:
+            responseId,
+        questionId:
+            questionId
+    };
+
+}
+
+
+/* =========================================================
+   SAVE SURVEY ATTACHMENTS AFTER RESPONSE ID EXISTS
+   ========================================================= */
+
+async function saveSurveyAnswerFiles(
+    resultAnswers,
+    surveyId,
+    anonymousId,
+    responseId,
+    statusCallback
+){
+
+    const answers =
+        JSON.parse(
+            JSON.stringify(
+                resultAnswers
+            )
+        );
+
+
+    const imageItems =
+        [];
+
+
+    for(
+        const question
+        of answerQuestionsData
+    ){
+
+        if(
+            question.questionType !==
+            "image"
+        ){
+
+            continue;
+
+        }
+
+
+        const input =
+            document.getElementById(
+                "question_" +
+                question.id
+            );
+
+
+        if(
+            !input ||
+            !input.files ||
+            input.files.length === 0
+        ){
+
+            continue;
+
+        }
+
+
+        const file =
+            getEffectiveImageFile(
+                question.id,
+                input
+            );
+
+
+        if(!file){
+
+            throw new Error(
+                " ⁄–— «·Ê’Ê· ≈·Ï «·’Ê—… «·„Õœœ…."
+            );
+
+        }
+
+
+        if(
+            !validateImageSelection(
+                input
+            )
+        ){
+
+            throw new Error(
+                "«·’Ê—… €Ì— ’«·Õ… √Ê  Ã«Ê“  «·Õœ «·„”„ÊÕ."
+            );
+
+        }
+
+
+        imageItems.push({
+            question:
+                question,
+
+            file:
+                file
+        });
+
+    }
+
+
+    for(
+        let i = 0;
+        i < imageItems.length;
+        i++
+    ){
+
+        const item =
+            imageItems[i];
+
+        const question =
+            item.question;
+
+        const file =
+            item.file;
+
+
+        if(statusCallback){
+
+            statusCallback(
+                "Ã«—Ú —›⁄ «·’Ê—… " +
+                (i + 1) +
+                " „‰ " +
+                imageItems.length
+            );
+
+        }
+
+
+        const saved =
+            await saveSurveyImageToImgBB(
+                file,
+                surveyId,
+                anonymousId,
+                responseId,
+                question.id,
+                statusCallback
+            );
+
+
+        /*
+           Â‰« Ì „  Œ“Ì‰ «·—«»ÿ ›ﬁÿ œ«Œ· Firestore°
+           Ê·Ì” Base64 √Ê «·„·› ‰›”Â.
+        */
+        answers[question.id] =
+            saved;
+
+    }
+
+
+    return answers;
+
+}
+
+/* =========================================================
+   VALIDATE FILES
+========================================================= */
+
+function validateSelectedFiles(){
+
+    const invalidFiles =
+        [];
+
+
+    answerQuestionsData.forEach(
+        function(question){
+
+            if(
+                question.questionType !==
+                    "image"
+                &&
+                question.questionType !==
+                    "file"
+            ){
+
+                return;
+
+            }
+
+
+            const input =
+                document.getElementById(
+                    "question_" +
+                    question.id
+                );
+
+
+            if(
+                !input ||
+                !input.files ||
+                input.files.length === 0
+            ){
+
+                return;
+
+            }
+
+
+            const file =
+                question.questionType === "image"
+                ?
+                getEffectiveImageFile(
+                    question.id,
+                    input
+                )
+                :
+                input.files[0];
+
+
+            if(!file){
+
+                invalidFiles.push(
+                    " ⁄–— ﬁ—«¡… «·„·› «·„Õœœ."
+                );
+
+                return;
+
+            }
+
+
+            if(
+                question.questionType ===
+                "image"
+            ){
+
+                if(
+                    !file.type ||
+                    file.type.indexOf("image/") !== 0
+                ){
+
+                    invalidFiles.push(
+                        file.name +
+                        " - «·„·› ·Ì” ’Ê—…"
+                    );
+
+                    return;
+
+                }
+
+
+                if(
+                    file.size >
+                    MAX_IMAGE_SIZE_BYTES
+                ){
+
+                    invalidFiles.push(
+                        file.name +
+                        " - ÕÃ„Â " +
+                        formatUploadSize(
+                            file.size
+                        ) +
+                        " »⁄œ «·÷€ÿ° Ê«·Õœ " +
+                        MAX_IMAGE_SIZE_KB +
+                        " KB"
+                    );
+
+                }
+
+            }
+
+            else if(
+                file.size >
+                MAX_FILE_SIZE_BYTES
+            ){
+
+                invalidFiles.push(
+                    file.name +
+                    " - ÕÃ„Â √ﬂ»— „‰ " +
+                    MAX_FILE_SIZE_MB +
+                    " MB"
+                );
+
+            }
+
+        }
+    );
+
+
+    return invalidFiles;
+
+}
+
+/* =========================================================
+   SUBMIT SURVEY
+========================================================= */
+
+async function submitSurveyAnswers(){
+
+    if(surveySubmitting){
+        return;
+    }
+
+    if(!answerSurveyId){
+        showToast(
+            "·„ Ì „  ÕœÌœ «·«” »Ì«‰.",
+            "error"
+        );
+        return;
+    }
+
+    if(!answerSurveyData || String(answerSurveyData.status).toLowerCase() !== "open"){
+        showToast(
+            "Â–« «·«” »Ì«‰ „€·ﬁ Õ«·Ì«.",
+            "error"
+        );
+        return;
+    }
+
+    if(hasAlreadyAnswered(answerSurveyId)){
+        showAlreadyAnsweredMessage();
+        return;
+    }
+
+    const button = document.getElementById("submitSurveyButton");
+    surveySubmitting = true;
+
+    if(button){
+        button.disabled = true;
+        button.textContent = "? Ã«—Ú  ÃÂÌ“ «·≈Ã«»« ...";
+    }
+
+    try{
+
+        /*
+           1) ÷€ÿ «·’Ê— ⁄·Ï ÃÂ«“ «·„” Œœ„ ﬁ»· √Ì ﬂ «»… ›Ì Firestore.
+        */
+        await prepareAllSelectedImages(function(status){
+            if(button){
+                button.textContent = "? " + status;
+            }
+        });
+
+        const result = collectSurveyAnswers();
+
+        if(result.errors.length > 0){
+            surveySubmitting = false;
+
+            if(button){
+                button.disabled = false;
+                button.textContent = "≈—”«· «·≈Ã«»« ";
+            }
+
+            showToast(
+                "Ì—ÃÏ «·≈Ã«»… ⁄‰ «·√”∆·… «·≈·“«„Ì….",
+                "error"
+            );
+
+            const firstError = result.errors[0];
+            const question = answerQuestionsData[firstError - 1];
+
+            if(question){
+                const element = document.querySelector(
+                    '[data-question-id="' + CSS.escape(question.id) + '"]'
+                );
+                if(element){
+                    element.scrollIntoView({behavior:"smooth",block:"center"});
+                }
+            }
+
+            return;
+        }
+
+        const invalidFiles = validateSelectedFiles();
+
+        if(invalidFiles.length > 0){
+            throw new Error(invalidFiles.join("\n"));
+        }
+
+        const anonymousId = getAnonymousId();
+
+        /*
+           ·« ‰‰‘∆ response ›Ì Firestore ﬁ»· —›⁄ «·’Ê—.
+           Â–« Ì„‰⁄ „‘ﬂ·… «·’·«ÕÌ«  «·‰« Ã… ⁄‰ addDoc À„ updateDoc.
+        */
+        const temporaryResponseId =
+            "tmp_" + Date.now() + "_" + Math.random().toString(36).slice(2,12);
+
+        if(button){
+            button.textContent = "? Ã«—Ú —›⁄ «·’Ê—...";
+        }
+
+        /*
+           ‰—›⁄ «·’Ê— ≈·Ï ImgBB Ê‰Õ’· ⁄·Ï «·—Ê«»ÿ «·‰Â«∆Ì….
+           Firestore ·‰ ÌÕ ÊÌ ⁄·Ï «·’Ê—… ‰›”Â«° »· «·—«»ÿ ›ﬁÿ.
+        */
+        const answersWithImages =
+            await saveSurveyAnswerFiles(
+                result.answers,
+                answerSurveyId,
+                anonymousId,
+                temporaryResponseId,
+                function(status){
+                    if(button){
+                        button.textContent = "? " + status;
+                    }
+                }
+            );
+
+        if(button){
+            button.textContent = "? Ã«—Ú Õ›Ÿ «·≈Ã«»« ...";
+        }
+
+        const responseData = {
+            surveyId: answerSurveyId,
+            anonymousId: anonymousId,
+            answers: answersWithImages,
+            submittedAt: serverTimestamp()
+        };
+
+        /*
+           ﬂ «»… Ê«Õœ… ›ﬁÿ ›Ì Firestore.
+           ·« ÌÊÃœ updateDoc »⁄œ –·ﬂ Ê·« deleteDoc ·· ‰ŸÌ›.
+        */
+        await addDoc(
+            collection(
+                db,
+                "surveys",
+                answerSurveyId,
+                "responses"
+            ),
+            responseData
+        );
+
+        markSurveyAsAnswered(answerSurveyId);
+        showSurveySuccess();
+
+    }catch(error){
+
+        console.error("SUBMIT ERROR:", error);
+
+        showToast(
+            error && error.message
+            ? error.message
+            : "ÕœÀ Œÿ√ √À‰«¡ ≈—”«· «·«” »Ì«‰.",
+            "error"
+        );
+
+        surveySubmitting = false;
+
+        if(button){
+            button.disabled = false;
+            button.textContent = "≈—”«· «·≈Ã«»« ";
+        }
+    }
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+function showSurveySuccess(){
+
+    document.getElementById(
+        "surveyQuestionsContainer"
+    ).innerHTML = `
+
+        <div class="answer-success">
+
+            <div class="answer-success-icon">
+                ?
+            </div>
+
+            <h2>
+                 „ ≈—”«· ≈Ã«» ﬂ »‰Ã«Õ
+            </h2>
+
+            <p>
+                ‘ﬂ—« ·ﬂ ⁄·Ï „‘«—ﬂ ﬂ.
+                <br>
+                 „  ”ÃÌ· ≈Ã«»« ﬂ »‰Ã«Õ.
+            </p>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="backFromSurvey()">
+
+                 «·⁄Êœ… ≈·Ï «·«” »Ì«‰« 
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "surveySubmitArea"
+    ).style.display =
+        "none";
+
+
+    surveySubmitting =
+        false;
+
+}
+
+
+/* =========================================================
+   BACK FROM SURVEY
+========================================================= */
+
+function backFromSurvey(){
+
+    answerSurveyId =
+        null;
+
+
+    answerSurveyData =
+        null;
+
+
+    answerQuestionsData =
+        [];
+
+
+    surveySubmitting =
+        false;
+
+
+    document.getElementById(
+        "surveyAnswerApp"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "userApp"
+    ).style.display =
+        "block";
+
+
+    loadUserSurveys();
+
+}
+
+
+/* =========================================================
+   LOAD ADMIN SURVEYS
+========================================================= */
+
+async function loadSurveys(){
+
+    try{
+
+        logMessage(
+            "Ã«—Ì  Õ„Ì· «·«” »Ì«‰« ..."
+        );
+
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "surveys"
+                )
+            );
+
+
+        surveysData =
+            [];
+
+
+        snapshot.forEach(
+            function(docSnap){
+
+                surveysData.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        surveysData.sort(
+            function(a,b){
+
+                const aOpen =
+                    String(
+                        a.status ||
+                        ""
+                    ).trim().toLowerCase()
+                    ===
+                    "open";
+
+
+                const bOpen =
+                    String(
+                        b.status ||
+                        ""
+                    ).trim().toLowerCase()
+                    ===
+                    "open";
+
+
+                if(
+                    aOpen &&
+                    !bOpen
+                ){
+
+                    return -1;
+
+                }
+
+
+                if(
+                    !aOpen &&
+                    bOpen
+                ){
+
+                    return 1;
+
+                }
+
+
+                return 0;
+
+            }
+        );
+
+
+        logMessage(
+            " „  Õ„Ì· " +
+            surveysData.length +
+            " «” »Ì«‰"
+        );
+
+
+        renderSurveys();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        logMessage(
+            "Œÿ√ ›Ì  Õ„Ì· «·«” »Ì«‰« : " +
+            error.message
+        );
+
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡  Õ„Ì· «·«” »Ì«‰« ",
+            "error"
+        );
+
+    }
+
+}
+
+  
+/* =========================================================
+   RENDER ADMIN SURVEYS
+========================================================= */
+
+function renderSurveys(){
+
+    const container =
+        document.getElementById(
+            "surveysContainer"
+        );
+
+
+    document.getElementById(
+        "totalSurveys"
+    ).textContent =
+        surveysData.length;
+
+
+    const openCount =
+        surveysData.filter(
+            function(s){
+
+                return String(
+                    s.status ||
+                    ""
+                )
+                .trim()
+                .toLowerCase()
+                ===
+                "open";
+
+            }
+        ).length;
+
+
+    document.getElementById(
+        "openSurveys"
+    ).textContent =
+        openCount;
+
+
+    document.getElementById(
+        "closedSurveys"
+    ).textContent =
+        surveysData.length -
+        openCount;
+
+
+    if(
+        surveysData.length ===
+        0
+    ){
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                <div style="font-size:45px;">
+                    ??
+                </div>
+
+                <h3>
+                    ·«  ÊÃœ «” »Ì«‰« 
+                </h3>
+
+                <p>
+                    «÷€ÿ ⁄·Ï ≈÷«›… «” »Ì«‰ ÃœÌœ.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        surveysData.map(
+            function(survey){
+
+                const isOpen =
+                    String(
+                        survey.status ||
+                        ""
+                    ).trim().toLowerCase()
+                    ===
+                    "open";
+
+
+                return `
+
+                    <div
+                        class="survey-card ${
+                            isOpen
+                            ?
+                            "open"
+                            :
+                            "closed"
+                        }">
+
+                        <div class="survey-title">
+
+                            ${escapeHtml(
+                                survey.title ||
+                                "»œÊ‰ ⁄‰Ê«‰"
+                            )}
+
+                        </div>
+
+
+                        <div class="survey-description">
+
+                            ${escapeHtml(
+                                survey.description ||
+                                "·« ÌÊÃœ Ê’› ··«” »Ì«‰"
+                            )}
+
+                        </div>
+
+
+                        <span class="badge ${
+                            isOpen
+                            ?
+                            "badge-open"
+                            :
+                            "badge-closed"
+                        }">
+
+                            ${
+                                isOpen
+                                ?
+                                " „› ÊÕ"
+                                :
+                                " „€·ﬁ"
+                            }
+
+                        </span>
+
+
+                        <div class="card-info">
+
+                            ≈ŸÂ«— «·‰ «∆Ã:
+
+                            ${
+                                survey.showResults ===
+                                true
+                                ?
+                                "‰⁄„"
+                                :
+                                "·«"
+                            }
+
+                        </div>
+
+
+                        <div class="card-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="openQuestions('${escapeAttribute(survey.id)}')">
+
+                                 «·√”∆·…
+
+                            </button>
+
+
+                            <button
+                                class="btn btn-purple"
+                                onclick="openResults('${escapeAttribute(survey.id)}')">
+
+                                 «·‰ «∆Ã
+
+                            </button>
+
+
+                            <button
+                                class="btn btn-warning"
+                                onclick="editSurvey('${escapeAttribute(survey.id)}')">
+
+                                  ⁄œÌ·
+
+                            </button>
+
+
+                            <button
+                                class="btn ${
+                                    isOpen
+                                    ?
+                                    "btn-danger"
+                                    :
+                                    "btn-success"
+                                }"
+                                onclick="toggleSurvey(
+                                    '${escapeAttribute(survey.id)}',
+                                    '${isOpen ? "open" : "closed"}'
+                                )">
+
+                                ${
+                                    isOpen
+                                    ?
+                                    " ≈€·«ﬁ"
+                                    :
+                                    "› Õ"
+                                }
+
+                            </button>
+
+
+                            <button
+                                class="btn btn-light"
+                                onclick="deleteSurvey('${escapeAttribute(survey.id)}')">
+
+                                 Õ–›
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/* =========================================================
+   ADD SURVEY
+========================================================= */
+
+function openAddSurvey(){
+
+    document.getElementById(
+        "surveyModalTitle"
+    ).textContent =
+        "≈÷«›… «” »Ì«‰ ÃœÌœ";
+
+
+    document.getElementById(
+        "surveyId"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "surveyTitle"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "surveyDescription"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "surveyStatus"
+    ).value =
+        "open";
+
+
+    document.getElementById(
+        "showResults"
+    ).checked =
+        false;
+
+
+    document.getElementById(
+        "surveyModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   EDIT SURVEY
+========================================================= */
+
+async function editSurvey(
+    surveyId
+){
+
+    const survey =
+        surveysData.find(
+            function(item){
+
+                return item.id ===
+                    surveyId;
+
+            }
+        );
+
+
+    if(!survey){
+
+        showToast(
+            "·„ Ì „ «·⁄ÀÊ— ⁄·Ï «·«” »Ì«‰",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "surveyModalTitle"
+    ).textContent =
+        " ⁄œÌ· «·«” »Ì«‰";
+
+
+    document.getElementById(
+        "surveyId"
+    ).value =
+        surveyId;
+
+
+    document.getElementById(
+        "surveyTitle"
+    ).value =
+        survey.title ||
+        "";
+
+
+    document.getElementById(
+        "surveyDescription"
+    ).value =
+        survey.description ||
+        "";
+
+
+    document.getElementById(
+        "surveyStatus"
+    ).value =
+        String(
+            survey.status ||
+            "open"
+        ).trim().toLowerCase();
+
+
+    document.getElementById(
+        "showResults"
+    ).checked =
+        survey.showResults ===
+        true;
+
+
+    document.getElementById(
+        "surveyModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   SAVE SURVEY
+========================================================= */
+
+async function saveSurvey(){
+
+    try{
+
+        const surveyId =
+            document.getElementById(
+                "surveyId"
+            ).value.trim();
+
+
+        const title =
+            document.getElementById(
+                "surveyTitle"
+            ).value.trim();
+
+
+        const description =
+            document.getElementById(
+                "surveyDescription"
+            ).value.trim();
+
+
+        const status =
+            document.getElementById(
+                "surveyStatus"
+            ).value;
+
+
+        const showResults =
+            document.getElementById(
+                "showResults"
+            ).checked;
+
+
+        if(!title){
+
+            showToast(
+                "Ì—ÃÏ ﬂ «»… ⁄‰Ê«‰ «·«” »Ì«‰",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(surveyId){
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "surveys",
+                    surveyId
+                ),
+
+                {
+
+                    title:
+                        title,
+
+                    description:
+                        description,
+
+                    status:
+                        status,
+
+                    showResults:
+                        showResults,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+            showToast(
+                " „  ⁄œÌ· «·«” »Ì«‰ »‰Ã«Õ"
+            );
+
+        }else{
+
+            const newDoc =
+                await addDoc(
+
+                    collection(
+                        db,
+                        "surveys"
+                    ),
+
+                    {
+
+                        title:
+                            title,
+
+                        description:
+                            description,
+
+                        status:
+                            status,
+
+                        showResults:
+                            showResults,
+
+                        createdBy:
+                            "system",
+
+                        createdAt:
+                            serverTimestamp(),
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+            logMessage(
+                " „ ≈‰‘«¡ «” »Ì«‰ ÃœÌœ: " +
+                newDoc.id
+            );
+
+
+            showToast(
+                " „ ≈‰‘«¡ «·«” »Ì«‰ »‰Ã«Õ"
+            );
+
+        }
+
+
+        closeModal(
+            "surveyModal"
+        );
+
+
+        await loadSurveys();
+
+        await loadUserSurveys();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡ Õ›Ÿ «·«” »Ì«‰: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TOGGLE SURVEY
+========================================================= */
+
+async function toggleSurvey(
+    surveyId,
+    currentStatus
+){
+
+    try{
+
+        const normalized =
+            String(
+                currentStatus ||
+                ""
+            ).trim().toLowerCase();
+
+
+        const newStatus =
+            normalized ===
+            "open"
+            ?
+            "closed"
+            :
+            "open";
+
+
+        await updateDoc(
+
+            doc(
+                db,
+                "surveys",
+                surveyId
+            ),
+
+            {
+
+                status:
+                    newStatus,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            newStatus ===
+            "open"
+            ?
+            " „ › Õ «·«” »Ì«‰"
+            :
+            " „ ≈€·«ﬁ «·«” »Ì«‰"
+        );
+
+
+        await loadSurveys();
+
+        await loadUserSurveys();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡  €ÌÌ— Õ«·… «·«” »Ì«‰",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DELETE SURVEY
+========================================================= */
+
+async function deleteSurvey(
+    surveyId
+){
+
+    const survey =
+        surveysData.find(
+            function(item){
+                return item.id === surveyId;
+            }
+        );
+
+    if(!survey){
+        return;
+    }
+
+    const confirmed =
+        confirm(
+            "Â· √‰  „ √ﬂœ „‰ Õ–› «·«” »Ì«‰:\n\n" +
+            (survey.title || "»œÊ‰ ⁄‰Ê«‰") +
+            "\n\n" +
+            "”Ì „ Õ–› «·«” »Ì«‰ ÊÃ„Ì⁄ «·√”∆·… ÊÃ„Ì⁄ «·—œÊœ «· «»⁄… ·Â ‰Â«∆Ì«.\n" +
+            "·« Ì„ﬂ‰ «· —«Ã⁄ ⁄‰ Â–Â «·⁄„·Ì…."
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+    try{
+
+        showToast(
+            "Ã«—Ú Õ–› «·«” »Ì«‰ Ê«·√”∆·… Ê«·—œÊœ...",
+            "info"
+        );
+
+        // Õ–› Ã„Ì⁄ «·√”∆·… «· «»⁄… ··«” »Ì«‰
+        const questionsSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "surveys",
+                    surveyId,
+                    "questions"
+                )
+            );
+
+        for(const questionDoc of questionsSnapshot.docs){
+            await deleteDoc(questionDoc.ref);
+        }
+
+        // Õ–› Ã„Ì⁄ «·—œÊœ «· «»⁄… ··«” »Ì«‰
+        const responsesSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "surveys",
+                    surveyId,
+                    "responses"
+                )
+            );
+
+        for(const responseDoc of responsesSnapshot.docs){
+            await deleteDoc(responseDoc.ref);
+        }
+
+        // √ŒÌ—« Õ–› „” ‰œ «·«” »Ì«‰ ‰›”Â
+        await deleteDoc(
+            doc(
+                db,
+                "surveys",
+                surveyId
+            )
+        );
+
+        if(currentSurveyId === surveyId){
+            currentSurveyId = null;
+            currentSurveyData = null;
+            currentResultsData = {
+                survey:null,
+                questions:[],
+                responses:[],
+                filteredResponses:[]
+            };
+        }
+
+        showToast(
+            " „ Õ–› «·«” »Ì«‰ Ê«·√”∆·… Ê«·—œÊœ »‰Ã«Õ"
+        );
+
+        await loadSurveys();
+        await loadUserSurveys();
+
+    }catch(error){
+
+        console.error(
+            "DELETE SURVEY ERROR:",
+            error
+        );
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡ Õ–› «·«” »Ì«‰: " +
+            (error.message || error),
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DELETE SINGLE RESPONSE
+========================================================= */
+
+async function deleteSurveyResponse(
+    responseId
+){
+
+    if(!currentSurveyId || !responseId){
+        showToast(
+            " ⁄–—  ÕœÌœ «·—œ «·„ÿ·Ê» Õ–›Â",
+            "error"
+        );
+        return;
+    }
+
+    const response =
+        currentResultsData.responses.find(
+            function(item){
+                return String(item.id) === String(responseId);
+            }
+        );
+
+    const responseDate =
+        response
+        ? formatTimestamp(response.submittedAt)
+        : "";
+
+    const confirmed =
+        confirm(
+            "Â· √‰  „ √ﬂœ „‰ Õ–› —œ Â–« «·„‘«—ﬂø\n\n" +
+            (responseDate ? " «—ÌŒ «·„‘«—ﬂ…: " + responseDate + "\n\n" : "") +
+            "”Ì „ Õ–› «·—œ ‰Â«∆Ì« Ê·« Ì„ﬂ‰ «· —«Ã⁄ ⁄‰ –·ﬂ."
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "responses",
+                responseId
+            )
+        );
+
+        currentResultsData.responses =
+            currentResultsData.responses.filter(
+                function(item){
+                    return String(item.id) !== String(responseId);
+                }
+            );
+
+        currentResultsData.filteredResponses =
+            currentResultsData.filteredResponses.filter(
+                function(item){
+                    return String(item.id) !== String(responseId);
+                }
+            );
+
+        renderResults(
+            currentResultsData.survey,
+            currentResultsData.questions,
+            currentResultsData.responses
+        );
+
+        showToast(
+            " „ Õ–› —œ «·„‘«—ﬂ »‰Ã«Õ"
+        );
+
+    }catch(error){
+
+        console.error(
+            "DELETE RESPONSE ERROR:",
+            error
+        );
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡ Õ–› «·—œ: " +
+            (error.message || error),
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   OPEN QUESTIONS
+========================================================= */
+
+async function openQuestions(
+    surveyId
+){
+
+    currentSurveyId =
+        surveyId;
+
+
+    currentSurveyData =
+        surveysData.find(
+            function(item){
+
+                return item.id ===
+                    surveyId;
+
+            }
+        );
+
+
+    if(!currentSurveyData){
+
+        showToast(
+            "·„ Ì „ «·⁄ÀÊ— ⁄·Ï «·«” »Ì«‰",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "questionsSurveyTitle"
+    ).textContent =
+        currentSurveyData.title ||
+        "»œÊ‰ ⁄‰Ê«‰";
+
+
+    const isOpen =
+        String(
+            currentSurveyData.status ||
+            ""
+        ).trim().toLowerCase()
+        ===
+        "open";
+
+
+    document.getElementById(
+        "questionsSurveyStatus"
+    ).textContent =
+        isOpen
+        ?
+        " «·«” »Ì«‰ „› ÊÕ"
+        :
+        " «·«” »Ì«‰ „€·ﬁ";
+
+
+    document.getElementById(
+        "questionsModal"
+    ).classList.add(
+        "show"
+    );
+
+
+    await loadQuestions();
+
+}
+
+
+/* =========================================================
+   LOAD QUESTIONS
+========================================================= */
+
+async function loadQuestions(){
+
+    if(!currentSurveyId){
+
+        return;
+
+    }
+
+
+    const container =
+        document.getElementById(
+            "questionsContainer"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="user-loading">
+            ? Ã«—Ì  Õ„Ì· «·√”∆·…...
+        </div>
+
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "surveys",
+                    currentSurveyId,
+                    "questions"
+                )
+
+            );
+
+
+        questionsData =
+            [];
+
+
+        snapshot.forEach(
+            function(docSnap){
+
+                questionsData.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        questionsData.sort(
+            function(a,b){
+
+                return Number(
+                    a.order ||
+                    999999
+                )
+                -
+                Number(
+                    b.order ||
+                    999999
+                );
+
+            }
+        );
+
+
+        renderQuestions();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                  ⁄–—  Õ„Ì· «·√”∆·…
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER QUESTIONS
+========================================================= */
+
+function renderQuestions(){
+
+    const container =
+        document.getElementById(
+            "questionsContainer"
+        );
+
+
+    if(
+        questionsData.length ===
+        0
+    ){
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                <div style="font-size:45px;">
+                    ??
+                </div>
+
+                <h3>
+                    ·«  ÊÃœ √”∆·… Õ Ï «·¬‰
+                </h3>
+
+                <p>
+                    «÷€ÿ ⁄·Ï ≈÷«›… ”ƒ«·.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        questionsData
+            .map(
+                function(
+                    question,
+                    index
+                ){
+
+                    return renderQuestion(
+                        question,
+                        index
+                    );
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(
+    question,
+    index
+){
+
+    const typeNames = {
+
+        single_choice:
+            " «Œ Ì«— Ê«Õœ",
+
+        multiple_choice:
+            " «Œ Ì«— „ ⁄œœ",
+
+        text:
+            "‰’",
+
+        number:
+            " —ﬁ„",
+
+        rating:
+            "  ﬁÌÌ„",
+
+        image:
+            " ’Ê—…",
+
+        file:
+            " „·›"
+
+    };
+
+
+    const typeName =
+        typeNames[
+            question.questionType
+        ]
+        ||
+        "€Ì— „Õœœ";
+
+
+    let optionsHtml =
+        "";
+
+
+    if(
+
+        (
+            question.questionType ===
+            "single_choice"
+
+            ||
+
+            question.questionType ===
+            "multiple_choice"
+        )
+
+        &&
+
+        Array.isArray(
+            question.options
+        )
+
+    ){
+
+        optionsHtml = `
+
+            <div class="question-options">
+
+                <strong>
+                    «·ŒÌ«—« :
+                </strong>
+
+                ${
+                    question.options
+                        .map(
+                            function(option){
+
+                                return `
+                                    <div>
+                                        ï ${escapeHtml(option)}
+                                    </div>
+                                `;
+
+                            }
+                        )
+                        .join("")
+                }
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="question-card">
+
+            <div class="question-top">
+
+                <div class="question-number">
+                    ${index + 1}
+                </div>
+
+
+                <div class="question-main">
+
+                    <div class="question-text">
+
+                        ${escapeHtml(
+                            question.questionText ||
+                            "»œÊ‰ ‰’"
+                        )}
+
+                    </div>
+
+
+                    <div class="question-meta">
+
+                        <span class="meta">
+                            ${typeName}
+                        </span>
+
+
+                        <span class="meta">
+
+                            «· — Ì»:
+                            ${question.order || index + 1}
+
+                        </span>
+
+
+                        ${
+                            question.required
+                            ?
+                            `
+                                <span class="meta required">
+                                     ≈Ã»«—Ì
+                                </span>
+                            `
+                            :
+                            `
+                                <span class="meta">
+                                    «Œ Ì«—Ì
+                                </span>
+                            `
+                        }
+
+                    </div>
+
+
+                    ${optionsHtml}
+
+                </div>
+
+            </div>
+
+
+            <div class="question-actions">
+
+                <button
+                    class="btn btn-light"
+                    onclick="moveQuestionUp('${escapeAttribute(question.id)}')">
+
+                     √⁄·Ï
+
+                </button>
+
+
+                <button
+                    class="btn btn-light"
+                    onclick="moveQuestionDown('${escapeAttribute(question.id)}')">
+
+                     √”›·
+
+                </button>
+
+
+                <button
+                    class="btn btn-warning"
+                    onclick="editQuestion('${escapeAttribute(question.id)}')">
+
+                      ⁄œÌ·
+
+                </button>
+
+
+                <button
+                    class="btn btn-danger"
+                    onclick="deleteQuestion('${escapeAttribute(question.id)}')">
+
+                     Õ–›
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ADD QUESTION
+========================================================= */
+
+function openAddQuestion(){
+
+    if(!currentSurveyId){
+
+        showToast(
+            "«Œ — «” »Ì«‰« √Ê·«",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    editingQuestionId =
+        null;
+
+
+    document.getElementById(
+        "questionModalTitle"
+    ).textContent =
+        "≈÷«›… ”ƒ«· ÃœÌœ";
+
+
+    document.getElementById(
+        "questionId"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "questionText"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "questionType"
+    ).value =
+        "single_choice";
+
+
+    document.getElementById(
+        "questionRequired"
+    ).checked =
+        true;
+
+
+    document.getElementById(
+        "questionOrder"
+    ).value =
+        questionsData.length +
+        1;
+
+
+    createDefaultOptions();
+
+    questionTypeChanged();
+
+
+    document.getElementById(
+        "questionModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   EDIT QUESTION
+========================================================= */
+
+function editQuestion(
+    questionId
+){
+
+    const question =
+        questionsData.find(
+            function(item){
+
+                return item.id ===
+                    questionId;
+
+            }
+        );
+
+
+    if(!question){
+
+        showToast(
+            "·„ Ì „ «·⁄ÀÊ— ⁄·Ï «·”ƒ«·",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    editingQuestionId =
+        questionId;
+
+
+    document.getElementById(
+        "questionModalTitle"
+    ).textContent =
+        " ⁄œÌ· «·”ƒ«·";
+
+
+    document.getElementById(
+        "questionId"
+    ).value =
+        questionId;
+
+
+    document.getElementById(
+        "questionText"
+    ).value =
+        question.questionText ||
+        "";
+
+
+    document.getElementById(
+        "questionType"
+    ).value =
+        question.questionType ||
+        "single_choice";
+
+
+    document.getElementById(
+        "questionOrder"
+    ).value =
+        question.order ||
+        1;
+
+
+    document.getElementById(
+        "questionRequired"
+    ).checked =
+        question.required ===
+        true;
+
+
+    document.getElementById(
+        "optionsContainer"
+    ).innerHTML =
+        "";
+
+
+    if(
+        Array.isArray(
+            question.options
+        )
+        &&
+        question.options.length >
+        0
+    ){
+
+        question.options.forEach(
+            function(option){
+
+                addOption(
+                    option
+                );
+
+            }
+        );
+
+    }else{
+
+        createDefaultOptions();
+
+    }
+
+
+    questionTypeChanged();
+
+
+    document.getElementById(
+        "questionModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   QUESTION TYPE
+========================================================= */
+
+function questionTypeChanged(){
+
+    const type =
+        document.getElementById(
+            "questionType"
+        ).value;
+
+
+    const section =
+        document.getElementById(
+            "optionsSection"
+        );
+
+
+    if(
+
+        type ===
+        "single_choice"
+
+        ||
+
+        type ===
+        "multiple_choice"
+
+    ){
+
+        section.style.display =
+            "block";
+
+    }else{
+
+        section.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   DEFAULT OPTIONS
+========================================================= */
+
+function createDefaultOptions(){
+
+    const container =
+        document.getElementById(
+            "optionsContainer"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    addOption("");
+
+    addOption("");
+
+}
+
+
+/* =========================================================
+   ADD OPTION
+========================================================= */
+
+function addOption(
+    value=""
+){
+
+    const container =
+        document.getElementById(
+            "optionsContainer"
+        );
+
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "option-row";
+
+
+    row.innerHTML = `
+
+        <input
+            type="text"
+            class="form-control option-input"
+            placeholder="«ﬂ » ŒÌ«— «·≈Ã«»…"
+            value="${escapeAttribute(value)}">
+
+
+        <button
+            type="button"
+            class="remove-option"
+            title="Õ–› «·ŒÌ«—">
+
+            ◊
+
+        </button>
+
+    `;
+
+
+    row.querySelector(
+        ".remove-option"
+    ).addEventListener(
+        "click",
+        function(){
+
+            row.remove();
+
+        }
+    );
+
+
+    container.appendChild(
+        row
+    );
+
+}
+
+
+/* =========================================================
+   GET OPTIONS
+========================================================= */
+
+function getOptions(){
+
+    const inputs =
+        document.querySelectorAll(
+            "#optionsContainer .option-input"
+        );
+
+
+    const options =
+        [];
+
+
+    inputs.forEach(
+        function(input){
+
+            const value =
+                input.value.trim();
+
+
+            if(value){
+
+                options.push(
+                    value
+                );
+
+            }
+
+        }
+    );
+
+
+    return options;
+
+}
+
+
+/* =========================================================
+   SAVE QUESTION
+========================================================= */
+
+async function saveQuestion(){
+
+    try{
+
+        if(!currentSurveyId){
+
+            showToast(
+                "·„ Ì „  ÕœÌœ «·«” »Ì«‰",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const questionText =
+            document.getElementById(
+                "questionText"
+            ).value.trim();
+
+
+        const questionType =
+            document.getElementById(
+                "questionType"
+            ).value;
+
+
+        const required =
+            document.getElementById(
+                "questionRequired"
+            ).checked;
+
+
+        let order =
+            Number(
+                document.getElementById(
+                    "questionOrder"
+                ).value
+            );
+
+
+        if(!questionText){
+
+            showToast(
+                "Ì—ÃÏ ﬂ «»… ‰’ «·”ƒ«·",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !order ||
+            order < 1
+        ){
+
+            order =
+                questionsData.length +
+                1;
+
+        }
+
+
+        let options =
+            [];
+
+
+        if(
+
+            questionType ===
+            "single_choice"
+
+            ||
+
+            questionType ===
+            "multiple_choice"
+
+        ){
+
+            options =
+                getOptions();
+
+
+            if(
+                options.length <
+                2
+            ){
+
+                showToast(
+                    "ÌÃ» ≈÷«›… ŒÌ«—Ì‰ ⁄·Ï «·√ﬁ·",
+                    "error"
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        const questionData = {
+
+            questionText:
+                questionText,
+
+            questionType:
+                questionType,
+
+            required:
+                required,
+
+            order:
+                order,
+
+            options:
+                options,
+
+            updatedAt:
+                serverTimestamp()
+
+        };
+
+
+        if(
+            editingQuestionId
+        ){
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "surveys",
+                    currentSurveyId,
+                    "questions",
+                    editingQuestionId
+                ),
+
+                questionData
+
+            );
+
+
+            showToast(
+                " „  ⁄œÌ· «·”ƒ«· »‰Ã«Õ"
+            );
+
+        }else{
+
+            questionData.createdAt =
+                serverTimestamp();
+
+
+            await addDoc(
+
+                collection(
+                    db,
+                    "surveys",
+                    currentSurveyId,
+                    "questions"
+                ),
+
+                questionData
+
+            );
+
+
+            showToast(
+                " „  ≈÷«›… «·”ƒ«· »‰Ã«Õ"
+            );
+
+        }
+
+
+        closeModal(
+            "questionModal"
+        );
+
+
+        await loadQuestions();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡ Õ›Ÿ «·”ƒ«·: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DELETE QUESTION
+========================================================= */
+
+async function deleteQuestion(
+    questionId
+){
+
+    const question =
+        questionsData.find(
+            function(item){
+
+                return item.id ===
+                    questionId;
+
+            }
+        );
+
+
+    if(!question){
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Â· √‰  „ √ﬂœ „‰ Õ–› Â–« «·”ƒ«·ø\n\n" +
+            (
+                question.questionText ||
+                "»œÊ‰ ‰’"
+            )
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "questions",
+                questionId
+            )
+
+        );
+
+
+        showToast(
+            " „ Õ–› «·”ƒ«·"
+        );
+
+
+        await loadQuestions();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            " ⁄–— Õ–› «·”ƒ«·",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MOVE QUESTION UP
+========================================================= */
+
+async function moveQuestionUp(
+    questionId
+){
+
+    const index =
+        questionsData.findIndex(
+            function(item){
+
+                return item.id ===
+                    questionId;
+
+            }
+        );
+
+
+    if(
+        index <=
+        0
+    ){
+
+        showToast(
+            "«·”ƒ«· „ÊÃÊœ ›Ì «·√⁄·Ï »«·›⁄·"
+        );
+
+        return;
+
+    }
+
+
+    const current =
+        questionsData[index];
+
+
+    const previous =
+        questionsData[
+            index - 1
+        ];
+
+
+    const currentOrder =
+        Number(
+            current.order ||
+            index + 1
+        );
+
+
+    const previousOrder =
+        Number(
+            previous.order ||
+            index
+        );
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "questions",
+                current.id
+            ),
+
+            {
+
+                order:
+                    previousOrder,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        await updateDoc(
+
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "questions",
+                previous.id
+            ),
+
+            {
+
+                order:
+                    currentOrder,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        await loadQuestions();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            " ⁄–—  €ÌÌ—  — Ì» «·”ƒ«·",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MOVE QUESTION DOWN
+========================================================= */
+
+async function moveQuestionDown(
+    questionId
+){
+
+    const index =
+        questionsData.findIndex(
+            function(item){
+
+                return item.id ===
+                    questionId;
+
+            }
+        );
+
+
+    if(
+        index === -1
+        ||
+        index >=
+        questionsData.length - 1
+    ){
+
+        showToast(
+            "«·”ƒ«· „ÊÃÊœ ›Ì «·√”›· »«·›⁄·"
+        );
+
+        return;
+
+    }
+
+
+    const current =
+        questionsData[index];
+
+
+    const next =
+        questionsData[
+            index + 1
+        ];
+
+
+    const currentOrder =
+        Number(
+            current.order ||
+            index + 1
+        );
+
+
+    const nextOrder =
+        Number(
+            next.order ||
+            index + 2
+        );
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "questions",
+                current.id
+            ),
+
+            {
+
+                order:
+                    nextOrder,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        await updateDoc(
+
+            doc(
+                db,
+                "surveys",
+                currentSurveyId,
+                "questions",
+                next.id
+            ),
+
+            {
+
+                order:
+                    currentOrder,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        await loadQuestions();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            " ⁄–—  €ÌÌ—  — Ì» «·”ƒ«·",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+async function openResults(
+    surveyId
+){
+
+    /* Õ›Ÿ „⁄—› «·«” »Ì«‰ «·Õ«·Ì Õ Ï  ⁄„· ⁄„·Ì«  «·Õ–› „‰ «·‰ «∆Ã */
+    currentSurveyId = surveyId;
+
+    if(!surveyId){
+
+        showToast(
+            "·„ Ì „  ÕœÌœ «·«” »Ì«‰",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "resultsModal"
+    ).classList.add(
+        "show"
+    );
+
+
+    const container =
+        document.getElementById(
+            "resultsContainer"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="user-loading">
+
+            ? Ã«—Ì  Õ„Ì· «·‰ «∆Ã...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const surveySnap =
+            await getDoc(
+
+                doc(
+                    db,
+                    "surveys",
+                    surveyId
+                )
+
+            );
+
+
+        if(
+            !surveySnap.exists()
+        ){
+
+            throw new Error(
+                "«·«” »Ì«‰ €Ì— „ÊÃÊœ."
+            );
+
+        }
+
+
+        const survey =
+            {
+
+                id:
+                    surveyId,
+
+                ...surveySnap.data()
+
+            };
+
+
+        const questionsSnapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "surveys",
+                    surveyId,
+                    "questions"
+                )
+
+            );
+
+
+        const questions =
+            [];
+
+
+        questionsSnapshot.forEach(
+            function(docSnap){
+
+                questions.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        questions.sort(
+            function(a,b){
+
+                return Number(
+                    a.order ||
+                    999999
+                )
+                -
+                Number(
+                    b.order ||
+                    999999
+                );
+
+            }
+        );
+
+
+        const responsesSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "surveys",
+                    surveyId,
+                    "responses"
+                )
+            );
+
+        const responses = [];
+
+        responsesSnapshot.forEach(
+            function(docSnap){
+                responses.push({
+                    id: docSnap.id,
+                    ...docSnap.data()
+                });
+            }
+        );
+
+        /*
+           «·’Ê— «·ÃœÌœ…  Õ„· —«»ÿ ImgBB + ‰”Œ… Excel „÷€Êÿ… œ«Œ· «·≈Ã«»….
+           ·« ‰⁄ „œ ⁄·Ï survey_files «·ﬁœÌ„….
+        */
+
+        responses.sort(
+            function(a,b){
+                return getTimestampMillis(b.submittedAt) -
+                       getTimestampMillis(a.submittedAt);
+            }
+        );
+
+
+        currentResultsData = {
+
+            survey:
+                survey,
+
+            questions:
+                questions,
+
+            responses:
+                responses,
+
+            filteredResponses:
+                responses
+
+        };
+
+
+        renderResults(
+            survey,
+            questions,
+            responses
+        );
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="user-empty">
+
+                  ⁄–—  Õ„Ì· «·‰ «∆Ã
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults(
+    survey,
+    questions,
+    responses
+){
+
+    const container =
+        document.getElementById(
+            "resultsContainer"
+        );
+
+
+    const answeredQuestions =
+        questions.length;
+
+
+    const averagePerResponse =
+        responses.length > 0
+        ?
+        (
+            responses.reduce(
+                function(total,response){
+
+                    let count = 0;
+
+                    if(
+                        response.answers
+                    ){
+
+                        Object.keys(
+                            response.answers
+                        ).forEach(
+                            function(key){
+
+                                const value =
+                                    response.answers[key];
+
+
+                                if(
+                                    value !== null &&
+                                    value !== undefined &&
+                                    value !== ""
+                                ){
+
+                                    count++;
+
+                                }
+
+                            }
+                        );
+
+                    }
+
+                    return total + count;
+
+                },
+                0
+            )
+            /
+            responses.length
+        ).toFixed(1)
+        :
+        "0";
+
+
+    let html = `
+
+        <div class="results-summary">
+
+            <div class="summary-box">
+
+                <div class="summary-number">
+                    ${responses.length}
+                </div>
+
+                <div class="summary-label">
+                    ⁄œœ «·„‘«—ﬂÌ‰
+                </div>
+
+            </div>
+
+
+            <div class="summary-box">
+
+                <div class="summary-number">
+                    ${answeredQuestions}
+                </div>
+
+                <div class="summary-label">
+                    ⁄œœ «·√”∆·…
+                </div>
+
+            </div>
+
+
+            <div class="summary-box">
+
+                <div class="summary-number">
+                    ${averagePerResponse}
+                </div>
+
+                <div class="summary-label">
+                    „ Ê”ÿ «·≈Ã«»«  ·ﬂ· „‘«—ﬂ
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div style="background:#f8fafc;padding:15px;border-radius:12px;margin-bottom:15px;">
+
+            <strong>
+                «·«” »Ì«‰:
+            </strong>
+
+            ${escapeHtml(
+                survey.title ||
+                "»œÊ‰ ⁄‰Ê«‰"
+            )}
+
+            <br>
+
+            <small>
+                ${escapeHtml(
+                    survey.description ||
+                    ""
+                )}
+            </small>
+
+        </div>
+
+
+        <div class="results-toolbar">
+
+            <div class="results-toolbar-grid">
+
+                <input
+                    id="resultsSearch"
+                    class="results-search"
+                    type="text"
+                    placeholder=" «»ÕÀ ›Ì «·„‘«—ﬂ«  √Ê «·≈Ã«»« ..."
+                    oninput="filterResultsTable()">
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="exportResultsToExcel()">
+
+                     Excel
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="printResults()">
+
+                     ÿ»«⁄…
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="clearResultsSearch()">
+
+                     „”Õ «·»ÕÀ
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="results-section-title">
+
+             ≈Ã«»«  «·„‘«—ﬂÌ‰
+
+        </div>
+
+    `;
+
+
+    if(
+        responses.length ===
+        0
+    ){
+
+        html += `
+
+            <div class="no-results">
+
+                ·«  ÊÃœ „‘«—ﬂ«  Õ Ï «·¬‰.
+
+            </div>
+
+        `;
+
+    }else{
+
+        html += buildResponsesTable(
+            questions,
+            responses
+        );
+
+    }
+
+
+    html += `
+
+        <div class="results-section-title">
+
+             „⁄·Ê„«  «·√”∆·… ﬂ«„·…
+
+        </div>
+
+        ${buildQuestionsInfoTable(
+            questions
+        )}
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =========================================================
+   BUILD RESPONSES TABLE
+========================================================= */
+
+function buildResponsesTable(
+    questions,
+    responses
+){
+
+    let html = `
+
+        <div class="table-wrapper">
+
+            <table
+                id="resultsResponsesTable"
+                class="results-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                             «—ÌŒ ÊÊﬁ  «·„‘«—ﬂ…
+                        </th>
+
+                        <th>
+                            «·≈Ã—«¡
+                        </th>
+
+    `;
+
+
+    questions.forEach(
+        function(question,index){
+
+            html += `
+
+                <th>
+
+                    ${index + 1}.
+                    ${escapeHtml(
+                        question.questionText ||
+                        "»œÊ‰ ‰’"
+                    )}
+
+                </th>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+    `;
+
+
+    responses.forEach(
+        function(response,index){
+
+            html += `
+
+                <tr
+                    data-response-search="${escapeAttribute(
+                        createSearchText(
+                            response,
+                            questions,
+                            index
+                        )
+                    )}">
+
+                    <td class="response-number">
+
+                        ${index + 1}
+
+                    </td>
+
+
+                    <td class="response-date">
+
+                        ${escapeHtml(
+                            formatTimestamp(
+                                response.submittedAt
+                            )
+                        )}
+
+                    </td>
+
+            `;
+
+
+            questions.forEach(
+                function(question){
+
+                    const value =
+                        response.answers
+                        ?
+                        response.answers[
+                            question.id
+                        ]
+                        :
+                        null;
+
+
+                    html += `
+
+                        <td class="answer-cell">
+
+                            ${formatAnswerForHtml(
+                                value,
+                                question
+                            )}
+
+                        </td>
+
+                    `;
+
+                }
+            );
+
+
+            html += `
+
+                    <td style="text-align:center;white-space:nowrap;">
+
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            style="padding:7px 10px;font-size:12px;"
+                            onclick="deleteSurveyResponse('${escapeAttribute(response.id)}')">
+
+                            Õ–› «·—œ
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    return html;
+
+}
+
+
+/* =========================================================
+   BUILD QUESTION INFO TABLE
+========================================================= */
+
+function buildQuestionsInfoTable(
+    questions
+){
+
+    if(
+        questions.length ===
+        0
+    ){
+
+        return `
+
+            <div class="no-results">
+                ·«  ÊÃœ √”∆·….
+            </div>
+
+        `;
+
+    }
+
+
+    let html = `
+
+        <div class="table-wrapper">
+
+            <table class="question-info-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            „⁄—› «·”ƒ«·
+                        </th>
+
+                        <th>
+                            ‰’ «·”ƒ«·
+                        </th>
+
+                        <th>
+                            ‰Ê⁄ «·”ƒ«·
+                        </th>
+
+                        <th>
+                            ≈Ã»«—Ì
+                        </th>
+
+                        <th>
+                            «· — Ì»
+                        </th>
+
+                        <th>
+                            «·ŒÌ«—« 
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+    `;
+
+
+    questions.forEach(
+        function(question,index){
+
+            html += `
+
+                <tr>
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+                    <td>
+                        <code>
+                            ${escapeHtml(
+                                question.id
+                            )}
+                        </code>
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            question.questionText ||
+                            ""
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            getQuestionTypeName(
+                                question.questionType
+                            )
+                        )}
+                    </td>
+
+                    <td>
+                        ${
+                            question.required
+                            ?
+                            "‰⁄„"
+                            :
+                            "·«"
+                        }
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            String(
+                                question.order ||
+                                index + 1
+                            )
+                        )}
+                    </td>
+
+                    <td>
+
+                        ${
+                            Array.isArray(
+                                question.options
+                            )
+                            &&
+                            question.options.length
+                            ?
+                            question.options
+                                .map(
+                                    function(option){
+
+                                        return escapeHtml(
+                                            option
+                                        );
+
+                                    }
+                                )
+                                .join(
+                                    " | "
+                                )
+                            :
+                            "-"
+                        }
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    return html;
+
+}
+
+
+/* =========================================================
+   FORMAT ANSWER HTML
+========================================================= */
+
+function formatAnswerForHtml(value,question){
+    if(value === null || value === undefined || value === "") return `<span class="answer-empty">·„ ÌÃ»</span>`;
+    if(Array.isArray(value)){
+        return `<div class="answer-multiple">${value.map(function(item){ return `<span class="answer-tag">${escapeHtml(String(item))}</span>`; }).join("")}</div>`;
+    }
+    if(typeof value === "object"){
+        if(value.fileName){
+            if(value.downloadURL && value.fileType && value.fileType.indexOf("image/") === 0){
+                const safeUrl = escapeHtml(value.downloadURL);
+                const safeName = escapeHtml(value.fileName);
+                return `<div class="survey-image-answer"><img src="${safeUrl}" class="survey-answer-image" alt="${safeName}" loading="lazy" onclick="openSurveyImageViewer('${safeUrl}','${safeName}')"><div class="survey-image-name">${safeName}</div><div class="survey-image-size">${value.compressed ? " „÷€Êÿ…: " : ""}${escapeHtml(formatFileSize(value.fileSize))}</div><button type="button" class="survey-image-button" onclick="openSurveyImageViewer('${safeUrl}','${safeName}')"> ⁄—÷ «·’Ê—…</button></div>`;
+            }
+            if(value.downloadURL){
+                return `<div class="survey-file-answer"><div>?? ${escapeHtml(value.fileName)}</div><small>${escapeHtml(formatFileSize(value.fileSize))}</small><br><a href="${escapeHtml(value.downloadURL)}" target="_blank" rel="noopener noreferrer" class="survey-file-link"> › Õ «·„·›</a></div>`;
+            }
+            return `<div>?? ${escapeHtml(value.fileName)}<br><small>${escapeHtml(formatFileSize(value.fileSize))}</small></div>`;
+        }
+        return escapeHtml(JSON.stringify(value));
+    }
+    if(question.questionType === "rating"){
+        const number = Number(value);
+        return `${"?".repeat(Math.max(0,Math.min(5,number)))} (${escapeHtml(String(number))})`;
+    }
+    return escapeHtml(String(value)).replace(/\n/g,"<br>");
+}
+
+function openSurveyImageViewer(imageUrl,fileName){
+    let viewer = document.getElementById("surveyImageViewer");
+    if(!viewer){
+        viewer = document.createElement("div");
+        viewer.id = "surveyImageViewer";
+        viewer.className = "survey-image-viewer";
+        viewer.innerHTML = `<div class="survey-image-viewer-content"><button type="button" class="survey-image-viewer-close" onclick="closeSurveyImageViewer()">◊</button><img id="surveyImageViewerImage" src="" alt=""><div id="surveyImageViewerName" class="survey-image-viewer-name"></div></div>`;
+        document.body.appendChild(viewer);
+        viewer.addEventListener("click",function(event){ if(event.target === viewer) closeSurveyImageViewer(); });
+    }
+    document.getElementById("surveyImageViewerImage").src = imageUrl;
+    document.getElementById("surveyImageViewerImage").alt = fileName || "«·’Ê—…";
+    document.getElementById("surveyImageViewerName").textContent = fileName || "";
+    viewer.classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function closeSurveyImageViewer(){
+    const viewer = document.getElementById("surveyImageViewer");
+    if(viewer) viewer.classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+
+/* =========================================================
+   FILTER RESULTS
+========================================================= */
+
+function filterResultsTable(){
+
+    const input =
+        document.getElementById(
+            "resultsSearch"
+        );
+
+
+    if(!input){
+
+        return;
+
+    }
+
+
+    const term =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    const rows =
+        document.querySelectorAll(
+            "#resultsResponsesTable tbody tr"
+        );
+
+
+    let visible =
+        0;
+
+
+    rows.forEach(
+        function(row){
+
+            const text =
+                (
+                    row.dataset.responseSearch ||
+                    row.textContent ||
+                    ""
+                ).toLowerCase();
+
+
+            const show =
+                !term ||
+                text.indexOf(
+                    term
+                ) !== -1;
+
+
+            row.style.display =
+                show
+                ?
+                ""
+                :
+                "none";
+
+
+            if(show){
+
+                visible++;
+
+            }
+
+        }
+    );
+
+
+    const oldMessage =
+        document.getElementById(
+            "resultsSearchMessage"
+        );
+
+
+    if(oldMessage){
+
+        oldMessage.remove();
+
+    }
+
+
+    if(
+        visible ===
+        0
+    ){
+
+        const wrapper =
+            document.querySelector(
+                "#resultsResponsesTable"
+            )?.parentElement;
+
+
+        if(wrapper){
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+
+            message.id =
+                "resultsSearchMessage";
+
+
+            message.className =
+                "no-results";
+
+
+            message.textContent =
+                "·«  ÊÃœ ‰ «∆Ã „ÿ«»ﬁ… ··»ÕÀ.";
+
+
+            wrapper.appendChild(
+                message
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   CLEAR RESULTS SEARCH
+========================================================= */
+
+function clearResultsSearch(){
+
+    const input =
+        document.getElementById(
+            "resultsSearch"
+        );
+
+
+    if(input){
+
+        input.value =
+            "";
+
+    }
+
+
+    filterResultsTable();
+
+}
+
+
+/* =========================================================
+   CREATE SEARCH TEXT
+========================================================= */
+
+function createSearchText(
+    response,
+    questions,
+    index
+){
+
+    let text =
+        String(
+            index + 1
+        );
+
+
+    text += " ";
+
+
+    text += formatTimestamp(
+        response.submittedAt
+    );
+
+
+    questions.forEach(
+        function(question){
+
+            const value =
+                response.answers
+                ?
+                response.answers[
+                    question.id
+                ]
+                :
+                "";
+
+
+            text +=
+                " " +
+                question.questionText +
+                " " +
+                valueToSearchString(
+                    value
+                );
+
+        }
+    );
+
+
+    return text;
+
+}
+
+
+/* =========================================================
+   VALUE TO SEARCH STRING
+========================================================= */
+
+function valueToSearchString(
+    value
+){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "";
+
+    }
+
+
+    if(
+        Array.isArray(
+            value
+        )
+    ){
+
+        return value.join(
+            " "
+        );
+
+    }
+
+
+    if(
+        typeof value ===
+        "object"
+    ){
+
+        return JSON.stringify(
+            value
+        );
+
+    }
+
+
+    return String(
+        value
+    );
+
+}
+
+
+/* =========================================================
+   CREATE EXCEL IMAGE DATA
+========================================================= */
+
+function createExcelImageDataUrl(
+    file
+){
+
+    return new Promise(
+        function(
+            resolve,
+            reject
+        ){
+
+            if(!file){
+
+                reject(
+                    new Error(
+                        "·„ Ì „  ÕœÌœ „·› «·’Ê—…."
+                    )
+                );
+
+                return;
+
+            }
+
+
+            const objectUrl =
+                URL.createObjectURL(
+                    file
+                );
+
+
+            const image =
+                new Image();
+
+
+            image.onload =
+                function(){
+
+                    try{
+
+                        const originalWidth =
+                            image.naturalWidth ||
+                            image.width;
+
+                        const originalHeight =
+                            image.naturalHeight ||
+                            image.height;
+
+
+                        if(
+                            !originalWidth ||
+                            !originalHeight
+                        ){
+
+                            throw new Error(
+                                " ⁄–— ﬁ—«¡… √»⁄«œ «·’Ê—…."
+                            );
+
+                        }
+
+
+                        const scale =
+                            Math.min(
+                                1,
+                                EXCEL_IMAGE_MAX_WIDTH /
+                                    originalWidth,
+                                EXCEL_IMAGE_MAX_HEIGHT /
+                                    originalHeight
+                            );
+
+
+                        const width =
+                            Math.max(
+                                1,
+                                Math.round(
+                                    originalWidth *
+                                    scale
+                                )
+                            );
+
+
+                        const height =
+                            Math.max(
+                                1,
+                                Math.round(
+                                    originalHeight *
+                                    scale
+                                )
+                            );
+
+
+                        const canvas =
+                            document.createElement(
+                                "canvas"
+                            );
+
+
+                        canvas.width =
+                            width;
+
+                        canvas.height =
+                            height;
+
+
+                        const context =
+                            canvas.getContext(
+                                "2d"
+                            );
+
+
+                        if(!context){
+
+                            throw new Error(
+                                " ⁄–— ≈‰‘«¡ Canvas ··’Ê—…."
+                            );
+
+                        }
+
+
+                        context.drawImage(
+                            image,
+                            0,
+                            0,
+                            width,
+                            height
+                        );
+
+
+                        const dataUrl =
+                            canvas.toDataURL(
+                                "image/jpeg",
+                                EXCEL_IMAGE_QUALITY
+                            );
+
+
+                        if(
+                            !dataUrl ||
+                            dataUrl.indexOf(
+                                "data:image/"
+                            ) !== 0
+                        ){
+
+                            throw new Error(
+                                " ⁄–— ≈‰‘«¡ ‰”Œ… Excel ··’Ê—…."
+                            );
+
+                        }
+
+
+                        URL.revokeObjectURL(
+                            objectUrl
+                        );
+
+
+                        resolve(
+                            dataUrl
+                        );
+
+                    }catch(error){
+
+                        URL.revokeObjectURL(
+                            objectUrl
+                        );
+
+
+                        reject(
+                            error
+                        );
+
+                    }
+
+                };
+
+
+            image.onerror =
+                function(){
+
+                    URL.revokeObjectURL(
+                        objectUrl
+                    );
+
+
+                    reject(
+                        new Error(
+                            " ⁄–—  Õ„Ì· «·’Ê—… ·≈‰‘«¡ ‰”Œ… Excel."
+                        )
+                    );
+
+                };
+
+
+            image.src =
+                objectUrl;
+
+        }
+    );
+
+}
+
+
+/*
+    ÕÊÌ· Data URL ≈·Ï Base64 Œ«„ + «„ œ«œ „‰«”» ·‹ ExcelJS.
+*/
+function convertExcelDataUrlToImage(
+    dataUrl
+){
+    if(!dataUrl || typeof dataUrl !== "string"){
+        throw new Error("»Ì«‰«  «·’Ê—… €Ì— ’«·Õ….");
+    }
+    if(dataUrl.indexOf("data:image/jpeg;base64,") !== 0){
+        throw new Error("‰”Œ… «·’Ê—… «·„Œ’’… ·‹ Excel ·Ì”  JPEG Base64 ’«·Õ….");
+    }
+    return {
+        base64:dataUrl,
+        extension:"jpeg"
+    };
+}
+
+
+
+/* =========================================================
+   CONVERT STORED IMAGE DATA TO PNG FOR EXCELJS
+========================================================= */
+function convertStoredImageToPngDataUrl(dataUrl){
+    return new Promise(function(resolve,reject){
+        if(!dataUrl || typeof dataUrl !== "string" || dataUrl.indexOf("data:image/") !== 0){
+            reject(new Error("»Ì«‰«  «·’Ê—… €Ì— ’«·Õ… ·· ’œÌ—."));
+            return;
+        }
+        var img = new Image();
+        img.onload = function(){
+            try{
+                var canvas = document.createElement("canvas");
+                canvas.width = img.naturalWidth || img.width;
+                canvas.height = img.naturalHeight || img.height;
+                if(!canvas.width || !canvas.height){
+                    throw new Error(" ⁄–— ﬁ—«¡… √»⁄«œ «·’Ê—….");
+                }
+                var ctx = canvas.getContext("2d");
+                if(!ctx){ throw new Error(" ⁄–— ≈‰‘«¡ Canvas."); }
+                ctx.drawImage(img,0,0,canvas.width,canvas.height);
+                var png = canvas.toDataURL("image/png");
+                if(!png || png.indexOf("data:image/png;base64,") !== 0){
+                    throw new Error(" ⁄–— ≈‰‘«¡ PNG ’«·Õ.");
+                }
+                resolve(png);
+            }catch(e){ reject(e); }
+        };
+        img.onerror = function(){ reject(new Error(" ⁄–— ﬁ—«¡… ’Ê—… Excel.")); };
+        img.src = dataUrl;
+    });
+}
+
+/* =========================================================
+   EXPORT EXCEL
+========================================================= */
+
+
+
+async function exportResultsToExcel(){
+
+    if(
+        !currentResultsData ||
+        !currentResultsData.survey
+    ){
+        showToast(
+            "·«  ÊÃœ ‰ «∆Ã ·· ’œÌ—",
+            "error"
+        );
+        return;
+    }
+
+    if(
+        typeof ExcelJS === "undefined"
+    ){
+        showToast(
+            " ⁄–—  Õ„Ì· „ﬂ »… ExcelJS",
+            "error"
+        );
+        return;
+    }
+
+    try{
+
+        const survey = currentResultsData.survey;
+        const questions = currentResultsData.questions;
+        const responses =
+            currentResultsData.filteredResponses.length
+            ? currentResultsData.filteredResponses
+            : currentResultsData.responses;
+
+        showToast(
+            "? Ã«—Ì  ÃÂÌ“ „·› Excel Ê«·’Ê—...",
+            "info"
+        );
+
+        const workbook = new ExcelJS.Workbook();
+        workbook.creator = "«” ÿ·«⁄«  ’‰œÊﬁ «·ÿ·«»";
+        workbook.created = new Date();
+
+        const wsParticipants =
+            workbook.addWorksheet(
+                "≈Ã«»«  «·„‘«—ﬂÌ‰",
+                {views:[{rightToLeft:true}]}
+            );
+
+        const headers = [
+            "—ﬁ„ «·„‘«—ﬂ…",
+            "„⁄—› «·—œ",
+            " «—ÌŒ ÊÊﬁ  «·„‘«—ﬂ…"
+        ];
+
+        questions.forEach(function(question,qIndex){
+            headers.push(
+                (qIndex + 1) + ". " +
+                (question.questionText || "»œÊ‰ ‰’")
+            );
+        });
+
+        wsParticipants.addRow(headers);
+
+        const headerRow = wsParticipants.getRow(1);
+        headerRow.font = {bold:true};
+        headerRow.alignment = {
+            vertical:"middle",
+            horizontal:"center",
+            wrapText:true
+        };
+        headerRow.height = 35;
+
+        wsParticipants.columns = headers.map(function(header,index){
+            if(index === 0) return {width:15};
+            if(index === 1) return {width:25};
+            if(index === 2) return {width:25};
+            return {width:28};
+        });
+
+        for(
+            let index = 0;
+            index < responses.length;
+            index++
+        ){
+
+            const response = responses[index];
+
+            const rowValues = [
+                index + 1,
+                response.id,
+                formatTimestamp(response.submittedAt)
+            ];
+
+            questions.forEach(function(question){
+                const value =
+                    response.answers
+                    ? response.answers[question.id]
+                    : null;
+
+                rowValues.push(
+                    formatAnswerForExcel(value,question)
+                );
+            });
+
+            const excelRow =
+                wsParticipants.addRow(rowValues);
+
+            excelRow.alignment = {
+                vertical:"middle",
+                horizontal:"center",
+                wrapText:true
+            };
+
+            excelRow.height = 115;
+
+            for(
+                let qIndex = 0;
+                qIndex < questions.length;
+                qIndex++
+            ){
+
+                const question = questions[qIndex];
+
+                const value =
+                    response.answers
+                    ? response.answers[question.id]
+                    : null;
+
+                if(
+                    !value ||
+                    typeof value !== "object" ||
+                    !value.fileType ||
+                    String(value.fileType).indexOf("image/") !== 0
+                ){
+                    continue;
+                }
+
+                const excelColumn = qIndex + 4;
+                const cell = excelRow.getCell(excelColumn);
+
+                // «·’Ê— «·ÃœÌœ… ›ﬁÿ: ‰⁄ „œ ⁄·Ï «·‰”Œ… «·„÷€Êÿ… «·„Õ›ÊŸ… „⁄ «·≈Ã«»….
+                if(
+                    !value.excelImageData ||
+                    String(value.excelImageData).indexOf("data:image/") !== 0
+                ){
+                    cell.value =
+                        "·„   Ê›— ‰”Œ… Excel ··’Ê—…";
+                    continue;
+                }
+
+                try{
+
+                    const pngDataUrl =
+                        await convertStoredImageToPngDataUrl(
+                            String(value.excelImageData)
+                        );
+
+                    const imageId =
+                        workbook.addImage({
+                            base64:pngDataUrl,
+                            extension:"png"
+                        });
+
+                    wsParticipants.addImage(
+                        imageId,
+                        {
+                            tl:{
+                                col:excelColumn - 1,
+                                row:index + 1
+                            },
+                            ext:{
+                                width:150,
+                                height:105
+                            }
+                        }
+                    );
+
+                    // «”„ «·’Ê—… ÌŸÂ— √Ì÷« ﬂﬁÌ„… ··Œ·Ì….
+                    cell.value =
+                        value.fileName || "’Ê—…";
+
+                }catch(imageError){
+
+                    console.error(
+                        " ⁄–— ≈œ—«Ã «·’Ê—… «·ÃœÌœ… œ«Œ· Excel:",
+                        imageError
+                    );
+
+                    cell.value =
+                        " ⁄–— ≈œ—«Ã «·’Ê—…: " +
+                        (value.fileName || "’Ê—…");
+                }
+            }
+        }
+
+        const wsQuestions =
+            workbook.addWorksheet(
+                "„⁄·Ê„«  «·√”∆·…",
+                {views:[{rightToLeft:true}]}
+            );
+
+        wsQuestions.columns = [
+            {header:"—ﬁ„ «·”ƒ«·",key:"number",width:15},
+            {header:"„⁄—› «·”ƒ«·",key:"id",width:25},
+            {header:"‰’ «·”ƒ«·",key:"text",width:55},
+            {header:"‰Ê⁄ «·”ƒ«·",key:"type",width:22},
+            {header:"≈Ã»«—Ì",key:"required",width:12},
+            {header:"«· — Ì»",key:"order",width:12},
+            {header:"«·ŒÌ«—« ",key:"options",width:60}
+        ];
+
+        questions.forEach(function(question,index){
+            wsQuestions.addRow({
+                number:index + 1,
+                id:question.id,
+                text:question.questionText || "",
+                type:getQuestionTypeName(question.questionType),
+                required:question.required ? "‰⁄„" : "·«",
+                order:question.order || index + 1,
+                options:Array.isArray(question.options)
+                    ? question.options.join(" | ")
+                    : ""
+            });
+        });
+
+        wsQuestions.getRow(1).font = {bold:true};
+        wsQuestions.getRow(1).alignment = {
+            horizontal:"center",
+            vertical:"middle",
+            wrapText:true
+        };
+
+        const wsInfo =
+            workbook.addWorksheet(
+                "„⁄·Ê„«  «·«” »Ì«‰",
+                {views:[{rightToLeft:true}]}
+            );
+
+        wsInfo.columns = [
+            {header:"«·»Ì«‰",key:"name",width:25},
+            {header:"«·ﬁÌ„…",key:"value",width:70}
+        ];
+
+        wsInfo.addRows([
+            {name:"⁄‰Ê«‰ «·«” »Ì«‰",value:survey.title || ""},
+            {name:"«·Ê’›",value:survey.description || ""},
+            {name:"«·Õ«·…",value:String(survey.status || "") === "open" ? "„› ÊÕ" : "„€·ﬁ"},
+            {name:"⁄œœ «·√”∆·…",value:questions.length},
+            {name:"⁄œœ «·„‘«—ﬂÌ‰",value:currentResultsData.responses.length},
+            {name:" «—ÌŒ «· ’œÌ—",value:new Date().toLocaleString("ar-JO")}
+        ]);
+
+        wsInfo.getRow(1).font = {bold:true};
+
+        const safeTitle =
+            sanitizeExcelFileName(
+                survey.title || "‰ «∆Ã «·«” »Ì«‰"
+            );
+
+        const fileName =
+            safeTitle + "_‰ «∆Ã.xlsx";
+
+        const buffer =
+            await workbook.xlsx.writeBuffer();
+
+        const blob =
+            new Blob(
+                [buffer],
+                {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+            );
+
+        const url =
+            URL.createObjectURL(blob);
+
+        const link =
+            document.createElement("a");
+
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(function(){
+            URL.revokeObjectURL(url);
+        },1000);
+
+        logMessage(
+            " „  ’œÌ— ‰ «∆Ã «·«” »Ì«‰ ≈·Ï Excel „⁄ «·’Ê— «·ÃœÌœ…"
+        );
+
+        showToast(
+            " „  ’œÌ— «·‰ «∆Ã ≈·Ï Excel „⁄ «·’Ê— »‰Ã«Õ"
+        );
+
+    }catch(error){
+
+        console.error(
+            "EXCEL EXPORT ERROR:",
+            error
+        );
+
+        showToast(
+            "ÕœÀ Œÿ√ √À‰«¡  ’œÌ— Excel: " +
+            (error.message || error),
+            "error"
+        );
+    }
+}
+
+/* =========================================================
+   EXCEL ANSWER
+========================================================= */
+
+function formatAnswerForExcel(value,question){
+    if(value === null || value === undefined || value === "") return "";
+    if(Array.isArray(value)) return value.join("° ");
+    if(typeof value === "object"){
+        if(value.fileName){
+            if(value.downloadURL && value.fileType && value.fileType.indexOf("image/") === 0) return "??? " + value.fileName + " | " + formatFileSize(value.fileSize);
+            return "?? " + value.fileName + " | " + formatFileSize(value.fileSize);
+        }
+        return JSON.stringify(value);
+    }
+    if(question.questionType === "rating") return String(value) + " „‰ 5";
+    return String(value);
+}
+
+
+/* =========================================================
+   BUILD EXCEL WIDTHS
+========================================================= */
+
+function buildParticipantColumnWidths(
+    questions
+){
+
+    const widths = [
+
+        {wch:12},
+
+        {wch:30},
+
+        {wch:25}
+
+    ];
+
+
+    questions.forEach(
+        function(){
+
+            widths.push({
+                wch:45
+            });
+
+        }
+    );
+
+
+    return widths;
+
+}
+
+
+/* =========================================================
+   PRINT RESULTS
+========================================================= */
+
+function printResults(){
+
+    const content =
+        document.getElementById(
+            "resultsContainer"
+        );
+
+
+    if(!content){
+
+        return;
+
+    }
+
+
+    const printWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    if(!printWindow){
+
+        showToast(
+            "Ì—ÃÏ «·”„«Õ »«·‰Ê«›– «·„‰»Àﬁ… ··ÿ»«⁄….",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="ar" dir="rtl">
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+                ‰ «∆Ã «·«” »Ì«‰
+            </title>
+
+            <style>
+
+                body{
+                    font-family:
+                        Tahoma,
+                        Arial,
+                        sans-serif;
+                    padding:20px;
+                    direction:rtl;
+                }
+
+                h1{
+                    text-align:center;
+                    color:#173b6d;
+                }
+
+                .results-summary{
+                    display:flex;
+                    gap:10px;
+                    margin-bottom:15px;
+                }
+
+                .summary-box{
+                    border:1px solid #ddd;
+                    padding:10px;
+                    flex:1;
+                    text-align:center;
+                }
+
+                .table-wrapper{
+                    overflow:visible;
+                }
+
+                table{
+                    width:100%;
+                    border-collapse:collapse;
+                    font-size:10px;
+                }
+
+                th{
+                    background:#173b6d;
+                    color:white;
+                    padding:7px;
+                    border:1px solid #555;
+                }
+
+                td{
+                    padding:6px;
+                    border:1px solid #ccc;
+                    vertical-align:top;
+                }
+
+                .results-toolbar{
+                    display:none;
+                }
+
+                .results-section-title{
+                    font-size:18px;
+                    font-weight:bold;
+                    margin:20px 0 10px;
+                    color:#173b6d;
+                }
+
+                .question-info-table{
+                    margin-top:20px;
+                }
+
+                @page{
+                    size:landscape;
+                    margin:10mm;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <h1>
+                ‰ «∆Ã «·«” »Ì«‰
+            </h1>
+
+            ${content.innerHTML}
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+    printWindow.focus();
+
+
+    setTimeout(
+        function(){
+
+            printWindow.print();
+
+        },
+        500
+    );
+
+}
+
+
+/* =========================================================
+   TIMESTAMP
+========================================================= */
+
+function getTimestampMillis(
+    timestamp
+){
+
+    if(
+        !timestamp
+    ){
+
+        return 0;
+
+    }
+
+
+    if(
+        typeof timestamp.toMillis ===
+        "function"
+    ){
+
+        return timestamp.toMillis();
+
+    }
+
+
+    if(
+        timestamp.seconds !==
+        undefined
+    ){
+
+        return (
+            Number(
+                timestamp.seconds
+            ) *
+            1000
+        );
+
+    }
+
+
+    if(
+        timestamp instanceof Date
+    ){
+
+        return timestamp.getTime();
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   FORMAT TIMESTAMP
+========================================================= */
+
+function formatTimestamp(
+    timestamp
+){
+
+    const millis =
+        getTimestampMillis(
+            timestamp
+        );
+
+
+    if(
+        !millis
+    ){
+
+        return "€Ì— „Õœœ";
+
+    }
+
+
+    try{
+
+        return new Date(
+            millis
+        ).toLocaleString(
+            "ar-JO",
+            {
+                year:
+                    "numeric",
+
+                month:
+                    "2-digit",
+
+                day:
+                    "2-digit",
+
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit",
+
+                second:
+                    "2-digit"
+            }
+        );
+
+    }catch(error){
+
+        return new Date(
+            millis
+        ).toLocaleString();
+
+    }
+
+}
+
+
+/* =========================================================
+   QUESTION TYPE NAME
+========================================================= */
+
+function getQuestionTypeName(
+    type
+){
+
+    const names = {
+
+        single_choice:
+            "«Œ Ì«— Ê«Õœ",
+
+        multiple_choice:
+            "«Œ Ì«— „ ⁄œœ",
+
+        text:
+            "‰’",
+
+        number:
+            "—ﬁ„",
+
+        rating:
+            " ﬁÌÌ„",
+
+        image:
+            "’Ê—…",
+
+        file:
+            "„·›"
+
+    };
+
+
+    return names[type] ||
+        "€Ì— „Õœœ";
+
+}
+
+
+/* =========================================================
+   FILE SIZE
+========================================================= */
+
+function formatFileSize(
+    bytes
+){
+
+    const number =
+        Number(
+            bytes
+        );
+
+
+    if(
+        !number
+    ){
+
+        return "0 B";
+
+    }
+
+
+    const units = [
+        "B",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+
+    const index =
+        Math.floor(
+            Math.log(
+                number
+            ) /
+            Math.log(
+                1024
+            )
+        );
+
+
+    const safeIndex =
+        Math.min(
+            index,
+            units.length - 1
+        );
+
+
+    return (
+        number /
+        Math.pow(
+            1024,
+            safeIndex
+        )
+    ).toFixed(
+        2
+    ) +
+    " " +
+    units[
+        safeIndex
+    ];
+
+}
+
+
+/* =========================================================
+   SANITIZE EXCEL FILE NAME
+========================================================= */
+
+function sanitizeExcelFileName(
+    name
+){
+
+    return String(
+        name ||
+        "survey"
+    )
+    .replace(
+        /[\\\/:*?"<>|]/g,
+        "_"
+    )
+    .trim()
+    .substring(
+        0,
+        80
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(
+    id
+){
+
+    const element =
+        document.getElementById(
+            id
+        );
+
+
+    if(element){
+
+        element.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+function setupModalOutsideClick(){
+
+    document.querySelectorAll(
+        ".modal-overlay"
+    ).forEach(
+        function(overlay){
+
+            overlay.addEventListener(
+                "click",
+                function(event){
+
+                    if(
+                        event.target ===
+                        overlay
+                    ){
+
+                        overlay.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOGIN ERROR
+========================================================= */
+
+function showLoginError(
+    message
+){
+
+    const box =
+        document.getElementById(
+            "loginError"
+        );
+
+
+    box.textContent =
+        message;
+
+
+    box.style.display =
+        "block";
+
+}
+
+
+function hideLoginError(){
+
+    const box =
+        document.getElementById(
+            "loginError"
+        );
+
+
+    box.textContent =
+        "";
+
+
+    box.style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(
+    message,
+    type="success"
+){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.className =
+        "toast show " +
+        type;
+
+
+    setTimeout(
+        function(){
+
+            toast.className =
+                "toast";
+
+        },
+        4000
+    );
+
+}
+
+
+/* =========================================================
+   LOG
+========================================================= */
+
+function logMessage(
+    message
+){
+
+    const logBox =
+        document.getElementById(
+            "logBox"
+        );
+
+
+    if(!logBox){
+
+        return;
+
+    }
+
+
+    const time =
+        new Date()
+            .toLocaleTimeString(
+                "ar-JO"
+            );
+
+
+    const line =
+        document.createElement(
+            "div"
+        );
+
+
+    line.className =
+        "log-line";
+
+
+    line.textContent =
+        time +
+        " - " +
+        message;
+
+
+    logBox.appendChild(
+        line
+    );
+
+
+    logBox.scrollTop =
+        logBox.scrollHeight;
+
+
+    console.log(
+        message
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(
+    value
+){
+
+    if(
+        value ===
+        null
+        ||
+        value ===
+        undefined
+    ){
+
+        return "";
+
+    }
+
+
+    return String(
+        value
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE ATTRIBUTE
+========================================================= */
+
+function escapeAttribute(
+    value
+){
+
+    return escapeHtml(
+        value
+    );
+
+}
+
+
+/* =========================================================
+   EXPOSE FUNCTIONS
+========================================================= */
+
+window.loadSurveys =
+    loadSurveys;
+
+window.loadUserSurveys =
+    loadUserSurveys;
+
+window.startSurvey =
+    startSurvey;
+
+window.backFromSurvey =
+    backFromSurvey;
+
+window.submitSurveyAnswers =
+    submitSurveyAnswers;
+
+window.openAdminLogin =
+    openAdminLogin;
+
+window.closeAdminLogin =
+    closeAdminLogin;
+
+window.showUserHome =
+    showUserHome;
+
+window.openAddSurvey =
+    openAddSurvey;
+
+window.closeModal =
+    closeModal;
+
+window.saveSurvey =
+    saveSurvey;
+
+window.editSurvey =
+    editSurvey;
+
+window.toggleSurvey =
+    toggleSurvey;
+
+window.deleteSurvey =
+    deleteSurvey;
+
+window.deleteSurveyResponse =
+    deleteSurveyResponse;
+
+window.openQuestions =
+    openQuestions;
+
+window.loadQuestions =
+    loadQuestions;
+
+window.openAddQuestion =
+    openAddQuestion;
+
+window.editQuestion =
+    editQuestion;
+
+window.deleteQuestion =
+    deleteQuestion;
+
+window.moveQuestionUp =
+    moveQuestionUp;
+
+window.moveQuestionDown =
+    moveQuestionDown;
+
+window.questionTypeChanged =
+    questionTypeChanged;
+
+window.addOption =
+    addOption;
+
+window.saveQuestion =
+    saveQuestion;
+
+window.logoutAdmin =
+    logoutAdmin;
+
+window.openResults =
+    openResults;
+
+window.printResults =
+    printResults;
+
+window.exportResultsToExcel =
+    exportResultsToExcel;
+
+window.openSurveyImageViewer =
+    openSurveyImageViewer;
+
+window.closeSurveyImageViewer =
+    closeSurveyImageViewer;
+
+window.validateImageSelection =
+    validateImageSelection;
+
+window.handleImageSelection =
+    handleImageSelection;
+
+window.uploadImageToImgBB =
+    uploadImageToImgBB;
+
+window.filterResultsTable =
+    filterResultsTable;
+
+window.clearResultsSearch =
+    clearResultsSearch;
+
+
+/* =========================================================
+   FINAL LOG
+========================================================= */
+
+console.log(
+    "Student Fund Surveys - Loaded Successfully"
+);
+
+console.log(
+    "Firebase Project:",
+    "student-fund-surveys"
+);
+
+console.log(
+    "Image Upload Provider:",
+    "ImgBB"
+);
+
+console.log(
+    "Admin UID:",
+    ADMIN_UID
+);
+
+</script>
+
+</body>
+</html>
