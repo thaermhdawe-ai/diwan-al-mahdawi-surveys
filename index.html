@@ -179,46 +179,110 @@ button{
 .user-surveys-grid{
     display:grid;
     grid-template-columns:
-        repeat(auto-fit,minmax(290px,1fr));
-    gap:18px;
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
 }
 
 .user-survey-card{
-    background:white;
-    border-radius:16px;
-    padding:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-    border:1px solid #e5eaf0;
-    transition:.25s;
+    position:relative;
+    background:#ffffff;
+    border:1px solid #e4eaf1;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 5px 18px rgba(23,59,109,.07);
+    transition:all .25s ease;
+    overflow:hidden;
+}
+
+.user-survey-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    height:4px;
+    background:linear-gradient(
+        90deg,
+        #173b6d,
+        #2563a6
+    );
 }
 
 .user-survey-card:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.11);
+    box-shadow:0 10px 28px rgba(23,59,109,.12);
+}
+
+.user-survey-top{
+    display:flex;
+    align-items:flex-start;
+    gap:13px;
+    margin-bottom:16px;
+}
+
+.user-survey-icon{
+    flex:0 0 48px;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:#eef5ff;
+    color:#2563a6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
 }
 
 .user-survey-title{
-    font-size:20px;
+    flex:1;
+    font-size:19px;
     font-weight:bold;
+    line-height:1.7;
     color:#173b6d;
-    margin-bottom:10px;
+    margin:0;
+    word-break:break-word;
 }
 
-.user-survey-description{
-    color:#607d8b;
-    line-height:1.8;
-    min-height:55px;
+.user-survey-status{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+    margin-top:7px;
+    min-height:28px;
 }
 
 .user-survey-button{
     width:100%;
-    margin-top:18px;
+    margin-top:17px;
     border:0;
-    background:#2563a6;
+    background:linear-gradient(
+        135deg,
+        #2563a6,
+        #173b6d
+    );
     color:white;
-    padding:12px;
-    border-radius:9px;
+    padding:13px 15px;
+    border-radius:11px;
+    font-size:15px;
     font-weight:bold;
+    cursor:pointer;
+    transition:all .2s ease;
+    box-shadow:0 4px 10px rgba(37,99,166,.18);
+}
+
+.user-survey-button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 15px rgba(37,99,166,.25);
+}
+
+.user-survey-button:active{
+    transform:translateY(0);
+}
+
+.user-survey-card .badge{
+    padding:6px 11px;
+    font-size:12px;
 }
 
 .user-empty,
@@ -247,6 +311,36 @@ button{
 .badge-closed{
     background:#fee2e2;
     color:#991b1b;
+}
+
+/* =========================================================
+   ANSWER PAGE HEADER
+========================================================= */
+
+.answer-page-header .header-inner{
+    align-items:center;
+}
+
+.answer-page-header .header-title{
+    font-size:24px;
+    line-height:1.6;
+}
+
+.answer-page-header .header-subtitle{
+    display:block;
+    max-width:760px;
+    margin-top:9px;
+    line-height:1.9;
+    padding:10px 13px;
+    border-radius:11px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.14);
+    white-space:pre-wrap;
+    word-break:break-word;
+}
+
+.answer-page-actions{
+    flex:0 0 auto;
 }
 
 /* =========================================================
@@ -978,6 +1072,135 @@ button{
 }
 
 /* =========================================================
+   USER SURVEYS + ANSWER PAGE MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .container{
+        width:calc(100% - 20px);
+        margin:16px auto;
+    }
+
+    .section-title{
+        font-size:19px;
+        margin-bottom:10px;
+    }
+
+    .section-description{
+        font-size:13px;
+        line-height:1.8;
+        margin-bottom:15px;
+    }
+
+    .user-surveys-grid{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .user-survey-card{
+        padding:17px;
+        border-radius:16px;
+    }
+
+    .user-survey-top{
+        gap:11px;
+        margin-bottom:13px;
+    }
+
+    .user-survey-icon{
+        flex-basis:43px;
+        width:43px;
+        height:43px;
+        border-radius:12px;
+        font-size:21px;
+    }
+
+    .user-survey-title{
+        font-size:17px;
+        line-height:1.6;
+    }
+
+    .user-survey-status{
+        margin-top:6px;
+    }
+
+    .user-survey-card .badge{
+        padding:5px 9px;
+        font-size:11px;
+    }
+
+    .user-survey-button{
+        margin-top:14px;
+        padding:12px;
+        font-size:14px;
+        border-radius:10px;
+    }
+
+    .answer-page-header{
+        padding:15px 13px;
+    }
+
+    .answer-page-header .header-inner{
+        gap:12px;
+    }
+
+    .answer-page-header .header-title{
+        font-size:19px;
+        line-height:1.6;
+    }
+
+    .answer-page-header .header-subtitle{
+        max-width:none;
+        font-size:13px;
+        line-height:1.8;
+        margin-top:7px;
+        padding:9px 10px;
+        border-radius:10px;
+    }
+
+    .answer-page-actions{
+        width:100%;
+    }
+
+    .answer-page-actions .btn{
+        width:100%;
+    }
+
+    .answer-container{
+        width:calc(100% - 16px);
+        margin:14px auto;
+    }
+
+    .question-answer-card{
+        padding:17px;
+        border-radius:13px;
+        margin-bottom:12px;
+    }
+
+    .answer-question-title{
+        font-size:16px;
+        line-height:1.8;
+        margin-bottom:13px;
+    }
+
+    .choice-item{
+        padding:10px;
+    }
+
+    .submit-area{
+        padding:15px;
+        border-radius:13px;
+    }
+
+    .submit-button{
+        width:100%;
+        min-width:0;
+        padding:13px 16px;
+    }
+}
+
+/* =========================================================
    PRINT
 ========================================================= */
 
@@ -1044,6 +1267,47 @@ button{
 
 }
 
+
+/* =========================================================
+   EDIT RESPONSE
+========================================================= */
+.edit-response-intro{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:16px;
+    line-height:1.9;
+}
+.edit-response-card{
+    background:white;
+    border:1px solid #e1e7ee;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:12px;
+}
+.edit-response-current{
+    background:#f8fafc;
+    border-radius:9px;
+    padding:10px;
+    margin-bottom:10px;
+}
+.edit-response-current-title{
+    font-weight:bold;
+    color:#475569;
+    margin-bottom:7px;
+}
+.edit-response-help{
+    color:#64748b;
+    font-size:12px;
+    margin-top:7px;
+    line-height:1.7;
+}
+.edit-response-status{
+    min-height:22px;
+    margin-top:8px;
+    font-size:13px;
+}
 
 /* =========================================================
    SURVEY IMAGE ANSWERS
@@ -1134,7 +1398,7 @@ button{
 
 
     <footer class="footer">
-        ديوان العائلة • استبيان
+        ديوان العائلة • صندوق الطلاب
     </footer>
 
 </div>
@@ -1146,11 +1410,11 @@ button{
 
 <div id="surveyAnswerApp" style="display:none;">
 
-    <header class="user-header">
+    <header class="user-header answer-page-header">
 
         <div class="header-inner">
 
-            <div>
+            <div style="flex:1; min-width:0;">
 
                 <div id="answerSurveyTitle"
                      class="header-title">
@@ -1162,14 +1426,14 @@ button{
 
             </div>
 
-            <div>
+            <div class="answer-page-actions">
 
                 <button
                     type="button"
                     class="btn btn-light"
                     onclick="backFromSurvey()">
 
-                    ?? العودة
+                     العودة
 
                 </button>
 
@@ -1305,7 +1569,7 @@ button{
             <div>
 
                 <div class="header-title">
-                     إدارة استطلاعات الديوان
+                     إدارة الاستبيانات
                 </div>
 
                 <div id="adminEmail"
@@ -1405,6 +1669,17 @@ button{
                     onclick="openAddSurvey()">
 
                      إضافة استبيان
+
+                </button>
+
+                <button
+                    id="manageSupervisorsButton"
+                    type="button"
+                    class="btn btn-purple"
+                    onclick="openSupervisorManager()"
+                    style="display:none;">
+
+                     إدارة المشرفين
 
                 </button>
 
@@ -1561,6 +1836,81 @@ button{
 
             </button>
 
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SUPERVISORS MODAL
+========================================================= -->
+
+<div id="supervisorModal"
+     class="modal-overlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                إدارة المشرفين
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('supervisorModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="questions-header" style="margin-bottom:18px;">
+                المدير الرئيسي يستطيع إضافة المشرفين وإلغاء صلاحياتهم.
+                كلمة المرور تستخدم لإنشاء حساب Firebase ولا يتم حفظها في Firestore.
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">اسم المشرف</label>
+                <input id="supervisorName" type="text" class="form-control" placeholder="مثال: أحمد المهداوي">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">البريد الإلكتروني</label>
+                <input id="supervisorEmail" type="email" class="form-control" placeholder="example@email.com" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">كلمة المرور</label>
+                <input id="supervisorPassword" type="password" class="form-control" minlength="6" placeholder="6 أحرف أو أكثر" autocomplete="new-password">
+            </div>
+
+            <button type="button" id="addSupervisorButton" class="btn btn-primary" onclick="addSupervisor()">
+                إضافة المشرف
+            </button>
+
+            <hr style="margin:22px 0;border:0;border-top:1px solid #e2e8f0;">
+
+            <div class="results-section-title" style="margin-top:0;">
+                المشرفون الحاليون
+            </div>
+
+            <div id="supervisorsList">
+                جاري تحميل المشرفين...
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" onclick="closeModal('supervisorModal')">
+                إغلاق
+            </button>
         </div>
 
     </div>
@@ -1906,6 +2256,71 @@ button{
 
 
 <!-- =========================================================
+     EDIT RESPONSE MODAL
+========================================================= -->
+
+<div id="editResponseModal"
+     class="modal-overlay">
+
+    <div class="modal large">
+
+        <div class="modal-header">
+
+            <div>
+                <div id="editResponseModalTitle"
+                     class="modal-title">
+                    تعديل طلب المشارك
+                </div>
+
+                <div id="editResponseSurveyTitle"
+                     style="margin-top:5px;color:#64748b;">
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('editResponseModal')">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div id="editResponseIntro"
+                 class="edit-response-intro">
+            </div>
+
+            <div id="editResponseContainer"></div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="closeModal('editResponseModal')">
+                إلغاء
+            </button>
+
+            <button
+                id="saveEditedResponseButton"
+                type="button"
+                class="btn btn-success"
+                onclick="saveEditedSurveyResponse()">
+                حفظ التعديلات
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
      TOAST
 ========================================================= -->
 
@@ -1936,6 +2351,7 @@ import {
     addDoc,
     updateDoc,
     deleteDoc,
+    setDoc,
     query,
     where,
     serverTimestamp
@@ -1947,6 +2363,7 @@ from
 import {
     getAuth,
     signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     signOut,
     onAuthStateChanged
 }
@@ -2003,6 +2420,72 @@ const ADMIN_UID =
     "TipsIUpOJiWdYKasNXA5TSOuOFV2";
 
 /* =========================================================
+   ADMIN / SUPERVISOR ACCESS
+========================================================= */
+
+let currentAdminRole = null;
+let supervisorCreatorAuth = null;
+
+function isSuperAdmin(){
+    return !!auth.currentUser &&
+        auth.currentUser.uid === ADMIN_UID;
+}
+
+function hasAdminAccess(){
+    return isSuperAdmin() ||
+        currentAdminRole === "supervisor";
+}
+
+async function getAdminRole(user){
+
+    if(!user){
+        return null;
+    }
+
+    if(user.uid === ADMIN_UID){
+        return "manager";
+    }
+
+    try{
+        const staffSnap = await getDoc(
+            doc(db, "staff", user.uid)
+        );
+
+        const staffData = staffSnap.exists()
+            ? staffSnap.data()
+            : null;
+
+        if(
+            staffData &&
+            staffData.active === true &&
+            staffData.role === "supervisor"
+        ){
+            return "supervisor";
+        }
+    }catch(error){
+        console.error("STAFF ACCESS ERROR:", error);
+    }
+
+    return null;
+}
+
+async function getSupervisorCreatorAuth(){
+
+    if(supervisorCreatorAuth){
+        return supervisorCreatorAuth;
+    }
+
+    const creatorApp = initializeApp(
+        firebaseConfig,
+        "supervisorCreatorApp"
+    );
+
+    supervisorCreatorAuth = getAuth(creatorApp);
+
+    return supervisorCreatorAuth;
+}
+
+/* =========================================================
    FILE LIMITS
 ========================================================= */
 
@@ -2053,6 +2536,12 @@ let answerQuestionsData = [];
 
 let surveySubmitting = false;
 
+/* تعديل رد حالي من لوحة الإدارة */
+let editingResponseId = null;
+let editingResponseData = null;
+let editingResponseImageFiles = new Map();
+let editingResponseSaving = false;
+
 
 /* نتائج الاستبيان الحالية */
 
@@ -2095,37 +2584,34 @@ onAuthStateChanged(
     auth,
     async function(user){
 
-        if(user){
+        if(!user){
+            currentAdminRole = null;
+            showUserHome();
+            return;
+        }
 
-            if(
-                user.uid !==
-                ADMIN_UID
-            ){
+        const role = await getAdminRole(user);
 
-                await signOut(
-                    auth
-                );
+        if(!role){
+            currentAdminRole = null;
 
-                showUserHome();
-
-                return;
-
-            }
-
-
-            showAdminPanel(
-                user
-            );
-
-
-            await loadSurveys();
-
-        }else{
+            await signOut(auth);
 
             showUserHome();
 
+            showToast(
+                "هذا الحساب غير مصرح له بدخول الإدارة.",
+                "error"
+            );
+
+            return;
         }
 
+        currentAdminRole = role;
+
+        showAdminPanel(user, role);
+
+        await loadSurveys();
     }
 );
 
@@ -2216,7 +2702,8 @@ function closeAdminLogin(){
 ========================================================= */
 
 function showAdminPanel(
-    user
+    user,
+    role
 ){
 
     document.getElementById(
@@ -2246,8 +2733,17 @@ function showAdminPanel(
     document.getElementById(
         "adminEmail"
     ).textContent =
-        user.email ||
-        "مدير النظام";
+        (user.email || "مدير النظام") +
+        " • " +
+        (role === "manager" ? "المدير الرئيسي" : "مشرف");
+
+    const supervisorButton =
+        document.getElementById("manageSupervisorsButton");
+
+    if(supervisorButton){
+        supervisorButton.style.display =
+            role === "manager" ? "inline-block" : "none";
+    }
 
 }
 
@@ -2322,14 +2818,11 @@ function setupLoginForm(){
                     );
 
 
-                if(
-                    credential.user.uid !==
-                    ADMIN_UID
-                ){
+                const role = await getAdminRole(credential.user);
 
-                    await signOut(
-                        auth
-                    );
+                if(!role){
+
+                    await signOut(auth);
 
                     throw new Error(
                         "هذا الحساب غير مصرح له بالدخول إلى الإدارة."
@@ -2337,6 +2830,7 @@ function setupLoginForm(){
 
                 }
 
+                currentAdminRole = role;
 
                 showToast(
                     "تم تسجيل الدخول بنجاح"
@@ -2625,41 +3119,46 @@ function renderUserSurveys(
 
                     <div class="user-survey-card">
 
-                        <div class="user-survey-title">
+                        <div class="user-survey-top">
 
-                            ${escapeHtml(
-                                survey.title ||
-                                "بدون عنوان"
-                            )}
+                            <div class="user-survey-icon">
+                                📝
+                            </div>
+
+                            <div style="flex:1; min-width:0;">
+
+                                <div class="user-survey-title">
+
+                                    ${escapeHtml(
+                                        survey.title ||
+                                        "بدون عنوان"
+                                    )}
+
+                                </div>
+
+                                <div class="user-survey-status">
+
+                                    ${
+                                        answered
+                                        ?
+                                        `
+                                            <span class="badge badge-closed">
+                                                ✓ تمت المشاركة
+                                            </span>
+                                        `
+                                        :
+                                        `
+                                            <span class="badge badge-open">
+                                                مفتوح للمشاركة
+                                            </span>
+                                        `
+                                    }
+
+                                </div>
+
+                            </div>
 
                         </div>
-
-
-                        <div class="user-survey-description">
-
-                            ${escapeHtml(
-                                survey.description ||
-                                "لا يوجد وصف للاستبيان"
-                            )}
-
-                        </div>
-
-
-                        ${
-                            answered
-                            ?
-                            `
-                                <span class="badge badge-closed">
-                                    ? تمت المشاركة
-                                </span>
-                            `
-                            :
-                            `
-                                <span class="badge badge-open">
-                                     مفتوح
-                                </span>
-                            `
-                        }
 
 
                         <button
@@ -2670,9 +3169,9 @@ function renderUserSurveys(
                             ${
                                 answered
                                 ?
-                                " عرض حالة المشاركة"
+                                "عرض حالة المشاركة"
                                 :
-                                " المشاركة في الاستبيان"
+                                "المشاركة في الاستبيان"
                             }
 
                         </button>
@@ -5461,13 +5960,19 @@ function renderSurveys(){
                             </button>
 
 
-                            <button
-                                class="btn btn-light"
-                                onclick="deleteSurvey('${escapeAttribute(survey.id)}')">
+                            ${
+                                isSuperAdmin()
+                                ? `
+                                    <button
+                                        class="btn btn-light"
+                                        onclick="deleteSurvey('${escapeAttribute(survey.id)}')">
 
-                                 حذف
+                                         حذف
 
-                            </button>
+                                    </button>
+                                  `
+                                : ""
+                            }
 
                         </div>
 
@@ -5478,6 +5983,277 @@ function renderSurveys(){
             }
         ).join("");
 
+}
+
+
+/* =========================================================
+   SUPERVISORS MANAGEMENT
+========================================================= */
+
+async function openSupervisorManager(){
+
+    if(!isSuperAdmin()){
+        showToast("إدارة المشرفين متاحة للمدير الرئيسي فقط.","error");
+        return;
+    }
+
+    document.getElementById("supervisorName").value = "";
+    document.getElementById("supervisorEmail").value = "";
+    document.getElementById("supervisorPassword").value = "";
+
+    document.getElementById("supervisorModal").classList.add("show");
+
+    await loadSupervisors();
+}
+
+async function loadSupervisors(){
+
+    const container = document.getElementById("supervisorsList");
+
+    if(!container || !isSuperAdmin()){
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="user-loading" style="padding:20px;">
+            جاري تحميل المشرفين...
+        </div>
+    `;
+
+    try{
+
+        const snapshot = await getDocs(
+            collection(db, "staff")
+        );
+
+        const supervisors = [];
+
+        snapshot.forEach(function(docSnap){
+            const data = docSnap.data() || {};
+            if(data.role === "supervisor"){
+                supervisors.push({id:docSnap.id,...data});
+            }
+        });
+
+        if(supervisors.length === 0){
+            container.innerHTML = `
+                <div class="no-results">
+                    لا يوجد مشرفون مضافون حاليًا.
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = supervisors.map(function(item){
+
+            const active = item.active !== false;
+
+            return `
+                <div class="question-card" style="margin-bottom:10px;">
+                    <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;">
+                        <div>
+                            <div class="question-text">${escapeHtml(item.name || "مشرف")}</div>
+                            <div style="color:#64748b;margin-top:5px;">${escapeHtml(item.email || "")}</div>
+                            <div class="question-meta">
+                                <span class="meta ${active ? "" : "required"}">${active ? "فعال" : "موقوف"}</span>
+                                <span class="meta">UID: ${escapeHtml(item.id)}</span>
+                            </div>
+                        </div>
+
+                        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+                            <button
+                                type="button"
+                                class="btn ${active ? "btn-danger" : "btn-success"}"
+                                onclick="toggleSupervisor('${escapeAttribute(item.id)}', ${active ? "true" : "false"})">
+                                ${active ? "إلغاء الصلاحية" : "إعادة الصلاحية"}
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-light"
+                                style="border:1px solid #fecaca;color:#b91c1c;"
+                                onclick="deleteSupervisor('${escapeAttribute(item.id)}', '${escapeAttribute(item.name || "مشرف")}')">
+                                حذف المشرف
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+    }catch(error){
+        console.error("LOAD SUPERVISORS ERROR:", error);
+        container.innerHTML = `<div class="no-results">تعذر تحميل المشرفين: ${escapeHtml(error.message || error)}</div>`;
+    }
+}
+
+async function addSupervisor(){
+
+    if(!isSuperAdmin()){
+        showToast("إضافة المشرفين متاحة للمدير الرئيسي فقط.","error");
+        return;
+    }
+
+    const name = document.getElementById("supervisorName").value.trim();
+    const email = document.getElementById("supervisorEmail").value.trim().toLowerCase();
+    const password = document.getElementById("supervisorPassword").value;
+    const button = document.getElementById("addSupervisorButton");
+
+    if(!email){
+        showToast("يرجى إدخال البريد الإلكتروني.","error");
+        return;
+    }
+
+    if(!password || password.length < 6){
+        showToast("كلمة المرور يجب أن تكون 6 أحرف على الأقل.","error");
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "جاري إنشاء الحساب...";
+
+    try{
+
+        const creatorAuth = await getSupervisorCreatorAuth();
+
+        const credential =
+            await createUserWithEmailAndPassword(
+                creatorAuth,
+                email,
+                password
+            );
+
+        await setDoc(
+            doc(db, "staff", credential.user.uid),
+            {
+                name: name || "مشرف",
+                email: email,
+                role: "supervisor",
+                active: true,
+                createdAt: serverTimestamp(),
+                createdBy: auth.currentUser.uid
+            }
+        );
+
+        await signOut(creatorAuth);
+
+        document.getElementById("supervisorName").value = "";
+        document.getElementById("supervisorEmail").value = "";
+        document.getElementById("supervisorPassword").value = "";
+
+        await loadSupervisors();
+
+        logMessage("تمت إضافة مشرف جديد: " + email);
+        showToast("تم إنشاء حساب المشرف ومنحه الصلاحية بنجاح.");
+
+    }catch(error){
+
+        console.error("ADD SUPERVISOR ERROR:", error);
+
+        let message =
+            error && error.message
+            ? error.message
+            : String(error);
+
+        if(error && error.code === "auth/email-already-in-use"){
+            message = "هذا البريد الإلكتروني مستخدم مسبقًا في Firebase Authentication.";
+        }else if(error && error.code === "auth/invalid-email"){
+            message = "البريد الإلكتروني غير صحيح.";
+        }else if(error && error.code === "auth/weak-password"){
+            message = "كلمة المرور ضعيفة. استخدم 6 أحرف على الأقل.";
+        }
+
+        showToast(
+            "تعذر إضافة المشرف: " + message,
+            "error"
+        );
+
+    }finally{
+        button.disabled = false;
+        button.textContent = "إضافة المشرف";
+    }
+}
+
+async function deleteSupervisor(uid, name){
+
+    if(!isSuperAdmin()){
+        showToast("حذف المشرفين متاح للمدير الرئيسي فقط.","error");
+        return;
+    }
+
+    if(uid === ADMIN_UID){
+        showToast("لا يمكن حذف حساب المدير الرئيسي.","error");
+        return;
+    }
+
+    const confirmed = confirm(
+        "هل أنت متأكد من حذف المشرف \"" +
+        (name || "مشرف") +
+        "\" ؟\n\nسيتم حذف صلاحية المشرف من النظام ولن يتمكن من الدخول إلى لوحة الإدارة."
+    );
+
+    if(!confirmed){
+        return;
+    }
+
+    try{
+
+        await deleteDoc(
+            doc(db, "staff", uid)
+        );
+
+        await loadSupervisors();
+
+        logMessage("تم حذف المشرف: " + (name || uid));
+        showToast("تم حذف المشرف وإلغاء صلاحياته بنجاح.");
+
+    }catch(error){
+
+        console.error("DELETE SUPERVISOR ERROR:", error);
+
+        showToast(
+            "تعذر حذف المشرف: " +
+            (error.message || error),
+            "error"
+        );
+    }
+}
+
+
+async function toggleSupervisor(uid, active){
+
+    if(!isSuperAdmin()){
+        showToast("إدارة صلاحيات المشرفين متاحة للمدير الرئيسي فقط.","error");
+        return;
+    }
+
+    try{
+
+        await updateDoc(
+            doc(db, "staff", uid),
+            {
+                active: !active,
+                updatedAt: serverTimestamp(),
+                updatedBy: auth.currentUser.uid
+            }
+        );
+
+        await loadSupervisors();
+
+        showToast(
+            active
+            ? "تم إلغاء صلاحية المشرف."
+            : "تمت إعادة صلاحية المشرف."
+        );
+
+    }catch(error){
+        console.error("TOGGLE SUPERVISOR ERROR:", error);
+        showToast(
+            "تعذر تحديث صلاحية المشرف: " +
+            (error.message || error),
+            "error"
+        );
+    }
 }
 
 
@@ -5867,6 +6643,11 @@ async function deleteSurvey(
     surveyId
 ){
 
+    if(!isSuperAdmin()){
+        showToast("حذف الاستبيانات متاح للمدير الرئيسي فقط.","error");
+        return;
+    }
+
     const survey =
         surveysData.find(
             function(item){
@@ -5972,6 +6753,614 @@ async function deleteSurvey(
 
 }
 
+
+/* =========================================================
+   EDIT SINGLE RESPONSE
+========================================================= */
+
+async function editSurveyResponse(
+    responseId
+){
+
+    if(!currentSurveyId || !responseId){
+        showToast(
+            "تعذر تحديد الرد المطلوب تعديله",
+            "error"
+        );
+        return;
+    }
+
+    if(!hasAdminAccess()){
+        showToast(
+            "لا تملك صلاحية تعديل هذا الطلب.",
+            "error"
+        );
+        return;
+    }
+
+    const response =
+        currentResultsData.responses.find(
+            function(item){
+                return String(item.id) === String(responseId);
+            }
+        );
+
+    if(!response){
+        showToast(
+            "لم يتم العثور على الرد المطلوب.",
+            "error"
+        );
+        return;
+    }
+
+    editingResponseId = String(responseId);
+    editingResponseData = response;
+    editingResponseImageFiles = new Map();
+    editingResponseSaving = false;
+
+    const saveButton = document.getElementById("saveEditedResponseButton");
+    if(saveButton){
+        saveButton.disabled = false;
+        saveButton.textContent = "حفظ التعديلات";
+    }
+
+    document.getElementById("editResponseModalTitle").textContent =
+        "تعديل طلب المشارك";
+
+    document.getElementById("editResponseSurveyTitle").textContent =
+        currentResultsData.survey && currentResultsData.survey.title
+        ? currentResultsData.survey.title
+        : "الاستبيان";
+
+    document.getElementById("editResponseIntro").innerHTML = `
+        <strong>تاريخ المشاركة:</strong>
+        ${escapeHtml(formatTimestamp(response.submittedAt))}
+        <br>
+        <strong>معرّف المشارك:</strong>
+        ${escapeHtml(response.anonymousId || "غير متوفر")}
+        <br>
+        <span style="color:#64748b;">يمكنك تعديل الإجابات ثم الضغط على "حفظ التعديلات". لن يتم إنشاء طلب جديد.</span>
+    `;
+
+    renderEditableResponseForm();
+    document.getElementById("editResponseModal").classList.add("show");
+}
+
+function renderEditableResponseForm(){
+
+    const container = document.getElementById("editResponseContainer");
+
+    if(!container || !editingResponseData){
+        return;
+    }
+
+    const answers = editingResponseData.answers || {};
+
+    container.innerHTML = currentResultsData.questions.map(
+        function(question,index){
+
+            const id = String(question.id);
+            const value = answers[id];
+            const requiredMark = question.required
+                ? `<span class="required-mark">*</span>`
+                : "";
+
+            let inputHtml = "";
+
+            if(question.questionType === "single_choice"){
+                inputHtml = `
+                    <div class="choice-list">
+                        ${
+                            Array.isArray(question.options)
+                            ? question.options.map(function(option){
+                                const checked = String(value ?? "") === String(option)
+                                    ? "checked"
+                                    : "";
+                                return `
+                                    <label class="choice-item">
+                                        <input
+                                            type="radio"
+                                            name="edit_question_${escapeAttribute(id)}"
+                                            value="${escapeAttribute(option)}"
+                                            ${checked}>
+                                        <span>${escapeHtml(option)}</span>
+                                    </label>
+                                `;
+                            }).join("")
+                            : ""
+                        }
+                    </div>
+                `;
+            }
+            else if(question.questionType === "multiple_choice"){
+                const selectedValues = Array.isArray(value) ? value.map(String) : [];
+                inputHtml = `
+                    <div class="choice-list">
+                        ${
+                            Array.isArray(question.options)
+                            ? question.options.map(function(option){
+                                const checked = selectedValues.indexOf(String(option)) !== -1
+                                    ? "checked"
+                                    : "";
+                                return `
+                                    <label class="choice-item">
+                                        <input
+                                            type="checkbox"
+                                            name="edit_question_${escapeAttribute(id)}"
+                                            value="${escapeAttribute(option)}"
+                                            ${checked}>
+                                        <span>${escapeHtml(option)}</span>
+                                    </label>
+                                `;
+                            }).join("")
+                            : ""
+                        }
+                    </div>
+                `;
+            }
+            else if(question.questionType === "text"){
+                inputHtml = `
+                    <textarea
+                        id="edit_question_${escapeAttribute(id)}"
+                        class="answer-textarea"
+                        rows="5">${escapeHtml(value === null || value === undefined ? "" : String(value))}</textarea>
+                `;
+            }
+            else if(question.questionType === "number"){
+                inputHtml = `
+                    <input
+                        id="edit_question_${escapeAttribute(id)}"
+                        class="answer-input"
+                        type="number"
+                        value="${escapeAttribute(value === null || value === undefined ? "" : String(value))}">
+                `;
+            }
+            else if(question.questionType === "rating"){
+                const currentNumber = Number(value);
+                inputHtml = `
+                    <div class="rating-options">
+                        ${[1,2,3,4,5].map(function(number){
+                            const checked = currentNumber === number ? "checked" : "";
+                            return `
+                                <label class="rating-item">
+                                    <input
+                                        type="radio"
+                                        name="edit_question_${escapeAttribute(id)}"
+                                        value="${number}"
+                                        ${checked}>
+                                    <span class="rating-label">${number} ⭐</span>
+                                </label>
+                            `;
+                        }).join("")}
+                    </div>
+                `;
+            }
+            else if(question.questionType === "image"){
+                inputHtml = `
+                    ${
+                        value
+                        ? `<div class="edit-response-current">
+                                <div class="edit-response-current-title">الصورة الحالية</div>
+                                ${formatAnswerForHtml(value,question)}
+                           </div>`
+                        : `<div class="edit-response-current"><span class="answer-empty">لا توجد صورة محفوظة.</span></div>`
+                    }
+                    <input
+                        id="edit_question_${escapeAttribute(id)}"
+                        class="answer-input"
+                        type="file"
+                        accept="image/*"
+                        onchange="handleEditResponseImageSelection(this,'${escapeAttribute(id)}')">
+                    <div
+                        id="edit_image_status_${escapeAttribute(id)}"
+                        class="edit-response-status">
+                    </div>
+                    <div class="edit-response-help">
+                        اختر صورة جديدة فقط عند الحاجة. عند عدم اختيار صورة جديدة ستبقى الصورة الحالية كما هي.
+                    </div>
+                `;
+            }
+            else if(question.questionType === "file"){
+                inputHtml = `
+                    ${
+                        value
+                        ? `<div class="edit-response-current">
+                                <div class="edit-response-current-title">الملف الحالي</div>
+                                ${formatAnswerForHtml(value,question)}
+                           </div>`
+                        : `<div class="edit-response-current"><span class="answer-empty">لا يوجد ملف محفوظ.</span></div>`
+                    }
+                    <input
+                        id="edit_question_${escapeAttribute(id)}"
+                        class="answer-input"
+                        type="file">
+                    <div class="edit-response-help">
+                        نوع الملف الحالي يحتفظ بقيمته عند ترك الاختيار فارغًا. اختيار ملف جديد هنا يحدّث بيانات الملف فقط، لأن النسخة الحالية من النظام لا ترفع ملفات غير الصور إلى ImgBB.
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="edit-response-card" data-edit-question-id="${escapeAttribute(id)}">
+                    <div class="answer-question-title">
+                        ${index + 1}.
+                        ${escapeHtml(question.questionText || "بدون نص")}
+                        ${requiredMark}
+                    </div>
+                    <div>${inputHtml}</div>
+                    <div
+                        id="edit_validation_${escapeAttribute(id)}"
+                        class="validation-error">
+                        يرجى الإجابة عن هذا السؤال.
+                    </div>
+                </div>
+            `;
+        }
+    ).join("");
+}
+
+async function handleEditResponseImageSelection(
+    input,
+    questionId
+){
+
+    const key = String(questionId || "");
+    const status = document.getElementById("edit_image_status_" + key);
+
+    editingResponseImageFiles.delete(key);
+
+    if(status){
+        status.innerHTML = "";
+    }
+
+    if(!input || !input.files || input.files.length === 0){
+        return true;
+    }
+
+    const originalFile = input.files[0];
+
+    if(!originalFile.type || originalFile.type.indexOf("image/") !== 0){
+        input.value = "";
+        if(status){
+            status.innerHTML = '<span style="color:#b91c1c;font-weight:700;">الملف المحدد ليس صورة.</span>';
+        }
+        showToast("الملف المحدد ليس صورة.","error");
+        return false;
+    }
+
+    try{
+        if(status){
+            status.innerHTML = '<span style="color:#1d4ed8;font-weight:700;">جاري تجهيز الصورة...</span> ' +
+                escapeHtml(formatUploadSize(originalFile.size));
+        }
+
+        const processedFile = await compressImageToTarget(
+            originalFile,
+            MAX_IMAGE_SIZE_BYTES,
+            function(message){
+                if(status){
+                    status.innerHTML = '<span style="color:#1d4ed8;font-weight:700;">' +
+                        escapeHtml(message) +
+                        '</span>';
+                }
+            }
+        );
+
+        editingResponseImageFiles.set(key,{
+            sourceSignature:getFileSignature(originalFile),
+            file:processedFile
+        });
+
+        if(status){
+            status.innerHTML =
+                '<span style="color:#166534;font-weight:700;">✓ الصورة جاهزة للحفظ.</span> ' +
+                escapeHtml(formatUploadSize(processedFile.size));
+        }
+
+        return true;
+
+    }catch(error){
+        console.error("EDIT IMAGE PREPARE ERROR:",error);
+        input.value = "";
+        editingResponseImageFiles.delete(key);
+        if(status){
+            status.innerHTML = '<span style="color:#b91c1c;font-weight:700;">تعذر تجهيز الصورة: ' +
+                escapeHtml(error.message || "خطأ غير معروف") +
+                '</span>';
+        }
+        showToast(error.message || "تعذر تجهيز الصورة.","error");
+        return false;
+    }
+}
+
+function getEffectiveEditImageFile(
+    questionId,
+    input
+){
+
+    const key = String(questionId || "");
+    const item = editingResponseImageFiles.get(key);
+
+    if(
+        item &&
+        input &&
+        input.files &&
+        input.files.length > 0 &&
+        item.sourceSignature === getFileSignature(input.files[0])
+    ){
+        return item.file;
+    }
+
+    return input && input.files && input.files.length > 0
+        ? input.files[0]
+        : null;
+}
+
+function collectEditedResponseAnswers(){
+
+    const answers = {};
+    const errors = [];
+
+    currentResultsData.questions.forEach(function(question,index){
+
+        const id = String(question.id);
+        let value = null;
+        const oldValue = editingResponseData && editingResponseData.answers
+            ? editingResponseData.answers[id]
+            : null;
+
+        if(question.questionType === "single_choice"){
+            const selected = document.querySelector(
+                'input[name="edit_question_' + CSS.escape(id) + '"]:checked'
+            );
+            value = selected ? selected.value : null;
+        }
+        else if(question.questionType === "multiple_choice"){
+            const selected = document.querySelectorAll(
+                'input[name="edit_question_' + CSS.escape(id) + '"]:checked'
+            );
+            value = Array.from(selected).map(function(input){ return input.value; });
+            if(value.length === 0) value = null;
+        }
+        else if(question.questionType === "rating"){
+            const selected = document.querySelector(
+                'input[name="edit_question_' + CSS.escape(id) + '"]:checked'
+            );
+            value = selected ? Number(selected.value) : null;
+        }
+        else if(question.questionType === "image"){
+            const input = document.getElementById("edit_question_" + id);
+            if(input && input.files && input.files.length > 0){
+                const file = getEffectiveEditImageFile(id,input);
+                if(file){
+                    value = {
+                        selected:true,
+                        replacing:true,
+                        fileName:file.name,
+                        fileType:file.type,
+                        fileSize:file.size
+                    };
+                }
+            }else{
+                value = oldValue || null;
+            }
+        }
+        else if(question.questionType === "file"){
+            const input = document.getElementById("edit_question_" + id);
+            if(input && input.files && input.files.length > 0){
+                const file = input.files[0];
+                value = {
+                    selected:true,
+                    replacing:true,
+                    fileName:file.name,
+                    fileType:file.type,
+                    fileSize:file.size
+                };
+            }else{
+                value = oldValue || null;
+            }
+        }
+        else{
+            const input = document.getElementById("edit_question_" + id);
+            value = input ? input.value.trim() : "";
+        }
+
+        const empty =
+            value === null ||
+            value === undefined ||
+            value === "" ||
+            (Array.isArray(value) && value.length === 0);
+
+        if(question.required && empty){
+            errors.push({index:index + 1,id:id});
+        }
+
+        answers[id] = value;
+    });
+
+    return {answers:answers,errors:errors};
+}
+
+async function saveEditedSurveyResponse(){
+
+    if(editingResponseSaving){
+        return;
+    }
+
+    if(!editingResponseId || !currentSurveyId || !editingResponseData){
+        showToast("لم يتم تحديد الرد المطلوب.","error");
+        return;
+    }
+
+    if(!hasAdminAccess()){
+        showToast("لا تملك صلاحية تعديل هذا الطلب.","error");
+        return;
+    }
+
+    const saveButton = document.getElementById("saveEditedResponseButton");
+    editingResponseSaving = true;
+
+    if(saveButton){
+        saveButton.disabled = true;
+        saveButton.textContent = "⏳ جارٍ حفظ التعديلات...";
+    }
+
+    try{
+
+        const result = collectEditedResponseAnswers();
+
+        if(result.errors.length > 0){
+            const first = result.errors[0];
+            const element = document.querySelector(
+                '[data-edit-question-id="' + CSS.escape(first.id) + '"]'
+            );
+            if(element){
+                element.scrollIntoView({behavior:"smooth",block:"center"});
+            }
+            throw new Error("يرجى الإجابة عن الأسئلة الإلزامية.");
+        }
+
+        // تجهيز الصور الجديدة فعليًا قبل الكتابة في Firestore.
+        // هذا يمنع حفظ صورة بحجم أكبر من الحد حتى لو ضغط المستخدم "حفظ"
+        // قبل اكتمال حدث تغيير الملف في الواجهة.
+        let answers = JSON.parse(JSON.stringify(result.answers));
+        const anonymousId = editingResponseData.anonymousId || "";
+        let hasNewImage = false;
+
+        for(const question of currentResultsData.questions){
+            if(question.questionType !== "image") continue;
+
+            const input = document.getElementById("edit_question_" + question.id);
+            if(!input || !input.files || input.files.length === 0) continue;
+
+            const originalFile = input.files[0];
+            if(!originalFile || !originalFile.type || originalFile.type.indexOf("image/") !== 0){
+                throw new Error("الملف المحدد للسؤال \"" + (question.questionText || question.id) + "\" ليس صورة صالحة.");
+            }
+
+            let file = getEffectiveEditImageFile(question.id,input);
+            if(!file || file === originalFile || file.size > MAX_IMAGE_SIZE_BYTES){
+                if(saveButton){
+                    saveButton.textContent = "⏳ جارٍ ضغط الصور...";
+                }
+                file = await compressImageToTarget(
+                    originalFile,
+                    MAX_IMAGE_SIZE_BYTES,
+                    function(status){
+                        if(saveButton){
+                            saveButton.textContent = "⏳ " + status;
+                        }
+                    }
+                );
+            }
+
+            if(!file || file.size > MAX_IMAGE_SIZE_BYTES){
+                throw new Error("تعذر تجهيز صورة السؤال: " + (question.questionText || question.id));
+            }
+
+            hasNewImage = true;
+
+            if(saveButton){
+                saveButton.textContent = "⏳ جارٍ رفع الصور...";
+            }
+
+            const saved = await saveSurveyImageToImgBB(
+                file,
+                currentSurveyId,
+                anonymousId,
+                editingResponseId,
+                question.id,
+                function(status){
+                    if(saveButton){
+                        saveButton.textContent = "⏳ " + status;
+                    }
+                }
+            );
+
+            answers[question.id] = saved;
+        }
+
+        if(saveButton){
+            saveButton.textContent = "⏳ جارٍ تحديث الطلب...";
+        }
+
+        const responseRef = doc(
+            db,
+            "surveys",
+            currentSurveyId,
+            "responses",
+            editingResponseId
+        );
+
+        await updateDoc(responseRef,{
+            answers:answers,
+            updatedAt:serverTimestamp(),
+            updatedBy:auth.currentUser.email || "مدير النظام"
+        });
+
+        const updatedLocal = {
+            ...editingResponseData,
+            answers:answers,
+            updatedAt:{
+                seconds:Math.floor(Date.now()/1000),
+                nanoseconds:0
+            },
+            updatedBy:auth.currentUser.email || "مدير النظام"
+        };
+
+        currentResultsData.responses = currentResultsData.responses.map(
+            function(item){
+                return String(item.id) === String(editingResponseId)
+                    ? updatedLocal
+                    : item;
+            }
+        );
+
+        currentResultsData.filteredResponses = currentResultsData.filteredResponses.map(
+            function(item){
+                return String(item.id) === String(editingResponseId)
+                    ? updatedLocal
+                    : item;
+            }
+        );
+
+        editingResponseData = updatedLocal;
+        editingResponseImageFiles = new Map();
+
+        closeModal("editResponseModal");
+
+        renderResults(
+            currentResultsData.survey,
+            currentResultsData.questions,
+            currentResultsData.responses
+        );
+
+        showToast(
+            hasNewImage
+            ? "تم تعديل الطلب ورفع الصورة الجديدة بنجاح."
+            : "تم تعديل الطلب وحفظ التغييرات بنجاح."
+        );
+
+    }catch(error){
+
+        console.error("EDIT RESPONSE ERROR:",error);
+        showToast(
+            error && error.message
+            ? error.message
+            : "حدث خطأ أثناء تعديل الطلب.",
+            "error"
+        );
+
+    }finally{
+
+        editingResponseSaving = false;
+
+        if(saveButton){
+            saveButton.disabled = false;
+            saveButton.textContent = "حفظ التعديلات";
+        }
+    }
+}
 
 /* =========================================================
    DELETE SINGLE RESPONSE
@@ -8013,6 +9402,16 @@ function buildResponsesTable(
 
                         <button
                             type="button"
+                            class="btn btn-warning"
+                            style="padding:7px 10px;font-size:12px;"
+                            onclick="editSurveyResponse('${escapeAttribute(response.id)}')">
+
+                            تعديل
+
+                        </button>
+
+                        <button
+                            type="button"
                             class="btn btn-danger"
                             style="padding:7px 10px;font-size:12px;"
                             onclick="deleteSurveyResponse('${escapeAttribute(response.id)}')">
@@ -8831,7 +10230,7 @@ async function exportResultsToExcel(){
         );
 
         const workbook = new ExcelJS.Workbook();
-        workbook.creator = "استطلاعات الديوان";
+        workbook.creator = "استطلاعات صندوق الطلاب";
         workbook.created = new Date();
 
         const wsParticipants =
@@ -9586,6 +10985,14 @@ function closeModal(
 
     }
 
+
+    if(id === "editResponseModal"){
+        editingResponseId = null;
+        editingResponseData = null;
+        editingResponseImageFiles = new Map();
+        editingResponseSaving = false;
+    }
+
 }
 
 
@@ -9875,6 +11282,15 @@ window.deleteSurvey =
 window.deleteSurveyResponse =
     deleteSurveyResponse;
 
+window.editSurveyResponse =
+    editSurveyResponse;
+
+window.saveEditedSurveyResponse =
+    saveEditedSurveyResponse;
+
+window.handleEditResponseImageSelection =
+    handleEditResponseImageSelection;
+
 window.openQuestions =
     openQuestions;
 
@@ -9910,6 +11326,21 @@ window.logoutAdmin =
 
 window.openResults =
     openResults;
+
+window.openSupervisorManager =
+    openSupervisorManager;
+
+window.loadSupervisors =
+    loadSupervisors;
+
+window.addSupervisor =
+    addSupervisor;
+
+window.toggleSupervisor =
+    toggleSupervisor;
+
+window.deleteSupervisor =
+    deleteSupervisor;
 
 window.printResults =
     printResults;
@@ -9960,6 +11391,11 @@ console.log(
 console.log(
     "Admin UID:",
     ADMIN_UID
+);
+
+console.log(
+    "Access Model:",
+    "Manager + Supervisors"
 );
 
 </script>
