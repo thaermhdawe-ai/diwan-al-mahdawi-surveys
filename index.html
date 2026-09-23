@@ -1964,9 +1964,17 @@ button{
 
 
             <div class="form-group">
-                <label class="form-label">عدد المشاركات المسموح بها لهذا الاستبيان</label>
+                <label class="form-label">العدد الإجمالي للمشاركات المسموح بها لهذا الاستبيان</label>
                 <input id="surveyMaxResponses" type="number" class="form-control" min="0" step="1" placeholder="0 = بدون حد">
-                <div class="settings-help">يتم تحديد العدد لهذا الاستبيان فقط. أدخل 0 لعدم وضع حد، وعند الوصول للعدد المحدد يتوقف استقبال المشاركات تلقائيًا.</div>
+                <div class="settings-help">هذا العدد يمثل إجمالي الردود المسموح بتسجيلها للاستبيان. أدخل 0 لعدم وضع حد.</div>
+            </div>
+
+            <div class="form-group">
+                <label style="display:flex;align-items:flex-start;gap:8px;">
+                    <input id="surveyAllowMultiple" type="checkbox" style="margin-top:4px;">
+                    <span><strong>السماح للمشارك بالمشاركة أكثر من مرة</strong></span>
+                </label>
+                <div class="settings-help">إذا كان مفعّلًا يستطيع نفس المستخدم إرسال أكثر من مشاركة حتى الوصول إلى العدد الإجمالي المحدد أعلاه. إذا كان غير مفعّل، يسمح له بمشاركة واحدة فقط.</div>
             </div>
 
             <div class="form-group">
@@ -3313,7 +3321,8 @@ function renderUserSurveys(surveys){
     container.className="user-surveys-grid";
     container.innerHTML=surveys.map(function(survey){
         const isOpen=String(survey.status||"").toLowerCase()==="open";
-        const answered=isOpen&&hasAlreadyAnswered(survey.id);
+        const allowMultipleParticipation = survey.allowMultipleParticipation === true;
+        const answered=isOpen&&!allowMultipleParticipation&&hasAlreadyAnswered(survey.id);
         const max=Math.max(0,Number(survey.maxResponses||0));
         const count=Number(survey.responseCount||0);
         const full=isOpen&&max>0&&count>=max;
@@ -3537,6 +3546,8 @@ async function startSurvey(
 
 
         if(
+            survey.allowMultipleParticipation !== true
+            &&
             hasAlreadyAnswered(
                 surveyId
             )
@@ -5644,7 +5655,11 @@ async function submitSurveyAnswers(){
         return;
     }
 
-    if(hasAlreadyAnswered(answerSurveyId)){
+    if(
+        answerSurveyData &&
+        answerSurveyData.allowMultipleParticipation !== true &&
+        hasAlreadyAnswered(answerSurveyId)
+    ){
         showAlreadyAnsweredMessage();
         return;
     }
@@ -5769,7 +5784,12 @@ async function submitSurveyAnswers(){
             transaction.update(surveyRef,{responseCount:newCount,updatedAt:serverTimestamp()});
         });
 
-        markSurveyAsAnswered(answerSurveyId);
+        if(
+            !answerSurveyData ||
+            answerSurveyData.allowMultipleParticipation !== true
+        ){
+            markSurveyAsAnswered(answerSurveyId);
+        }
         showSurveySuccess();
 
     }catch(error){
@@ -6554,6 +6574,9 @@ function openAddSurvey(){
     document.getElementById("surveyMaxResponses").value =
         0;
 
+    document.getElementById("surveyAllowMultiple").checked =
+        false;
+
     document.getElementById("surveyShowWhenClosed").checked =
         true;
 
@@ -6640,6 +6663,8 @@ async function editSurvey(
 
     document.getElementById("surveyMaxResponses").value =
         Math.max(0,Number(survey.maxResponses || 0));
+    document.getElementById("surveyAllowMultiple").checked =
+        survey.allowMultipleParticipation === true;
     document.getElementById("surveyShowWhenClosed").checked =
         survey.showWhenClosed !== false;
 
@@ -6696,6 +6721,9 @@ async function saveSurvey(){
             parseInt(document.getElementById("surveyMaxResponses").value,10) || 0
         );
 
+        const allowMultipleParticipation =
+            document.getElementById("surveyAllowMultiple").checked;
+
         const showWhenClosed =
             document.getElementById("surveyShowWhenClosed").checked;
 
@@ -6742,6 +6770,9 @@ async function saveSurvey(){
                     maxResponses:
                         maxResponses,
 
+                    allowMultipleParticipation:
+                        allowMultipleParticipation,
+
                     showWhenClosed:
                         showWhenClosed,
 
@@ -6783,6 +6814,9 @@ async function saveSurvey(){
 
                         maxResponses:
                             maxResponses,
+
+                        allowMultipleParticipation:
+                            allowMultipleParticipation,
 
                         showWhenClosed:
                             showWhenClosed,
