@@ -1071,6 +1071,69 @@ button{
     font-size:13px;
 }
 
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+.home-hero{display:grid;grid-template-columns:1.45fr .85fr;gap:22px;background:linear-gradient(135deg,#173b6d,#2563a6);color:white;border-radius:22px;padding:28px;margin-bottom:22px;box-shadow:0 10px 32px rgba(23,59,109,.16);overflow:hidden;}
+.home-hero-content{display:flex;flex-direction:column;justify-content:center;}
+.home-kicker{font-size:13px;opacity:.85;margin-bottom:8px;font-weight:bold;}
+.home-title{font-size:30px;font-weight:bold;line-height:1.5;margin:0 0 10px;}
+.home-subtitle{font-size:16px;line-height:1.9;opacity:.94;white-space:pre-wrap;}
+.home-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
+.home-actions .btn{min-width:150px;}
+.home-hero-image{min-height:220px;border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.home-hero-image img{width:100%;height:100%;min-height:220px;max-height:330px;object-fit:cover;}
+.home-hero-placeholder{font-size:78px;opacity:.85;}
+.home-notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:15px;padding:15px 17px;margin-bottom:22px;line-height:1.9;display:none;}
+.home-section-title{font-size:20px;font-weight:bold;color:#173b6d;margin:24px 0 12px;}
+.home-features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:25px;}
+.home-feature{background:white;border:1px solid #e5eaf0;border-radius:15px;padding:17px;box-shadow:0 4px 16px rgba(0,0,0,.05);}
+.home-feature-icon{font-size:30px;margin-bottom:8px;}
+.home-feature-title{font-weight:bold;color:#173b6d;margin-bottom:6px;}
+.home-feature-text{color:#64748b;font-size:13px;line-height:1.8;}
+.home-resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:13px;margin-bottom:25px;}
+.home-resource{background:white;border:1px solid #e5eaf0;border-radius:15px;padding:17px;box-shadow:0 4px 16px rgba(0,0,0,.05);}
+.home-resource-title{font-weight:bold;color:#173b6d;font-size:16px;}
+.home-resource-desc{margin-top:7px;color:#64748b;font-size:13px;line-height:1.8;min-height:44px;}
+.home-resource-btn{display:inline-block;margin-top:12px;padding:9px 13px;border-radius:9px;background:#eef5ff;color:#2563a6;text-decoration:none;font-weight:bold;font-size:13px;}
+.home-empty-resources{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:13px;padding:18px;color:#64748b;text-align:center;}
+
+/* =========================================================
+   SETTINGS + PARTICIPATION REPORT
+========================================================= */
+.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.settings-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:13px;padding:15px;}
+.settings-card h4{margin:0 0 8px;color:#173b6d;font-size:16px;}
+.settings-help{font-size:12px;color:#64748b;line-height:1.8;margin-top:7px;}
+.switch-row{display:flex;align-items:center;gap:10px;padding:10px 0;}
+.switch-row input{width:20px;height:20px;}
+.home-resource-row{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;margin-bottom:9px;}
+.home-resource-row textarea{min-height:70px;}
+.participation-report-table{width:100%;border-collapse:collapse;min-width:700px;}
+.participation-report-table th{background:#173b6d;color:white;padding:11px;border:1px solid #315b8b;text-align:right;white-space:nowrap;}
+.participation-report-table td{padding:10px;border:1px solid #e2e8f0;vertical-align:middle;}
+.participation-report-table tbody tr:nth-child(even){background:#f8fafc;}
+.limit-good{color:#166534;font-weight:bold;}
+.limit-full{color:#991b1b;font-weight:bold;}
+.limit-none{color:#64748b;}
+
+@media(max-width:900px){.home-hero{grid-template-columns:1fr;}.home-features{grid-template-columns:repeat(2,minmax(0,1fr));}.settings-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.home-hero{padding:20px;border-radius:18px;}.home-title{font-size:24px;}.home-subtitle{font-size:14px;}.home-features{grid-template-columns:1fr;}.home-hero-image,.home-hero-image img{min-height:180px;}.home-resource-row{grid-template-columns:1fr;}}
+
+/* =========================================================
+   USER NAVIGATION + SEPARATE PAGES
+========================================================= */
+.user-page{display:none;}
+.user-page.active{display:block;}
+.user-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;margin-top:12px;}
+.user-nav .btn{min-width:120px;}
+.user-nav .active-nav{background:#173b6d;color:white;}
+.page-intro{background:white;border:1px solid #e5eaf0;border-radius:16px;padding:20px;margin-bottom:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);}
+.page-intro h2{margin:0 0 8px;color:#173b6d;font-size:24px;}
+.page-intro p{margin:0;color:#64748b;line-height:1.9;}
+.resources-page-grid{margin-top:0;}
+
 /* =========================================================
    USER SURVEYS + ANSWER PAGE MOBILE
 ========================================================= */
@@ -1349,7 +1412,7 @@ button{
             <div>
 
                 <div class="header-title">
-                    ديوان المهداوي   
+                    ديوان المهداوي
                 </div>
 
                 <div class="header-subtitle">
@@ -1378,27 +1441,63 @@ button{
 
     <main class="container">
 
-        <div class="section-title">
-             الاستبيانات المتاحة
+        <div id="userNav" class="user-nav" style="margin-bottom:18px;">
+            <button type="button" id="navHomeButton" class="btn btn-light active-nav" onclick="showUserHome()">🏠 الرئيسية</button>
+            <button type="button" id="navSurveysButton" class="btn btn-light" onclick="showSurveysPage()">📝 الاستبيانات</button>
+            <button type="button" id="navResourcesButton" class="btn btn-light" onclick="showResourcesPage()">📁 النماذج والملفات</button>
         </div>
 
-        <div class="section-description">
-            اختر الاستبيان المناسب وشارك برأيك.
-        </div>
+        <!-- الصفحة الرئيسية -->
+        <section id="userHomePage" class="user-page active">
+            <section class="home-hero">
+                <div class="home-hero-content">
+                    <div class="home-kicker">منصة ديوان المهداوي</div>
+                    <h1 id="homeSiteTitle" class="home-title">ديوان المهداوي</h1>
+                    <div id="homeSiteSubtitle" class="home-subtitle">منصة عائلية للمبادرات والخدمات والاستطلاعات.</div>
+                    <div class="home-actions">
+                        <button type="button" class="btn btn-light" onclick="showSurveysPage()">📝 الاستبيانات</button>
+                        <button type="button" class="btn btn-light" onclick="showResourcesPage()">📁 النماذج والملفات</button>
+                    </div>
+                </div>
+                <div id="homeHeroImage" class="home-hero-image"><div class="home-hero-placeholder">🏠</div></div>
+            </section>
 
-        <div id="userSurveysContainer">
+            <div id="homeNotice" class="home-notice"></div>
 
-            <div class="user-loading">
-                 جاري تحميل الاستبيانات...
+            <section>
+                <div class="home-section-title">خدمات ومبادرات المنصة</div>
+                <div class="home-features">
+                    <div class="home-feature"><div class="home-feature-icon">🩺</div><div class="home-feature-title">الأجهزة الطبية</div><div class="home-feature-text">جمع بيانات الأجهزة المتوفرة للتبرع وربطها باحتياجات أبناء العائلة.</div></div>
+                    <div class="home-feature"><div class="home-feature-icon">🎓</div><div class="home-feature-title">صندوق الطالب</div><div class="home-feature-text">استقبال طلبات الدعم والاستطلاع عن احتياجات الطلبة ضمن نظام منظم.</div></div>
+                    <div class="home-feature"><div class="home-feature-icon">📊</div><div class="home-feature-title">استطلاعات الرأي</div><div class="home-feature-text">أخذ آراء أبناء العائلة حول المشاريع والمبادرات والخدمات المستقبلية.</div></div>
+                    <div class="home-feature"><div class="home-feature-icon">🤝</div><div class="home-feature-title">خدمة العائلة</div><div class="home-feature-text">المنصة قابلة لإضافة مبادرات وخدمات جديدة تخدم أبناء العائلة تباعًا.</div></div>
+                </div>
+            </section>
+        </section>
+
+        <!-- صفحة الاستبيانات -->
+        <section id="userSurveysPage" class="user-page">
+            <div class="page-intro">
+                <h2>📝 الاستبيانات</h2>
+                <p>من هنا يمكن لأبناء العائلة الاطلاع على الاستبيانات والمشاركة فيها. الاستبيانات المغلقة يمكن إبقاؤها ظاهرة للعرض حسب إعدادات الإدارة، ولا يمكن إرسال إجابات إليها.</p>
             </div>
+            <div id="userSurveysContainer"><div class="user-loading">جاري تحميل الاستبيانات...</div></div>
+        </section>
 
-        </div>
+        <!-- صفحة النماذج والملفات -->
+        <section id="userResourcesPage" class="user-page">
+            <div class="page-intro">
+                <h2>📁 النماذج والملفات</h2>
+                <p>صفحة مستقلة لعرض النماذج والملفات والروابط التي توفرها الهيئة الإدارية، مثل ملفات Excel وPDF والنماذج الإلكترونية والمراجع المهمة.</p>
+            </div>
+            <div id="homeResourcesContainer" class="home-resources resources-page-grid"><div class="home-empty-resources">لا توجد ملفات أو روابط مضافة حاليًا.</div></div>
+        </section>
 
     </main>
 
 
     <footer class="footer">
-        ديوان العائلة • صندوق الطلاب
+        ديوان المهداوي • منصة الخدمات والاستبيانات
     </footer>
 
 </div>
@@ -1650,6 +1749,11 @@ button{
 
             </div>
 
+            <div class="stat-card">
+                <div id="totalResponses" class="stat-number">0</div>
+                <div class="stat-label">إجمالي المشاركات</div>
+            </div>
+
         </div>
 
 
@@ -1671,6 +1775,10 @@ button{
                      إضافة استبيان
 
                 </button>
+
+                <button type="button" class="btn btn-purple" onclick="openParticipationReport()">تقرير المشاركات</button>
+
+                <button id="siteSettingsButton" type="button" class="btn btn-warning" onclick="openSiteSettings()" style="display:none;">إعدادات الموقع</button>
 
                 <button
                     id="manageSupervisorsButton"
@@ -1710,6 +1818,51 @@ button{
 
 </div>
 
+
+<!-- =========================================================
+     SITE SETTINGS MODAL
+========================================================= -->
+<div id="siteSettingsModal" class="modal-overlay">
+    <div class="modal large">
+        <div class="modal-header">
+            <div><div class="modal-title">إعدادات الموقع</div><div style="margin-top:5px;color:#64748b;">التحكم في عرض الموقع، المشاركة، ومحتوى الصفحة الرئيسية.</div></div>
+            <button type="button" class="modal-close" onclick="closeModal('siteSettingsModal')">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h4>إعدادات عامة</h4>
+                    <div class="switch-row"><input id="siteEnabled" type="checkbox"><label for="siteEnabled"><strong>الموقع متاح للزوار</strong></label></div>
+                    <div class="settings-help" style="margin-top:10px;">حالة الاستبيان، وإظهار الاستبيان المغلق، والحد الأقصى للمشاركات يتم تحديدها من داخل كل استبيان عند الإنشاء أو التعديل.</div>
+                </div>
+                <div class="settings-card">
+                    <h4>محتوى الصفحة الرئيسية</h4>
+                    <div class="form-group"><label class="form-label">عنوان الصفحة</label><input id="homeTitleInput" type="text" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">الوصف الرئيسي</label><textarea id="homeSubtitleInput" class="form-control" rows="4"></textarea></div>
+                    <div class="form-group"><label class="form-label">تنبيه أو إعلان</label><textarea id="homeNoticeInput" class="form-control" rows="3" placeholder="يمكن تركه فارغًا"></textarea></div>
+                    <div class="form-group"><label class="form-label">رابط صورة الصفحة الرئيسية</label><input id="homeImageUrlInput" type="url" class="form-control" placeholder="https://..."><br><input id="homeImageFile" type="file" accept="image/*" class="form-control" onchange="handleHomeImageSelection(this)"><div id="homeImageUploadStatus" class="settings-help"></div></div>
+                </div>
+            </div>
+            <div class="settings-card" style="margin-top:14px;">
+                <h4>إدارة النماذج والملفات والروابط</h4>
+                <div class="settings-help" style="margin-bottom:12px;">يمكن إضافة روابط لملفات Excel أو PDF أو Google Drive أو OneDrive أو GitHub، وستظهر للزوار في صفحة «النماذج والملفات».</div>
+                <div id="homeResourcesEditor"></div>
+            </div>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" onclick="closeModal('siteSettingsModal')">إلغاء</button><button type="button" class="btn btn-success" onclick="saveSiteSettings()">حفظ الإعدادات</button></div>
+    </div>
+</div>
+
+<!-- =========================================================
+     PARTICIPATION REPORT MODAL
+========================================================= -->
+<div id="participationReportModal" class="modal-overlay">
+    <div class="modal large">
+        <div class="modal-header"><div class="modal-title">تقرير المشاركات في الاستبيانات</div><button type="button" class="modal-close" onclick="closeModal('participationReportModal')">×</button></div>
+        <div class="modal-body"><div id="participationReportContainer">جاري تحميل التقرير...</div></div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" onclick="closeModal('participationReportModal')">إغلاق</button></div>
+    </div>
+</div>
 
 <!-- =========================================================
      SURVEY MODAL
@@ -1779,7 +1932,7 @@ button{
             <div class="form-group">
 
                 <label class="form-label">
-                    الحالة
+                    حالة المشاركة
                 </label>
 
                 <select
@@ -1787,17 +1940,34 @@ button{
                     class="form-control">
 
                     <option value="open">
-                         مفتوح
+                         مفتوح للمشاركة
                     </option>
 
                     <option value="closed">
-                         مغلق
+                         مغلق – منع المشاركة
                     </option>
 
                 </select>
 
+                <div class="settings-help">عند اختيار «مغلق» يبقى الاستبيان ظاهرًا للزوار إذا كان خيار العرض التالي مفعّلًا، لكن لا يمكن إرسال إجابات جديدة.</div>
+
             </div>
 
+
+            <div class="form-group">
+                <label style="display:flex;align-items:flex-start;gap:8px;">
+                    <input id="surveyShowWhenClosed" type="checkbox" style="margin-top:4px;">
+                    <span>إظهار الاستبيان للزوار عند إغلاقه</span>
+                </label>
+                <div class="settings-help">يمكنك إبقاء الاستبيان ظاهرًا للقراءة مع منع المشاركة، أو إخفاءه بالكامل عند إغلاقه.</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label">عدد المشاركات المسموح بها لهذا الاستبيان</label>
+                <input id="surveyMaxResponses" type="number" class="form-control" min="0" step="1" placeholder="0 = بدون حد">
+                <div class="settings-help">يتم تحديد العدد لهذا الاستبيان فقط. أدخل 0 لعدم وضع حد، وعند الوصول للعدد المحدد يتوقف استقبال المشاركات تلقائيًا.</div>
+            </div>
 
             <div class="form-group">
 
@@ -1883,7 +2053,7 @@ button{
 
             <div class="form-group">
                 <label class="form-label">البريد الإلكتروني</label>
-                <input id="supervisorEmail" type="email" class="form-control" placeholder="example@email.com" autocomplete="off">
+                <input id="supervisorEmail" type="email" class="form-control" placeholder="example\@email.com" autocomplete="off">
             </div>
 
             <div class="form-group">
@@ -2145,10 +2315,34 @@ button{
                     class="btn btn-light"
                     onclick="addOption()">
 
-                    ? إضافة خيار
+                    + إضافة خيار
 
                 </button>
 
+                <div id="multipleChoiceLimitSection" class="form-group" style="display:none;margin-top:12px;">
+                    <label class="form-label">الحد الأقصى لعدد الخيارات التي يمكن للمشارك اختيارها</label>
+                    <input id="questionMaxSelections" type="number" class="form-control" min="0" step="1" placeholder="0 = اختيار مفتوح">
+                    <div class="settings-help">مثال: ضع 3 إذا أردت السماح للمشارك باختيار 3 خيارات فقط من أصل 5.</div>
+                </div>
+
+            </div>
+
+            <div id="questionConditionSection" class="settings-card" style="margin-top:16px;display:none;">
+                <div class="switch-row">
+                    <input id="questionConditionEnabled" type="checkbox" onchange="questionConditionChanged()">
+                    <label for="questionConditionEnabled"><strong>جعل هذا السؤال تابعًا لإجابة سؤال آخر</strong></label>
+                </div>
+                <div id="questionConditionFields" style="display:none;margin-top:12px;">
+                    <div class="form-group">
+                        <label class="form-label">السؤال الذي يعتمد عليه</label>
+                        <select id="conditionQuestionId" class="form-control" onchange="conditionQuestionChanged()"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">الإجابة التي يظهر عندها هذا السؤال</label>
+                        <select id="conditionAnswer" class="form-control"></select>
+                    </div>
+                    <div class="settings-help">مثال: سؤال «هل ترغب بإنشاء ديوان تملك؟» ثم اجعل سؤال «لماذا لا؟» يظهر فقط عند اختيار «لا».</div>
+                </div>
             </div>
 
         </div>
@@ -2350,6 +2544,7 @@ import {
     getDocs,
     addDoc,
     updateDoc,
+    runTransaction,
     deleteDoc,
     setDoc,
     query,
@@ -2520,6 +2715,17 @@ const compressedImageFiles = new Map();
 
 let surveysData = [];
 
+let siteSettings = {
+    siteEnabled:true,
+    siteTitle:"ديوان المهداوي",
+    siteSubtitle:"شارك برأيك وساهم في تطوير المبادرات والخدمات العائلية.",
+    homeNotice:"",
+    homeImageUrl:"",
+    homeResources:[]
+};
+
+let homeImageUploading = false;
+
 let currentSurveyId = null;
 
 let currentSurveyData = null;
@@ -2617,6 +2823,158 @@ onAuthStateChanged(
 
 
 /* =========================================================
+   SITE SETTINGS + HOME PAGE
+========================================================= */
+
+async function loadSiteSettings(){
+    const defaults={siteEnabled:true,siteTitle:"ديوان المهداوي",siteSubtitle:"شارك برأيك وساهم في تطوير المبادرات والخدمات العائلية.",homeNotice:"",homeImageUrl:"",homeResources:[]};
+    try{
+        const snap=await getDoc(doc(db,"site_settings","general"));
+        if(snap.exists()){
+            const data=snap.data()||{};
+            siteSettings={...defaults,...data,homeResources:Array.isArray(data.homeResources)?data.homeResources:[]};
+        }else{siteSettings=defaults;}
+    }catch(error){console.warn("SITE SETTINGS LOAD ERROR:",error);}
+    renderHomePage();
+    return siteSettings;
+}
+
+function isSafeExternalUrl(value){try{const url=new URL(String(value||"").trim());return url.protocol==="http:"||url.protocol==="https:";}catch(error){return false;}}
+
+function renderHomePage(){
+    const title=document.getElementById("homeSiteTitle");
+    const subtitle=document.getElementById("homeSiteSubtitle");
+    const notice=document.getElementById("homeNotice");
+    const imageBox=document.getElementById("homeHeroImage");
+    const resources=document.getElementById("homeResourcesContainer");
+    if(title) title.textContent=siteSettings.siteTitle||"ديوان المهداوي";
+    if(subtitle) subtitle.textContent=siteSettings.siteSubtitle||"";
+    if(notice){const value=String(siteSettings.homeNotice||"").trim();notice.textContent=value;notice.style.display=value?"block":"none";}
+    if(imageBox){
+        imageBox.innerHTML=isSafeExternalUrl(siteSettings.homeImageUrl)
+            ? '<img src="'+escapeAttribute(siteSettings.homeImageUrl)+'" alt="صورة الصفحة الرئيسية">'
+            : '<div class="home-hero-placeholder">🏠</div>';
+    }
+    if(resources){
+        const list=Array.isArray(siteSettings.homeResources)?siteSettings.homeResources.filter(function(item){return item&&String(item.title||"").trim()&&isSafeExternalUrl(item.url);}):[];
+        if(list.length===0){resources.innerHTML='<div class="home-empty-resources">لا توجد ملفات أو روابط مضافة حاليًا.</div>';}
+        else{resources.innerHTML=list.map(function(item){
+            let icon="🔗";const lower=String(item.url||"").toLowerCase();
+            if(/\.xlsx?(\?|#|$)/.test(lower)||lower.indexOf("spreadsheet")!==-1) icon="📊";
+            else if(/\.pdf(\?|#|$)/.test(lower)) icon="📄";
+            else if(/drive\.google|onedrive|dropbox/.test(lower)) icon="📁";
+            return '<div class="home-resource"><div class="home-resource-title">'+icon+' '+escapeHtml(item.title||"رابط")+'</div><div class="home-resource-desc">'+(escapeHtml(item.description||"")||"اضغط لفتح الرابط أو الملف.")+'</div><a class="home-resource-btn" href="'+escapeAttribute(item.url||"")+'" target="_blank" rel="noopener noreferrer">فتح الملف / الرابط</a></div>';
+        }).join("");}
+    }
+}
+
+function setActiveUserPage(pageId){
+    const pages=["userHomePage","userSurveysPage","userResourcesPage"];
+    pages.forEach(function(id){const el=document.getElementById(id);if(el)el.classList.toggle("active",id===pageId);});
+    const buttons={userHomePage:"navHomeButton",userSurveysPage:"navSurveysButton",userResourcesPage:"navResourcesButton"};
+    Object.keys(buttons).forEach(function(key){const btn=document.getElementById(buttons[key]);if(btn)btn.classList.toggle("active-nav",key===pageId);});
+    window.scrollTo(0,0);
+}
+
+function showSurveysPage(){
+    document.getElementById("userApp").style.display="block";
+    setActiveUserPage("userSurveysPage");
+    loadUserSurveys();
+}
+
+async function showResourcesPage(){
+    document.getElementById("userApp").style.display="block";
+    setActiveUserPage("userResourcesPage");
+    await loadSiteSettings();
+    renderHomePage();
+}
+
+function scrollToSurveys(){showSurveysPage();}
+function scrollToResources(){showResourcesPage();}
+
+function renderHomeResourcesEditor(){
+    const container=document.getElementById("homeResourcesEditor");if(!container)return;
+    const list=Array.isArray(siteSettings.homeResources)?siteSettings.homeResources:[];
+    let html="";
+    for(let i=0;i<5;i++){const item=list[i]||{};html+='<div class="home-resource-row"><input id="homeResourceTitle_'+i+'" type="text" class="form-control" placeholder="عنوان الملف / الرابط" value="'+escapeAttribute(item.title||"")+'"><input id="homeResourceUrl_'+i+'" type="url" class="form-control" placeholder="رابط الملف أو الصفحة https://..." value="'+escapeAttribute(item.url||"")+'"><textarea id="homeResourceDescription_'+i+'" class="form-control" rows="2" placeholder="وصف مختصر اختياري">'+escapeHtml(item.description||"")+'</textarea></div>';}
+    container.innerHTML=html;
+}
+
+function openSiteSettings(){
+    if(!isSuperAdmin()){showToast("إعدادات الموقع متاحة للمدير الرئيسي فقط.","error");return;}
+    document.getElementById("siteEnabled").checked=siteSettings.siteEnabled!==false;
+    document.getElementById("homeTitleInput").value=siteSettings.siteTitle||"";
+    document.getElementById("homeSubtitleInput").value=siteSettings.siteSubtitle||"";
+    document.getElementById("homeNoticeInput").value=siteSettings.homeNotice||"";
+    document.getElementById("homeImageUrlInput").value=siteSettings.homeImageUrl||"";
+    document.getElementById("homeImageFile").value="";
+    document.getElementById("homeImageUploadStatus").textContent="";
+    renderHomeResourcesEditor();
+    document.getElementById("siteSettingsModal").classList.add("show");
+}
+
+async function handleHomeImageSelection(input){
+    if(homeImageUploading||!input||!input.files||!input.files.length)return;
+    const status=document.getElementById("homeImageUploadStatus");homeImageUploading=true;
+    try{
+        const file=input.files[0];
+        if(!file.type||file.type.indexOf("image/")!==0)throw new Error("الملف المحدد ليس صورة.");
+        const processed=await compressImageToTarget(file,MAX_IMAGE_SIZE_BYTES,function(message){if(status)status.textContent=message;});
+        const uploaded=await uploadImageToImgBB(processed,function(message){if(status)status.textContent=message;});
+        document.getElementById("homeImageUrlInput").value=uploaded.url||"";
+        if(status)status.textContent="✓ تم رفع الصورة ووضع رابطها في الحقل.";
+    }catch(error){console.error("HOME IMAGE ERROR:",error);if(status)status.textContent=error.message||"تعذر رفع الصورة.";showToast(error.message||"تعذر رفع الصورة.","error");}
+    finally{homeImageUploading=false;}
+}
+
+async function saveSiteSettings(){
+    if(!isSuperAdmin()){showToast("حفظ إعدادات الموقع متاح للمدير الرئيسي فقط.","error");return;}
+    try{
+        const resources=[];
+        for(let i=0;i<5;i++){
+            const title=document.getElementById("homeResourceTitle_"+i).value.trim();
+            const url=document.getElementById("homeResourceUrl_"+i).value.trim();
+            const description=document.getElementById("homeResourceDescription_"+i).value.trim();
+            if(!title&&!url&&!description)continue;
+            if(!title||!url||!isSafeExternalUrl(url))throw new Error("يرجى إدخال عنوان ورابط صحيح لكل ملف أو رابط.");
+            resources.push({title:title,url:url,description:description});
+        }
+        const imageUrl=document.getElementById("homeImageUrlInput").value.trim();
+        if(imageUrl&&!isSafeExternalUrl(imageUrl))throw new Error("رابط صورة الصفحة الرئيسية غير صحيح.");
+        const newSettings={
+            siteEnabled:document.getElementById("siteEnabled").checked,
+            siteTitle:document.getElementById("homeTitleInput").value.trim()||"ديوان المهداوي",
+            siteSubtitle:document.getElementById("homeSubtitleInput").value.trim(),
+            homeNotice:document.getElementById("homeNoticeInput").value.trim(),
+            homeImageUrl:imageUrl,
+            homeResources:resources,
+            updatedAt:serverTimestamp(),
+            updatedBy:auth.currentUser.uid
+        };
+        await setDoc(doc(db,"site_settings","general"),newSettings,{merge:true});
+        siteSettings={...siteSettings,...newSettings,homeResources:resources};
+        renderHomePage();closeModal("siteSettingsModal");showToast("تم حفظ إعدادات الموقع بنجاح");await loadUserSurveys();
+    }catch(error){console.error("SAVE SITE SETTINGS ERROR:",error);showToast("تعذر حفظ إعدادات الموقع: "+(error.message||error),"error");}
+}
+
+async function openParticipationReport(){
+    document.getElementById("participationReportModal").classList.add("show");
+    const container=document.getElementById("participationReportContainer");container.innerHTML='<div class="user-loading">جاري إعداد التقرير...</div>';
+    try{
+        await loadSurveys();
+        const rows=surveysData.map(function(survey){const count=Number(survey.responseCount||0);const max=Math.max(0,Number(survey.maxResponses||0));return{survey:survey,count:count,max:max,isFull:max>0&&count>=max};});
+        const total=rows.reduce(function(sum,row){return sum+row.count;},0);
+        let html='<div class="results-summary"><div class="summary-box"><div class="summary-number">'+rows.length+'</div><div class="summary-label">عدد الاستبيانات</div></div><div class="summary-box"><div class="summary-number">'+total+'</div><div class="summary-label">إجمالي المشاركات</div></div></div>';
+        if(rows.length===0){html+='<div class="no-results">لا توجد استبيانات حاليًا.</div>';}else{
+            html+='<div class="table-wrapper"><table class="participation-report-table"><thead><tr><th>الاستبيان</th><th>الحالة</th><th>عدد المشاركات</th><th>الحد</th><th>المتبقي</th></tr></thead><tbody>';
+            rows.forEach(function(row){const status=String(row.survey.status||"").toLowerCase()==="open"?"مفتوح":"مغلق";const remaining=row.max>0?Math.max(0,row.max-row.count):"—";const cls=row.isFull?"limit-full":(row.max>0?"limit-good":"limit-none");html+='<tr><td><strong>'+escapeHtml(row.survey.title||"بدون عنوان")+'</strong></td><td>'+status+'</td><td>'+row.count+'</td><td>'+(row.max>0?row.max:"بدون حد")+'</td><td class="'+cls+'">'+(row.isFull?"اكتمل العدد":remaining)+'</td></tr>';});
+            html+='</tbody></table></div>';
+        }
+        container.innerHTML=html;
+    }catch(error){console.error("PARTICIPATION REPORT ERROR:",error);container.innerHTML='<div class="user-empty">تعذر تحميل التقرير.<br>'+escapeHtml(error.message||error)+'</div>';}
+}
+
+/* =========================================================
    SHOW USER HOME
 ========================================================= */
 
@@ -2645,8 +3003,9 @@ function showUserHome(){
     ).style.display =
         "block";
 
+    setActiveUserPage("userHomePage");
 
-    loadUserSurveys();
+    loadSiteSettings();
 
 }
 
@@ -2745,6 +3104,9 @@ function showAdminPanel(
             role === "manager" ? "inline-block" : "none";
     }
 
+    const settingsButton=document.getElementById("siteSettingsButton");
+    if(settingsButton){settingsButton.style.display=role==="manager"?"inline-block":"none";}
+
 }
 
 
@@ -2832,6 +3194,10 @@ function setupLoginForm(){
 
                 currentAdminRole = role;
 
+                // إظهار لوحة الإدارة فورًا بعد نجاح الدخول، دون الحاجة إلى Refresh
+                showAdminPanel(credential.user, role);
+                await loadSurveys();
+
                 showToast(
                     "تم تسجيل الدخول بنجاح"
                 );
@@ -2914,277 +3280,51 @@ async function logoutAdmin(){
 ========================================================= */
 
 async function loadUserSurveys(){
-
-    const container =
-        document.getElementById(
-            "userSurveysContainer"
-        );
-
-
-    if(!container){
-
-        return;
-
-    }
-
-
-    container.innerHTML = `
-
-        <div class="user-loading">
-            ? جاري تحميل الاستبيانات...
-        </div>
-
-    `;
-
-
+    const container=document.getElementById("userSurveysContainer");if(!container)return;
+    container.innerHTML='<div class="user-loading">جاري تحميل الاستبيانات...</div>';
     try{
-
-        const surveysRef =
-            collection(
-                db,
-                "surveys"
-            );
-
-
-        const snapshot =
-            await getDocs(
-
-                query(
-                    surveysRef,
-                    where(
-                        "status",
-                        "==",
-                        "open"
-                    )
-                )
-
-            );
-
-
-        const openSurveys =
-            [];
-
-
-        snapshot.forEach(
-            function(docSnap){
-
-                const survey =
-                    docSnap.data();
-
-
-                openSurveys.push({
-
-                    id:
-                        docSnap.id,
-
-                    ...survey,
-
-                    status:
-                        "open"
-
-                });
-
+        await loadSiteSettings();
+        if(siteSettings.siteEnabled===false){
+            container.innerHTML='<div class="user-empty"><div style="font-size:45px;">🔒</div><h3>الموقع متوقف مؤقتًا</h3><p>يرجى العودة لاحقًا. يتم حاليًا تحديث المنصة.</p></div>';
+            return;
+        }
+        const snapshot=await getDocs(collection(db,"surveys"));
+        const visible=[];
+        snapshot.forEach(function(docSnap){
+            const survey={id:docSnap.id,...docSnap.data()};
+            const open=String(survey.status||"").trim().toLowerCase()==="open";
+            const showWhenClosed=survey.showWhenClosed !== false;
+            if(open || (showWhenClosed && !open)){
+                visible.push({...survey,status:open?"open":"closed"});
             }
-        );
-
-
-        openSurveys.sort(
-            function(a,b){
-
-                const aTime =
-                    a.createdAt &&
-                    typeof a.createdAt.toMillis ===
-                    "function"
-                    ?
-                    a.createdAt.toMillis()
-                    :
-                    0;
-
-
-                const bTime =
-                    b.createdAt &&
-                    typeof b.createdAt.toMillis ===
-                    "function"
-                    ?
-                    b.createdAt.toMillis()
-                    :
-                    0;
-
-
-                return bTime - aTime;
-
-            }
-        );
-
-
-        renderUserSurveys(
-            openSurveys
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "USER SURVEYS ERROR:",
-            error
-        );
-
-
-        container.innerHTML = `
-
-            <div class="user-empty">
-
-                <div style="font-size:45px;">
-                    ??
-                </div>
-
-                <h3>
-                    تعذر تحميل الاستبيانات
-                </h3>
-
-                <p>
-                    ${escapeHtml(
-                        error.message
-                    )}
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
+        });
+        visible.sort(function(a,b){const at=a.createdAt&&typeof a.createdAt.toMillis==="function"?a.createdAt.toMillis():0;const bt=b.createdAt&&typeof b.createdAt.toMillis==="function"?b.createdAt.toMillis():0;return bt-at;});
+        renderUserSurveys(visible);
+    }catch(error){console.error("USER SURVEYS ERROR:",error);container.innerHTML='<div class="user-empty"><div style="font-size:45px;">⚠️</div><h3>تعذر تحميل الاستبيانات</h3><p>'+escapeHtml(error.message)+'</p></div>';}
 }
-
 
 /* =========================================================
    RENDER USER SURVEYS
 ========================================================= */
 
-function renderUserSurveys(
-    surveys
-){
-
-    const container =
-        document.getElementById(
-            "userSurveysContainer"
-        );
-
-
-    if(
-        surveys.length ===
-        0
-    ){
-
-        container.innerHTML = `
-
-            <div class="user-empty">
-
-                <div style="font-size:45px;">
-                    ??
-                </div>
-
-                <h3>
-                    لا توجد استبيانات مفتوحة حاليًا
-                </h3>
-
-                <p>
-                    يرجى العودة لاحقًا.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.className =
-        "user-surveys-grid";
-
-
-    container.innerHTML =
-        surveys.map(
-            function(survey){
-
-                const answered =
-                    hasAlreadyAnswered(
-                        survey.id
-                    );
-
-
-                return `
-
-                    <div class="user-survey-card">
-
-                        <div class="user-survey-top">
-
-                            <div class="user-survey-icon">
-                                📝
-                            </div>
-
-                            <div style="flex:1; min-width:0;">
-
-                                <div class="user-survey-title">
-
-                                    ${escapeHtml(
-                                        survey.title ||
-                                        "بدون عنوان"
-                                    )}
-
-                                </div>
-
-                                <div class="user-survey-status">
-
-                                    ${
-                                        answered
-                                        ?
-                                        `
-                                            <span class="badge badge-closed">
-                                                ✓ تمت المشاركة
-                                            </span>
-                                        `
-                                        :
-                                        `
-                                            <span class="badge badge-open">
-                                                مفتوح للمشاركة
-                                            </span>
-                                        `
-                                    }
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            class="user-survey-button"
-                            onclick="startSurvey('${escapeAttribute(survey.id)}')">
-
-                            ${
-                                answered
-                                ?
-                                "عرض حالة المشاركة"
-                                :
-                                "المشاركة في الاستبيان"
-                            }
-
-                        </button>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
-
+function renderUserSurveys(surveys){
+    const container=document.getElementById("userSurveysContainer");
+    if(surveys.length===0){container.innerHTML='<div class="user-empty"><div style="font-size:45px;">📝</div><h3>لا توجد استبيانات متاحة حاليًا</h3><p>يرجى العودة لاحقًا.</p></div>';return;}
+    container.className="user-surveys-grid";
+    container.innerHTML=surveys.map(function(survey){
+        const isOpen=String(survey.status||"").toLowerCase()==="open";
+        const answered=isOpen&&hasAlreadyAnswered(survey.id);
+        const max=Math.max(0,Number(survey.maxResponses||0));
+        const count=Number(survey.responseCount||0);
+        const full=isOpen&&max>0&&count>=max;
+        let statusHtml,buttonHtml;
+        if(!isOpen){statusHtml='<span class="badge badge-closed">🔒 مغلق للمشاركة</span>';buttonHtml='<button type="button" class="user-survey-button" disabled style="background:#94a3b8;cursor:not-allowed;">الاستبيان مغلق</button>';}
+        else if(full){statusHtml='<span class="badge badge-closed">⛔ اكتمل العدد</span>';buttonHtml='<button type="button" class="user-survey-button" disabled style="background:#94a3b8;cursor:not-allowed;">اكتمل عدد المشاركين</button>';}
+        else if(answered){statusHtml='<span class="badge badge-closed">✓ تمت المشاركة</span>';buttonHtml='<button type="button" class="user-survey-button" onclick="startSurvey(\''+escapeAttribute(survey.id)+'\')">عرض حالة المشاركة</button>';}
+        else{statusHtml='<span class="badge badge-open">مفتوح للمشاركة</span>';buttonHtml='<button type="button" class="user-survey-button" onclick="startSurvey(\''+escapeAttribute(survey.id)+'\')">المشاركة في الاستبيان</button>';}
+        return '<div class="user-survey-card '+(isOpen?'':'closed')+'"><div class="user-survey-top"><div class="user-survey-icon">📝</div><div style="flex:1;min-width:0;"><div class="user-survey-title">'+escapeHtml(survey.title||"بدون عنوان")+'</div><div class="user-survey-status">'+statusHtml+'</div></div></div>'+buttonHtml+'</div>';
+    }).join("");
 }
-
 
 /* =========================================================
    START SURVEY
@@ -3294,6 +3434,12 @@ async function startSurvey(
                 "هذا الاستبيان مغلق حاليًا."
             );
 
+        }
+
+        const maxResponses=Math.max(0,Number(survey.maxResponses||0));
+        const knownResponseCount=Number(survey.responseCount);
+        if(maxResponses>0&&Number.isFinite(knownResponseCount)&&knownResponseCount>=maxResponses){
+            throw new Error("اكتمل العدد المحدد للمشاركين في هذا الاستبيان.");
         }
 
 
@@ -3440,7 +3586,7 @@ async function startSurvey(
                     )}
                 </p>
 
-                <br>
+                \
 
                 <button
                     type="button"
@@ -3617,7 +3763,7 @@ function showAlreadyAnsweredMessage(){
                 لا يمكن إرسال إجابة أخرى من هذا المتصفح.
             </p>
 
-            <br>
+            \
 
             <button
                 type="button"
@@ -3667,6 +3813,8 @@ function renderAnswerQuestions(){
             )
             .join("");
 
+    updateConditionalQuestions();
+
 }
 
 
@@ -3684,10 +3832,11 @@ function renderAnswerQuestion(
 
     const requiredMark =
         question.required
-        ?
-        `<span class="required-mark">*</span>`
-        :
-        "";
+        ? `<span class="required-mark">*</span>`
+        : "";
+
+    const questionId = escapeAttribute(question.id);
+    const conditional = !!question.dependsOnQuestionId;
 
     if(
         question.questionType ===
@@ -3705,8 +3854,9 @@ function renderAnswerQuestion(
                                 <label class="choice-item">
                                     <input
                                         type="radio"
-                                        name="question_${escapeAttribute(question.id)}"
-                                        value="${escapeAttribute(option)}">
+                                        name="question_${questionId}"
+                                        value="${escapeAttribute(option)}"
+                                        onchange="updateConditionalQuestions()">
                                     <span>${escapeHtml(option)}</span>
                                 </label>
                             `;
@@ -3725,6 +3875,11 @@ function renderAnswerQuestion(
         "multiple_choice"
     ){
 
+        const maxSelections = Math.max(0, Number(question.maxSelections || 0));
+        const limitText = maxSelections > 0
+            ? `<div id="multiple_count_${questionId}" class="settings-help" style="margin-top:8px;">يمكنك اختيار ${maxSelections} خيارات كحد أقصى.</div>`
+            : "";
+
         inputHtml = `
             <div class="choice-list">
                 ${
@@ -3736,8 +3891,9 @@ function renderAnswerQuestion(
                                 <label class="choice-item">
                                     <input
                                         type="checkbox"
-                                        name="question_${escapeAttribute(question.id)}"
-                                        value="${escapeAttribute(option)}">
+                                        name="question_${questionId}"
+                                        value="${escapeAttribute(option)}"
+                                        onchange="handleMultipleChoiceSelection('${questionId}', ${maxSelections}, this)">
                                     <span>${escapeHtml(option)}</span>
                                 </label>
                             `;
@@ -3747,6 +3903,7 @@ function renderAnswerQuestion(
                     ""
                 }
             </div>
+            ${limitText}
         `;
 
     }
@@ -3758,9 +3915,10 @@ function renderAnswerQuestion(
 
         inputHtml = `
             <textarea
-                id="question_${escapeAttribute(question.id)}"
+                id="question_${questionId}"
                 class="answer-textarea"
-                rows="5"></textarea>
+                rows="5"
+                oninput="updateConditionalQuestions()"></textarea>
         `;
 
     }
@@ -3772,9 +3930,10 @@ function renderAnswerQuestion(
 
         inputHtml = `
             <input
-                id="question_${escapeAttribute(question.id)}"
+                id="question_${questionId}"
                 class="answer-input"
-                type="number">
+                type="number"
+                oninput="updateConditionalQuestions()">
         `;
 
     }
@@ -3792,8 +3951,9 @@ function renderAnswerQuestion(
                             <label class="rating-item">
                                 <input
                                     type="radio"
-                                    name="question_${escapeAttribute(question.id)}"
-                                    value="${value}">
+                                    name="question_${questionId}"
+                                    value="${value}"
+                                    onchange="updateConditionalQuestions()">
                                 <span class="rating-label">
                                     ${value} ⭐
                                 </span>
@@ -3813,14 +3973,14 @@ function renderAnswerQuestion(
 
         inputHtml = `
             <input
-                id="question_${escapeAttribute(question.id)}"
+                id="question_${questionId}"
                 class="answer-input"
                 type="file"
                 accept="image/*"
-                onchange="handleImageSelection(this)">
+                onchange="handleImageSelection(this);updateConditionalQuestions()">
 
             <div
-                id="image_size_${escapeAttribute(question.id)}"
+                id="image_size_${questionId}"
                 class="image-size-message"
                 style="display:none;margin-top:8px;">
             </div>
@@ -3835,9 +3995,10 @@ function renderAnswerQuestion(
 
         inputHtml = `
             <input
-                id="question_${escapeAttribute(question.id)}"
+                id="question_${questionId}"
                 class="answer-input"
-                type="file">
+                type="file"
+                onchange="updateConditionalQuestions()">
 
             <small style="display:block;margin-top:7px;color:#64748b;">
                 الحد الأقصى لحجم الملف: 10 MB.
@@ -3846,11 +4007,14 @@ function renderAnswerQuestion(
 
     }
 
+    const hiddenStyle = conditional ? ' style="display:none;"' : '';
 
     return `
         <div
             class="question-answer-card"
-            data-question-id="${escapeAttribute(question.id)}">
+            data-question-id="${questionId}"
+            data-conditional="${conditional ? 'true' : 'false'}"
+            ${hiddenStyle}>
 
             <div class="answer-question-title">
                 ${index + 1}.
@@ -3866,7 +4030,7 @@ function renderAnswerQuestion(
             </div>
 
             <div
-                id="validation_${escapeAttribute(question.id)}"
+                id="validation_${questionId}"
                 class="validation-error">
                 يرجى الإجابة عن هذا السؤال.
             </div>
@@ -3876,6 +4040,73 @@ function renderAnswerQuestion(
 }
 
 
+
+/* =========================================================
+   CONDITIONAL QUESTIONS + MULTIPLE CHOICE LIMIT
+========================================================= */
+
+function getQuestionAnswerValue(questionId){
+    const question = answerQuestionsData.find(function(item){return item.id === questionId;});
+    if(!question) return null;
+
+    if(question.questionType === "single_choice" || question.questionType === "rating"){
+        const selected = document.querySelector('input[name="question_' + CSS.escape(questionId) + '"]:checked');
+        return selected ? selected.value : null;
+    }
+
+    if(question.questionType === "multiple_choice"){
+        return Array.from(document.querySelectorAll('input[name="question_' + CSS.escape(questionId) + '"]:checked')).map(function(input){return input.value;});
+    }
+
+    const input = document.getElementById("question_" + questionId);
+    return input ? input.value.trim() : "";
+}
+
+function isAnswerEqual(expected, actual){
+    if(Array.isArray(actual)){
+        return actual.map(String).indexOf(String(expected)) !== -1;
+    }
+    return String(actual == null ? "" : actual) === String(expected == null ? "" : expected);
+}
+
+function isQuestionConditionMet(question){
+    if(!question || !question.dependsOnQuestionId) return true;
+    const actual = getQuestionAnswerValue(question.dependsOnQuestionId);
+    return isAnswerEqual(question.dependsOnAnswer, actual);
+}
+
+function updateConditionalQuestions(){
+    answerQuestionsData.forEach(function(question){
+        if(!question.dependsOnQuestionId) return;
+        const card = document.querySelector('[data-question-id="' + CSS.escape(question.id) + '"]');
+        if(!card) return;
+        const visible = isQuestionConditionMet(question);
+        card.style.display = visible ? "block" : "none";
+
+        const validation = document.getElementById("validation_" + question.id);
+        if(!visible && validation){
+            validation.classList.remove("show");
+        }
+    });
+}
+
+function handleMultipleChoiceSelection(questionId, maxSelections, currentInput){
+    const selected = Array.from(document.querySelectorAll('input[name="question_' + CSS.escape(questionId) + '"]:checked'));
+    if(maxSelections > 0 && selected.length > maxSelections){
+        const current = currentInput || selected[selected.length - 1];
+        if(current) current.checked = false;
+        showToast("يمكنك اختيار " + maxSelections + " خيارات كحد أقصى لهذا السؤال.","error");
+    }
+
+    const counter = document.getElementById("multiple_count_" + questionId);
+    if(counter && maxSelections > 0){
+        const count = document.querySelectorAll('input[name="question_' + CSS.escape(questionId) + '"]:checked').length;
+        counter.textContent = "تم اختيار " + count + " من " + maxSelections;
+    }
+
+    updateConditionalQuestions();
+}
+
 /* =========================================================
    COLLECT ANSWERS
 ========================================================= */
@@ -3883,9 +4114,12 @@ function renderAnswerQuestion(
 function collectSurveyAnswers(){
     const answers = {};
     const errors = [];
+
     answerQuestionsData.forEach(function(question,index){
         const id = question.id;
+        const visible = isQuestionConditionMet(question);
         let value = null;
+
         if(question.questionType === "single_choice"){
             const selected = document.querySelector('input[name="question_' + CSS.escape(id) + '"]:checked');
             value = selected ? selected.value : null;
@@ -3893,6 +4127,15 @@ function collectSurveyAnswers(){
             const selected = document.querySelectorAll('input[name="question_' + CSS.escape(id) + '"]:checked');
             value = Array.from(selected).map(function(input){ return input.value; });
             if(value.length === 0) value = null;
+            const maxSelections = Math.max(0, Number(question.maxSelections || 0));
+            if(visible && maxSelections > 0 && Array.isArray(value) && value.length > maxSelections){
+                const validation = document.getElementById("validation_" + id);
+                if(validation){
+                    validation.textContent = "يمكنك اختيار " + maxSelections + " خيارات كحد أقصى.";
+                    validation.classList.add("show");
+                }
+                errors.push(index + 1);
+            }
         } else if(question.questionType === "rating"){
             const selected = document.querySelector('input[name="question_' + CSS.escape(id) + '"]:checked');
             value = selected ? Number(selected.value) : null;
@@ -3901,10 +4144,8 @@ function collectSurveyAnswers(){
             if(input && input.files && input.files.length > 0){
                 const file =
                     question.questionType === "image"
-                    ?
-                    getEffectiveImageFile(id,input)
-                    :
-                    input.files[0];
+                    ? getEffectiveImageFile(id,input)
+                    : input.files[0];
 
                 if(file){
                     value = {
@@ -3913,20 +4154,24 @@ function collectSurveyAnswers(){
                         fileType:file.type,
                         fileSize:file.size
                     };
-                }else{
-                    value = null;
                 }
-            } else value = null;
+            }
         } else {
             const input = document.getElementById("question_" + id);
             value = input ? input.value.trim() : "";
         }
+
         const empty = value === null || value === "" || (Array.isArray(value) && value.length === 0);
-        if(question.required && empty) errors.push(index + 1);
-        answers[id] = value;
+        if(visible && question.required && empty){
+            errors.push(index + 1);
+        }
+
+        answers[id] = visible ? value : null;
     });
+
     return {answers:answers, errors:errors};
 }
+
 
 /* =========================================================
    IMAGE SIZE VALIDATION
@@ -5500,19 +5745,29 @@ async function submitSurveyAnswers(){
             submittedAt: serverTimestamp()
         };
 
-        /*
-           كتابة واحدة فقط في Firestore.
-           لا يوجد updateDoc بعد ذلك ولا deleteDoc للتنظيف.
-        */
-        await addDoc(
-            collection(
-                db,
-                "surveys",
-                answerSurveyId,
-                "responses"
-            ),
-            responseData
-        );
+        const responseRef = doc(collection(db,"surveys",answerSurveyId,"responses"));
+        let fallbackResponseCount = 0;
+        if(!Number.isFinite(Number(answerSurveyData && answerSurveyData.responseCount))){
+            try{
+                const existingResponses = await getDocs(collection(db,"surveys",answerSurveyId,"responses"));
+                fallbackResponseCount = existingResponses.size;
+            }catch(error){console.warn("RESPONSE COUNT FALLBACK ERROR:",error);}
+        }
+
+        await runTransaction(db,async function(transaction){
+            const surveyRef=doc(db,"surveys",answerSurveyId);
+            const surveySnap=await transaction.get(surveyRef);
+            if(!surveySnap.exists())throw new Error("الاستبيان غير موجود.");
+            const survey=surveySnap.data()||{};
+            if(String(survey.status||"").trim().toLowerCase()!=="open")throw new Error("هذا الاستبيان مغلق حاليًا.");
+            const stored=Number(survey.responseCount);
+            const current=Number.isFinite(stored)?stored:fallbackResponseCount;
+            const max=Math.max(0,Number(survey.maxResponses||0));
+            const newCount=current+1;
+            if(max>0&&newCount>max)throw new Error("اكتمل العدد المحدد للمشاركين في هذا الاستبيان.");
+            transaction.set(responseRef,responseData);
+            transaction.update(surveyRef,{responseCount:newCount,updatedAt:serverTimestamp()});
+        });
 
         markSurveyAsAnswered(answerSurveyId);
         showSurveySuccess();
@@ -5559,7 +5814,7 @@ function showSurveySuccess(){
 
             <p>
                 شكرًا لك على مشاركتك.
-                <br>
+                \
                 تم تسجيل إجاباتك بنجاح.
             </p>
 
@@ -5723,6 +5978,15 @@ async function loadSurveys(){
             " استبيان"
         );
 
+        for(const survey of surveysData){
+            if(!Number.isFinite(Number(survey.responseCount))){
+                try{
+                    const responseSnapshot=await getDocs(collection(db,"surveys",survey.id,"responses"));
+                    survey.responseCount=responseSnapshot.size;
+                    await updateDoc(doc(db,"surveys",survey.id),{responseCount:responseSnapshot.size});
+                }catch(countError){console.warn("COUNT SYNC ERROR:",survey.id,countError);survey.responseCount=0;}
+            }else{survey.responseCount=Number(survey.responseCount);}
+        }
 
         renderSurveys();
 
@@ -5749,7 +6013,7 @@ async function loadSurveys(){
 
 }
 
-  
+
 /* =========================================================
    RENDER ADMIN SURVEYS
 ========================================================= */
@@ -5796,6 +6060,10 @@ function renderSurveys(){
     ).textContent =
         surveysData.length -
         openCount;
+
+    const totalResponses=surveysData.reduce(function(total,survey){return total+Number(survey.responseCount||0);},0);
+    const totalResponsesElement=document.getElementById("totalResponses");
+    if(totalResponsesElement)totalResponsesElement.textContent=totalResponses;
 
 
     if(
@@ -5892,18 +6160,9 @@ function renderSurveys(){
 
 
                         <div class="card-info">
-
-                            إظهار النتائج:
-
-                            ${
-                                survey.showResults ===
-                                true
-                                ?
-                                "نعم"
-                                :
-                                "لا"
-                            }
-
+                            المشاركات: <strong>${Number(survey.responseCount || 0)}</strong>
+                            ${Number(survey.maxResponses || 0)>0 ? " / " + Number(survey.maxResponses || 0) : " / بدون حد"}
+                            <br>إظهار النتائج: ${survey.showResults===true ? "نعم" : "لا"}
                         </div>
 
 
@@ -6292,6 +6551,12 @@ function openAddSurvey(){
     ).value =
         "open";
 
+    document.getElementById("surveyMaxResponses").value =
+        0;
+
+    document.getElementById("surveyShowWhenClosed").checked =
+        true;
+
 
     document.getElementById(
         "showResults"
@@ -6373,6 +6638,11 @@ async function editSurvey(
             "open"
         ).trim().toLowerCase();
 
+    document.getElementById("surveyMaxResponses").value =
+        Math.max(0,Number(survey.maxResponses || 0));
+    document.getElementById("surveyShowWhenClosed").checked =
+        survey.showWhenClosed !== false;
+
 
     document.getElementById(
         "showResults"
@@ -6421,6 +6691,14 @@ async function saveSurvey(){
                 "surveyStatus"
             ).value;
 
+        const maxResponses = Math.max(
+            0,
+            parseInt(document.getElementById("surveyMaxResponses").value,10) || 0
+        );
+
+        const showWhenClosed =
+            document.getElementById("surveyShowWhenClosed").checked;
+
 
         const showResults =
             document.getElementById(
@@ -6461,6 +6739,12 @@ async function saveSurvey(){
                     status:
                         status,
 
+                    maxResponses:
+                        maxResponses,
+
+                    showWhenClosed:
+                        showWhenClosed,
+
                     showResults:
                         showResults,
 
@@ -6496,6 +6780,15 @@ async function saveSurvey(){
 
                         status:
                             status,
+
+                        maxResponses:
+                            maxResponses,
+
+                        showWhenClosed:
+                            showWhenClosed,
+
+                        responseCount:
+                            0,
 
                         showResults:
                             showResults,
@@ -6815,10 +7108,10 @@ async function editSurveyResponse(
     document.getElementById("editResponseIntro").innerHTML = `
         <strong>تاريخ المشاركة:</strong>
         ${escapeHtml(formatTimestamp(response.submittedAt))}
-        <br>
+        \
         <strong>معرّف المشارك:</strong>
         ${escapeHtml(response.anonymousId || "غير متوفر")}
-        <br>
+        \
         <span style="color:#64748b;">يمكنك تعديل الإجابات ثم الضغط على "حفظ التعديلات". لن يتم إنشاء طلب جديد.</span>
     `;
 
@@ -7371,89 +7664,61 @@ async function deleteSurveyResponse(
 ){
 
     if(!currentSurveyId || !responseId){
-        showToast(
-            "تعذر تحديد الرد المطلوب حذفه",
-            "error"
-        );
+        showToast("تعذر تحديد الرد المطلوب حذفه","error");
         return;
     }
 
-    const response =
-        currentResultsData.responses.find(
-            function(item){
-                return String(item.id) === String(responseId);
-            }
-        );
+    const response=currentResultsData.responses.find(function(item){
+        return String(item.id)===String(responseId);
+    });
 
-    const responseDate =
-        response
-        ? formatTimestamp(response.submittedAt)
-        : "";
+    const responseDate=response?formatTimestamp(response.submittedAt):"";
 
-    const confirmed =
-        confirm(
-            "هل أنت متأكد من حذف رد هذا المشارك؟\n\n" +
-            (responseDate ? "تاريخ المشاركة: " + responseDate + "\n\n" : "") +
-            "سيتم حذف الرد نهائيًا ولا يمكن التراجع عن ذلك."
-        );
+    const confirmed=confirm(
+        "هل أنت متأكد من حذف رد هذا المشارك؟\n\n" +
+        (responseDate ? "تاريخ المشاركة: " + responseDate + "\n\n" : "") +
+        "سيتم حذف الرد نهائيًا ولا يمكن التراجع عن ذلك."
+    );
 
-    if(!confirmed){
-        return;
-    }
+    if(!confirmed)return;
 
     try{
 
-        await deleteDoc(
-            doc(
-                db,
-                "surveys",
-                currentSurveyId,
-                "responses",
-                responseId
-            )
-        );
+        await runTransaction(db,async function(transaction){
+            const surveyRef=doc(db,"surveys",currentSurveyId);
+            const responseRef=doc(db,"surveys",currentSurveyId,"responses",responseId);
+            const surveySnap=await transaction.get(surveyRef);
 
-        currentResultsData.responses =
-            currentResultsData.responses.filter(
-                function(item){
-                    return String(item.id) !== String(responseId);
-                }
-            );
+            if(!surveySnap.exists()){
+                throw new Error("الاستبيان غير موجود.");
+            }
 
-        currentResultsData.filteredResponses =
-            currentResultsData.filteredResponses.filter(
-                function(item){
-                    return String(item.id) !== String(responseId);
-                }
-            );
+            const currentCount=Math.max(0,Number(surveySnap.data().responseCount||0));
+            transaction.delete(responseRef);
+            transaction.update(surveyRef,{responseCount:Math.max(0,currentCount-1),updatedAt:serverTimestamp()});
+        });
 
-        renderResults(
-            currentResultsData.survey,
-            currentResultsData.questions,
-            currentResultsData.responses
-        );
+        currentResultsData.responses=currentResultsData.responses.filter(function(item){return String(item.id)!==String(responseId);});
+        currentResultsData.filteredResponses=currentResultsData.filteredResponses.filter(function(item){return String(item.id)!==String(responseId);});
 
-        showToast(
-            "تم حذف رد المشارك بنجاح"
-        );
+        if(currentResultsData.survey){
+            currentResultsData.survey.responseCount=Math.max(0,Number(currentResultsData.survey.responseCount||0)-1);
+        }
+
+        const localSurvey=surveysData.find(function(item){return item.id===currentSurveyId;});
+        if(localSurvey){
+            localSurvey.responseCount=Math.max(0,Number(localSurvey.responseCount||0)-1);
+        }
+
+        renderResults(currentResultsData.survey,currentResultsData.questions,currentResultsData.responses);
+        renderSurveys();
+        showToast("تم حذف رد المشارك وتحديث عدد المشاركات بنجاح");
 
     }catch(error){
-
-        console.error(
-            "DELETE RESPONSE ERROR:",
-            error
-        );
-
-        showToast(
-            "حدث خطأ أثناء حذف الرد: " +
-            (error.message || error),
-            "error"
-        );
-
+        console.error("DELETE RESPONSE ERROR:",error);
+        showToast("حدث خطأ أثناء حذف الرد: " + (error.message || error),"error");
     }
-
 }
-
 
 /* =========================================================
    OPEN QUESTIONS
@@ -7624,7 +7889,7 @@ async function loadQuestions(){
 
                  تعذر تحميل الأسئلة
 
-                <br><br>
+                \\
 
                 ${escapeHtml(
                     error.message
@@ -7853,6 +8118,18 @@ function renderQuestion(
                             `
                         }
 
+                        ${
+                            question.questionType === "multiple_choice" && Number(question.maxSelections || 0) > 0
+                            ? `<span class="meta">يسمح باختيار ${Number(question.maxSelections)} خيارات كحد أقصى</span>`
+                            : ""
+                        }
+
+                        ${
+                            question.dependsOnQuestionId
+                            ? `<span class="meta">سؤال تابع لشرط</span>`
+                            : ""
+                        }
+
                     </div>
 
 
@@ -7960,6 +8237,11 @@ function openAddQuestion(){
     ).checked =
         true;
 
+    document.getElementById("questionMaxSelections").value = 0;
+    document.getElementById("questionConditionEnabled").checked = false;
+    document.getElementById("conditionQuestionId").value = "";
+    document.getElementById("conditionAnswer").innerHTML = "";
+
 
     document.getElementById(
         "questionOrder"
@@ -8056,6 +8338,11 @@ function editQuestion(
         question.required ===
         true;
 
+    document.getElementById("questionMaxSelections").value =
+        Math.max(0, Number(question.maxSelections || 0));
+    document.getElementById("questionConditionEnabled").checked =
+        !!question.dependsOnQuestionId;
+
 
     document.getElementById(
         "optionsContainer"
@@ -8091,6 +8378,10 @@ function editQuestion(
 
     questionTypeChanged();
 
+    populateConditionQuestionOptions(question.dependsOnQuestionId || "");
+    document.getElementById("conditionAnswer").value = question.dependsOnAnswer || "";
+    questionConditionChanged();
+
 
     document.getElementById(
         "questionModal"
@@ -8112,37 +8403,130 @@ function questionTypeChanged(){
             "questionType"
         ).value;
 
-
     const section =
         document.getElementById(
             "optionsSection"
         );
 
+    const limitSection =
+        document.getElementById(
+            "multipleChoiceLimitSection"
+        );
+
+    const conditionSection =
+        document.getElementById(
+            "questionConditionSection"
+        );
 
     if(
-
-        type ===
-        "single_choice"
-
-        ||
-
-        type ===
-        "multiple_choice"
-
+        type === "single_choice" ||
+        type === "multiple_choice"
     ){
-
-        section.style.display =
-            "block";
-
+        section.style.display = "block";
     }else{
-
-        section.style.display =
-            "none";
-
+        section.style.display = "none";
     }
+
+    if(limitSection){
+        limitSection.style.display =
+            type === "multiple_choice" ? "block" : "none";
+    }
+
+    if(conditionSection){
+        conditionSection.style.display =
+            questionsData.length > 0 ? "block" : "none";
+    }
+
+    populateConditionQuestionOptions(
+        document.getElementById("conditionQuestionId") ? document.getElementById("conditionQuestionId").value : ""
+    );
+
+    questionConditionChanged();
 
 }
 
+
+
+/* =========================================================
+   QUESTION CONDITIONS
+========================================================= */
+
+function getChoiceQuestionsForCondition(){
+    const currentId =
+        document.getElementById("questionId")
+        ? document.getElementById("questionId").value
+        : "";
+
+    return questionsData.filter(function(question){
+        if(question.id === currentId) return false;
+        return question.questionType === "single_choice" ||
+               question.questionType === "multiple_choice";
+    });
+}
+
+function populateConditionQuestionOptions(selectedId){
+    const select = document.getElementById("conditionQuestionId");
+    if(!select) return;
+
+    const list = getChoiceQuestionsForCondition();
+    let html = '<option value="">اختر السؤال</option>';
+
+    list.forEach(function(question){
+        html += '<option value="' + escapeAttribute(question.id) + '">' +
+            escapeHtml(question.questionText || "بدون نص") +
+            '</option>';
+    });
+
+    select.innerHTML = html;
+    if(selectedId && list.some(function(q){return q.id === selectedId;})){
+        select.value = selectedId;
+    }else{
+        select.value = "";
+    }
+
+    conditionQuestionChanged();
+}
+
+function conditionQuestionChanged(){
+    const questionSelect = document.getElementById("conditionQuestionId");
+    const answerSelect = document.getElementById("conditionAnswer");
+    if(!questionSelect || !answerSelect) return;
+
+    const questionId = questionSelect.value;
+    const question = questionsData.find(function(item){return item.id === questionId;});
+
+    if(!question){
+        answerSelect.innerHTML = '<option value="">اختر الإجابة</option>';
+        return;
+    }
+
+    const options = Array.isArray(question.options) ? question.options : [];
+    let html = '<option value="">اختر الإجابة</option>';
+    options.forEach(function(option){
+        html += '<option value="' + escapeAttribute(option) + '">' + escapeHtml(option) + '</option>';
+    });
+
+    const oldValue = answerSelect.value;
+    answerSelect.innerHTML = html;
+    if(options.indexOf(oldValue) !== -1){
+        answerSelect.value = oldValue;
+    }
+}
+
+function questionConditionChanged(){
+    const enabled = document.getElementById("questionConditionEnabled");
+    const fields = document.getElementById("questionConditionFields");
+    const section = document.getElementById("questionConditionSection");
+    if(!enabled || !fields) return;
+
+    if(section && questionsData.length === 0){
+        enabled.checked = false;
+        fields.style.display = "none";
+        return;
+    }
+
+    fields.style.display = enabled.checked ? "block" : "none";
+}
 
 /* =========================================================
    DEFAULT OPTIONS
@@ -8308,6 +8692,22 @@ async function saveQuestion(){
                 "questionRequired"
             ).checked;
 
+        const maxSelections = Math.max(
+            0,
+            parseInt(document.getElementById("questionMaxSelections").value,10) || 0
+        );
+
+        const conditionEnabled =
+            document.getElementById("questionConditionEnabled").checked;
+
+        const dependsOnQuestionId = conditionEnabled
+            ? document.getElementById("conditionQuestionId").value
+            : "";
+
+        const dependsOnAnswer = conditionEnabled
+            ? document.getElementById("conditionAnswer").value
+            : "";
+
 
         let order =
             Number(
@@ -8377,6 +8777,21 @@ async function saveQuestion(){
 
         }
 
+        if(questionType !== "multiple_choice" && maxSelections > 0){
+            showToast("الحد الأقصى للاختيارات يستخدم فقط مع نوع «اختيار متعدد». ","error");
+            return;
+        }
+
+        if(questionType === "multiple_choice" && maxSelections > options.length){
+            showToast("الحد الأقصى للاختيارات لا يمكن أن يكون أكبر من عدد الخيارات.","error");
+            return;
+        }
+
+        if(conditionEnabled && (!dependsOnQuestionId || !dependsOnAnswer)){
+            showToast("يرجى تحديد السؤال والإجابة التي ستُظهر هذا السؤال.","error");
+            return;
+        }
+
 
         const questionData = {
 
@@ -8394,6 +8809,15 @@ async function saveQuestion(){
 
             options:
                 options,
+
+            maxSelections:
+                questionType === "multiple_choice" ? maxSelections : 0,
+
+            dependsOnQuestionId:
+                dependsOnQuestionId || null,
+
+            dependsOnAnswer:
+                dependsOnAnswer || null,
 
             updatedAt:
                 serverTimestamp()
@@ -9014,7 +9438,7 @@ async function openResults(
 
                  تعذر تحميل النتائج
 
-                <br><br>
+                \\
 
                 ${escapeHtml(
                     error.message
@@ -9127,6 +9551,11 @@ function renderResults(
 
             </div>
 
+            <div class="summary-box">
+                <div class="summary-number">${Number(survey.maxResponses || 0)>0 ? Number(survey.maxResponses || 0) : "∞"}</div>
+                <div class="summary-label">الحد الأقصى للمشاركات</div>
+            </div>
+
 
             <div class="summary-box">
 
@@ -9154,7 +9583,7 @@ function renderResults(
                 "بدون عنوان"
             )}
 
-            <br>
+            \
 
             <small>
                 ${escapeHtml(
@@ -9639,9 +10068,9 @@ function formatAnswerForHtml(value,question){
                 return `<div class="survey-image-answer"><img src="${safeUrl}" class="survey-answer-image" alt="${safeName}" loading="lazy" onclick="openSurveyImageViewer('${safeUrl}','${safeName}')"><div class="survey-image-name">${safeName}</div><div class="survey-image-size">${value.compressed ? " مضغوطة: " : ""}${escapeHtml(formatFileSize(value.fileSize))}</div><button type="button" class="survey-image-button" onclick="openSurveyImageViewer('${safeUrl}','${safeName}')"> عرض الصورة</button></div>`;
             }
             if(value.downloadURL){
-                return `<div class="survey-file-answer"><div>?? ${escapeHtml(value.fileName)}</div><small>${escapeHtml(formatFileSize(value.fileSize))}</small><br><a href="${escapeHtml(value.downloadURL)}" target="_blank" rel="noopener noreferrer" class="survey-file-link"> فتح الملف</a></div>`;
+                return `<div class="survey-file-answer"><div>?? ${escapeHtml(value.fileName)}</div><small>${escapeHtml(formatFileSize(value.fileSize))}</small>\<a href="${escapeHtml(value.downloadURL)}" target="_blank" rel="noopener noreferrer" class="survey-file-link"> فتح الملف</a></div>`;
             }
-            return `<div>?? ${escapeHtml(value.fileName)}<br><small>${escapeHtml(formatFileSize(value.fileSize))}</small></div>`;
+            return `<div>?? ${escapeHtml(value.fileName)}\<small>${escapeHtml(formatFileSize(value.fileSize))}</small></div>`;
         }
         return escapeHtml(JSON.stringify(value));
     }
@@ -10951,7 +11380,7 @@ function sanitizeExcelFileName(
         "survey"
     )
     .replace(
-        /[\\\/:*?"<>|]/g,
+        /[\\\\\\/:*?"<>|]/g,
         "_"
     )
     .trim()
@@ -11261,8 +11690,21 @@ window.closeAdminLogin =
 window.showUserHome =
     showUserHome;
 
+window.showSurveysPage =
+    showSurveysPage;
+
+window.showResourcesPage =
+    showResourcesPage;
+
 window.openAddSurvey =
     openAddSurvey;
+
+window.openSiteSettings = openSiteSettings;
+window.saveSiteSettings = saveSiteSettings;
+window.openParticipationReport = openParticipationReport;
+window.handleHomeImageSelection = handleHomeImageSelection;
+window.scrollToSurveys = scrollToSurveys;
+window.scrollToResources = scrollToResources;
 
 window.closeModal =
     closeModal;
