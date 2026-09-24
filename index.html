@@ -9,22 +9,47 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>منصة ديوان المهداوي</title>
+<title>منصة ديوان المهداوي | الاستبيانات والخدمات العائلية</title>
 
-<meta name="description"
-      content="منصة ديوان المهداوي والمشاركة في المبادرات والخدمات العائلية">
+<meta id="metaDescription" name="description"
+      content="منصة ديوان المهداوي للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.">
 
-<meta property="og:title"
-      content="منصة ديوان المهداوي">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#173b6d">
+<meta name="application-name" content="منصة ديوان المهداوي">
+<link rel="canonical" href="https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/">
+<link id="siteFavicon" rel="icon" type="image/png" sizes="512x512" href="./favicon.png">
+<link id="siteAppleIcon" rel="apple-touch-icon" href="./favicon.png">
+<link rel="manifest" href="./site.webmanifest">
 
-<meta property="og:description"
-      content="شارك برأيك وساهم في تطوير المبادرات والخدمات في ديوان المهداوي">
+<meta id="metaOgTitle" property="og:title"
+      content="منصة ديوان المهداوي | الاستبيانات والخدمات العائلية">
+<meta id="metaOgDescription" property="og:description"
+      content="منصة ديوان المهداوي للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/">
+<meta id="metaOgImage" property="og:image" content="https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/favicon.png">
+<meta name="twitter:card" content="summary">
+<meta id="metaTwitterTitle" name="twitter:title" content="منصة ديوان المهداوي | الاستبيانات والخدمات العائلية">
+<meta id="metaTwitterDescription" name="twitter:description" content="منصة ديوان المهداوي للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.">
+<meta id="metaTwitterImage" name="twitter:image" content="https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/favicon.png">
 
-<meta property="og:type"
-      content="website">
-
-<meta property="og:url"
-      content="https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/">
+<script id="siteStructuredData" type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"منصة ديوان المهداوي",
+  "url":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/",
+  "description":"منصة ديوان المهداوي للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.",
+  "image":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/favicon.png",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ديوان المهداوي",
+    "url":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/",
+    "logo":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/favicon.png"
+  }
+}
+</script>
 
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
@@ -1389,6 +1414,70 @@ button{
 .survey-image-viewer.show{display:flex;}
 .survey-image-viewer-content{position:relative;max-width:95vw;max-height:95vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .survey-image-viewer-content img{max-width:90vw;max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+
+/* =========================================================
+   BRAND / SITE LOGO
+========================================================= */
+.site-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+.site-brand-logo{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    object-fit:contain;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:0 4px 14px rgba(0,0,0,.12);
+    flex:0 0 56px;
+}
+.site-brand-fallback{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.20);
+    font-size:30px;
+    font-weight:900;
+}
+.site-settings-logo-preview{
+    width:92px;
+    height:92px;
+    border-radius:18px;
+    object-fit:contain;
+    background:#f8fafc;
+    border:1px solid #dbe3ea;
+    padding:8px;
+}
+.site-settings-logo-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    padding:12px;
+    border-radius:12px;
+}
+.site-settings-seo-box{
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    border-radius:12px;
+    padding:12px 14px;
+    line-height:1.8;
+    color:#334155;
+    margin-top:12px;
+}
+@media(max-width:600px){
+    .site-brand-logo,.site-brand-fallback{width:46px;height:46px;flex-basis:46px;}
+    .site-brand-fallback{font-size:24px;}
+}
 .survey-image-viewer-name{color:white;font-size:15px;margin-top:12px;text-align:center;max-width:90vw;word-break:break-word;}
 .survey-image-viewer-close{position:absolute;top:-45px;right:-5px;width:40px;height:40px;border:0;border-radius:50%;background:white;color:#111827;font-size:28px;line-height:40px;cursor:pointer;}
 @media(max-width:600px){.survey-answer-image{width:130px;height:100px;}.survey-image-viewer{padding:10px;}.survey-image-viewer-content img{max-width:96vw;max-height:80vh;}}
@@ -1409,14 +1498,20 @@ button{
 
         <div class="header-inner">
 
-            <div>
+            <div class="site-brand">
 
-                <div class="header-title">
-                    ديوان المهداوي
-                </div>
+                <div id="siteBrandLogoWrap" class="site-brand-fallback" aria-label="شعار الموقع">م</div>
 
-                <div class="header-subtitle">
-                    شارك برأيك وساهم في تطوير المبادرات والخدمات
+                <div style="min-width:0;">
+
+                    <div id="siteHeaderTitle" class="header-title">
+                        ديوان المهداوي
+                    </div>
+
+                    <div id="siteHeaderSubtitle" class="header-subtitle">
+                        شارك برأيك وساهم في تطوير المبادرات والخدمات
+                    </div>
+
                 </div>
 
             </div>
@@ -1834,6 +1929,23 @@ button{
                     <h4>إعدادات عامة</h4>
                     <div class="switch-row"><input id="siteEnabled" type="checkbox"><label for="siteEnabled"><strong>الموقع متاح للزوار</strong></label></div>
                     <div class="settings-help" style="margin-top:10px;">حالة الاستبيان، وإظهار الاستبيان المغلق، والحد الأقصى للمشاركات يتم تحديدها من داخل كل استبيان عند الإنشاء أو التعديل.</div>
+                </div>
+                <div class="settings-card">
+                    <h4>شعار الموقع وأيقونة المتصفح</h4>
+                    <div class="site-settings-logo-row">
+                        <div id="siteLogoPreviewBox">
+                            <div class="site-brand-fallback" style="color:#173b6d;background:#eef5ff;border-color:#bfdbfe;">م</div>
+                        </div>
+                        <div style="flex:1;min-width:240px;">
+                            <div class="form-group"><label class="form-label">رابط شعار الموقع</label><input id="siteLogoUrlInput" type="url" class="form-control" placeholder="https://..."></div>
+                            <input id="siteLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" class="form-control" onchange="handleSiteLogoSelection(this)">
+                            <div id="siteLogoUploadStatus" class="settings-help"></div>
+                        </div>
+                    </div>
+                    <div class="settings-help" style="margin-top:10px;">سيظهر الشعار في رأس الموقع، كما يستخدم كأيقونة للمتصفح. يفضل أن تكون الصورة مربعة وواضحة.</div>
+                    <div class="site-settings-seo-box">
+                        <strong>البحث في Google:</strong> عنوان الموقع ووصفه الموجودان في الصفحة الرئيسية هما الأساس لعرض الموقع في نتائج البحث. بعد تغييرهما أو تغيير الشعار قد تحتاج محركات البحث إلى إعادة الزحف للموقع.
+                    </div>
                 </div>
                 <div class="settings-card">
                     <h4>محتوى الصفحة الرئيسية</h4>
@@ -2725,14 +2837,16 @@ let surveysData = [];
 
 let siteSettings = {
     siteEnabled:true,
-    siteTitle:"ديوان المهداوي",
-    siteSubtitle:"شارك برأيك وساهم في تطوير المبادرات والخدمات العائلية.",
+    siteTitle:"منصة ديوان المهداوي",
+    siteSubtitle:"منصة للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.",
     homeNotice:"",
     homeImageUrl:"",
+    siteLogoUrl:"./favicon.png",
     homeResources:[]
 };
 
 let homeImageUploading = false;
+let siteLogoUploading = false;
 
 let currentSurveyId = null;
 
@@ -2780,6 +2894,7 @@ document.addEventListener(
     "DOMContentLoaded",
     function(){
 
+        applySiteBranding();
         loadUserSurveys();
 
         setupLoginForm();
@@ -2835,19 +2950,55 @@ onAuthStateChanged(
 ========================================================= */
 
 async function loadSiteSettings(){
-    const defaults={siteEnabled:true,siteTitle:"ديوان المهداوي",siteSubtitle:"شارك برأيك وساهم في تطوير المبادرات والخدمات العائلية.",homeNotice:"",homeImageUrl:"",homeResources:[]};
+    const defaults={siteEnabled:true,siteTitle:"منصة ديوان المهداوي",siteSubtitle:"منصة للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.",homeNotice:"",homeImageUrl:"",siteLogoUrl:"./favicon.png",homeResources:[]};
     try{
         const snap=await getDoc(doc(db,"site_settings","general"));
         if(snap.exists()){
             const data=snap.data()||{};
-            siteSettings={...defaults,...data,homeResources:Array.isArray(data.homeResources)?data.homeResources:[]};
+            siteSettings={...defaults,...data,siteLogoUrl:data.siteLogoUrl||"./favicon.png",homeResources:Array.isArray(data.homeResources)?data.homeResources:[]};
         }else{siteSettings=defaults;}
     }catch(error){console.warn("SITE SETTINGS LOAD ERROR:",error);}
+    applySiteBranding();
     renderHomePage();
     return siteSettings;
 }
 
-function isSafeExternalUrl(value){try{const url=new URL(String(value||"").trim());return url.protocol==="http:"||url.protocol==="https:";}catch(error){return false;}}
+function isSafeExternalUrl(value){try{const raw=String(value||"").trim();if(raw.startsWith("./")||raw.startsWith("../")||raw.startsWith("/")||raw.startsWith("data:image/"))return true;const url=new URL(raw,window.location.href);return url.protocol==="http:"||url.protocol==="https:";}catch(error){return false;}}
+
+function applySiteBranding(){
+    const title=String(siteSettings.siteTitle||"منصة ديوان المهداوي").trim()||"منصة ديوان المهداوي";
+    const description=String(siteSettings.siteSubtitle||"منصة للاستبيانات والخدمات والنماذج والملفات والمبادرات العائلية.").trim();
+    const logo=isSafeExternalUrl(siteSettings.siteLogoUrl)?siteSettings.siteLogoUrl:"./favicon.png";
+    document.title=title;
+    const metaDescription=document.getElementById("metaDescription"); if(metaDescription)metaDescription.setAttribute("content",description);
+    const ogTitle=document.getElementById("metaOgTitle"); if(ogTitle)ogTitle.setAttribute("content",title);
+    const ogDescription=document.getElementById("metaOgDescription"); if(ogDescription)ogDescription.setAttribute("content",description);
+    const twTitle=document.getElementById("metaTwitterTitle"); if(twTitle)twTitle.setAttribute("content",title);
+    const twDescription=document.getElementById("metaTwitterDescription"); if(twDescription)twDescription.setAttribute("content",description);
+    const ogImage=document.getElementById("metaOgImage"); if(ogImage)ogImage.setAttribute("content",logo);
+    const twImage=document.getElementById("metaTwitterImage"); if(twImage)twImage.setAttribute("content",logo);
+    const favicon=document.getElementById("siteFavicon"); if(favicon)favicon.href=logo;
+    const apple=document.getElementById("siteAppleIcon"); if(apple)apple.href=logo;
+    const headerTitle=document.getElementById("siteHeaderTitle"); if(headerTitle)headerTitle.textContent=title;
+    const headerSubtitle=document.getElementById("siteHeaderSubtitle"); if(headerSubtitle)headerSubtitle.textContent=description;
+    const homeKicker=document.querySelector(".home-kicker"); if(homeKicker)homeKicker.textContent=title;
+    const logoWrap=document.getElementById("siteBrandLogoWrap");
+    if(logoWrap){
+        logoWrap.innerHTML='<img class="site-brand-logo" src="'+escapeAttribute(logo)+'" alt="شعار '+escapeAttribute(title)+'">';
+    }
+    const structured=document.getElementById("siteStructuredData");
+    if(structured){
+        structured.textContent=JSON.stringify({
+            "@context":"https://schema.org",
+            "@type":"WebSite",
+            "name":title,
+            "url":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/",
+            "description":description,
+            "image":logo,
+            "publisher":{"@type":"Organization","name":"ديوان المهداوي","url":"https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/","logo":logo}
+        });
+    }
+}
 
 function renderHomePage(){
     const title=document.getElementById("homeSiteTitle");
@@ -2917,8 +3068,38 @@ function openSiteSettings(){
     document.getElementById("homeImageUrlInput").value=siteSettings.homeImageUrl||"";
     document.getElementById("homeImageFile").value="";
     document.getElementById("homeImageUploadStatus").textContent="";
+    document.getElementById("siteLogoUrlInput").value=siteSettings.siteLogoUrl||"./favicon.png";
+    document.getElementById("siteLogoFile").value="";
+    document.getElementById("siteLogoUploadStatus").textContent="";
+    renderSiteLogoPreview();
     renderHomeResourcesEditor();
     document.getElementById("siteSettingsModal").classList.add("show");
+}
+
+function renderSiteLogoPreview(){
+    const box=document.getElementById("siteLogoPreviewBox");
+    if(!box)return;
+    const logo=document.getElementById("siteLogoUrlInput")?document.getElementById("siteLogoUrlInput").value.trim():siteSettings.siteLogoUrl;
+    if(isSafeExternalUrl(logo)){
+        box.innerHTML='<img class="site-settings-logo-preview" src="'+escapeAttribute(logo)+'" alt="معاينة شعار الموقع" onerror="this.parentElement.innerHTML=\'<div class=\"site-brand-fallback\" style=\"color:#173b6d;background:#eef5ff;border-color:#bfdbfe;\">م</div>\'">';
+    }else{
+        box.innerHTML='<div class="site-brand-fallback" style="color:#173b6d;background:#eef5ff;border-color:#bfdbfe;">م</div>';
+    }
+}
+
+async function handleSiteLogoSelection(input){
+    if(siteLogoUploading||!input||!input.files||!input.files.length)return;
+    const status=document.getElementById("siteLogoUploadStatus");siteLogoUploading=true;
+    try{
+        const file=input.files[0];
+        if(!file.type||file.type.indexOf("image/")!==0)throw new Error("الملف المحدد ليس صورة.");
+        const processed=await compressImageToTarget(file,MAX_IMAGE_SIZE_BYTES,function(message){if(status)status.textContent=message;});
+        const uploaded=await uploadImageToImgBB(processed,function(message){if(status)status.textContent=message;});
+        document.getElementById("siteLogoUrlInput").value=uploaded.url||"";
+        renderSiteLogoPreview();
+        if(status)status.textContent="✓ تم رفع الشعار بنجاح.";
+    }catch(error){console.error("SITE LOGO ERROR:",error);if(status)status.textContent=error.message||"تعذر رفع الشعار.";showToast(error.message||"تعذر رفع الشعار.","error");}
+    finally{siteLogoUploading=false;}
 }
 
 async function handleHomeImageSelection(input){
@@ -2949,12 +3130,15 @@ async function saveSiteSettings(){
         }
         const imageUrl=document.getElementById("homeImageUrlInput").value.trim();
         if(imageUrl&&!isSafeExternalUrl(imageUrl))throw new Error("رابط صورة الصفحة الرئيسية غير صحيح.");
+        const logoUrl=document.getElementById("siteLogoUrlInput").value.trim()||"./favicon.png";
+        if(!isSafeExternalUrl(logoUrl))throw new Error("رابط شعار الموقع غير صحيح.");
         const newSettings={
             siteEnabled:document.getElementById("siteEnabled").checked,
-            siteTitle:document.getElementById("homeTitleInput").value.trim()||"ديوان المهداوي",
+            siteTitle:document.getElementById("homeTitleInput").value.trim()||"منصة ديوان المهداوي",
             siteSubtitle:document.getElementById("homeSubtitleInput").value.trim(),
             homeNotice:document.getElementById("homeNoticeInput").value.trim(),
             homeImageUrl:imageUrl,
+            siteLogoUrl:logoUrl,
             homeResources:resources,
             updatedAt:serverTimestamp(),
             updatedBy:auth.currentUser.uid
@@ -11737,6 +11921,8 @@ window.openSiteSettings = openSiteSettings;
 window.saveSiteSettings = saveSiteSettings;
 window.openParticipationReport = openParticipationReport;
 window.handleHomeImageSelection = handleHomeImageSelection;
+window.handleSiteLogoSelection = handleSiteLogoSelection;
+window.renderSiteLogoPreview = renderSiteLogoPreview;
 window.scrollToSurveys = scrollToSurveys;
 window.scrollToResources = scrollToResources;
 
