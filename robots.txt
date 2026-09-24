@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thaermhdawe-ai.github.io/diwan-al-mahdawi-surveys/sitemap.xml
